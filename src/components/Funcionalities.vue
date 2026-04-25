@@ -105,7 +105,7 @@ const features = [
 </template>
 
 <style scoped>
-/* 🔥 FULL WIDTH SECTION */
+/*FULL WIDTH SECTION */
 .section-wrapper {
   width: 100%;
   background: #f5f3ef;
@@ -113,13 +113,13 @@ const features = [
   box-sizing: border-box;
 }
 
-/* 🔥 CENTERED CONTENT */
+/*CENTERED CONTENT */
 .container {
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* 🔥 HEADER */
+/*HEADER */
 .section-header {
   margin-bottom: 40px;
   max-width: 600px;
@@ -144,14 +144,14 @@ const features = [
   margin: 0;
 }
 
-/* 🔥 GRID */
+/*GRID */
 .cards-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
 
-/* 🔥 CARD */
+/*CARD */
 .card {
   background: #fff;
   border-radius: 16px;
@@ -169,7 +169,7 @@ const features = [
   box-shadow: 0 6px 14px rgba(0,0,0,0.08);
 }
 
-/* 🔥 ICON */
+/*ICON */
 .icon-box {
   width: 48px;
   height: 48px;
@@ -185,7 +185,7 @@ const features = [
   height: 22px;
 }
 
-/* 🎨 COLORS */
+/*COLORS */
 .icon-box.blue {
   background: #dbeafe;
   color: #1d4ed8;
@@ -201,7 +201,7 @@ const features = [
   color: #d97706;
 }
 
-/* 🔥 TEXT */
+/*TEXT */
 .content h4 {
   margin: 0 0 4px;
   font-size: 15px;
@@ -214,14 +214,14 @@ const features = [
   color: #6b7280;
 }
 
-/* 📱 TABLET */
+/* TABLET */
 @media (max-width: 1024px) {
   .cards-container {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* 📱 MOBILE */
+/* MOBILE */
 @media (max-width: 640px) {
   .cards-container {
     grid-template-columns: 1fr;
