@@ -38,7 +38,7 @@ const isOpen = ref(false)
   padding: 1rem 2rem;
   height: 60px;
   display: flex;
-  margin-top:0.4rem;
+  margin-top:0;
   align-items: center;
   position: sticky;
   top: 0;
