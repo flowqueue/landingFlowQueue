@@ -107,6 +107,35 @@ export default {
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.metric-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0) 20%,
+      rgba(255, 255, 255, 0.08) 50%,
+      rgba(255, 255, 255, 0) 80%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.5s ease;
+  pointer-events: none;
+}
+
+.metric-card:hover::before {
+  transform: translateX(120%);
+}
+
+.metric-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
+  background-color: #0a3f72;
 }
 
 .metric-value {
@@ -121,12 +150,23 @@ export default {
   font-size: 52px;
   font-weight: 500;
   line-height: 1;
+  transition: transform 0.25s ease;
 }
 
 .percent {
   font-size: 24px;
   color: #49d3c5;
   font-weight: 500;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.metric-card:hover .number,
+.metric-card:hover .percent {
+  transform: scale(1.06);
+}
+
+.metric-card:hover .percent {
+  color: #67eadc;
 }
 
 .metric-text {

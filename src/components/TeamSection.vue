@@ -27,31 +27,31 @@ export default {
         {
           id: 1,
           name: "Alexander",
-          role: "Frontend Developer",
+          role: "Miembro",
           photo: "https://via.placeholder.com/220x220.png?text=Alexander",
         },
         {
           id: 2,
           name: "Carlos",
-          role: "Backend Developer",
+          role: "Miembro",
           photo: "https://via.placeholder.com/220x220.png?text=Carlos",
         },
         {
           id: 3,
           name: "Luis",
-          role: "UX/UI Designer",
+          role: "Team Leader",
           photo: "https://via.placeholder.com/220x220.png?text=Luis",
         },
         {
           id: 4,
           name: "Jose",
-          role: "Analista de Proyecto",
+          role: "Miembro",
           photo: "https://via.placeholder.com/220x220.png?text=Jose",
         },
         {
           id: 5,
           name: "Marcelo",
-          role: "Full Stack Developer",
+          role: "Miembro",
           photo: "https://via.placeholder.com/220x220.png?text=Marcelo",
         },
       ],
@@ -100,6 +100,35 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.team-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0) 20%,
+      rgba(255, 255, 255, 0.08) 50%,
+      rgba(255, 255, 255, 0) 80%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.5s ease;
+  pointer-events: none;
+}
+
+.team-card:hover::before {
+  transform: translateX(120%);
+}
+
+.team-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
+  background-color: #0a3f72;
 }
 
 .team-card:nth-child(4) {
@@ -110,25 +139,48 @@ export default {
   grid-column: 3 / 4;
 }
 
-.team-photo {
+.team-avatar {
   width: 120px;
   height: 120px;
-  object-fit: cover;
   border-radius: 50%;
   margin: 0 auto 16px;
   border: 3px solid #1f629d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34px;
+  font-weight: 700;
+  color: #d7e7f7;
+  background-color: #0a3d6b;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.team-card:hover .team-avatar {
+  transform: scale(1.08);
+  border-color: #3e83c0;
+  box-shadow: 0 10px 18px rgba(31, 98, 157, 0.22);
 }
 
 .team-card h3 {
   margin: 0 0 8px;
   font-size: 18px;
   font-weight: 600;
+  transition: color 0.25s ease;
+}
+
+.team-card:hover h3 {
+  color: #dcecff;
 }
 
 .team-role {
   margin: 0;
   font-size: 14px;
   color: #c7d9ec;
+  transition: color 0.25s ease;
+}
+
+.team-card:hover .team-role {
+  color: #e3eef9;
 }
 
 .team-footer {
