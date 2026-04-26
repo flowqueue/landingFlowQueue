@@ -11,7 +11,6 @@
             v-for="profile in profiles"
             :key="profile.id"
             class="profile-card"
-            :class="{ featured: profile.featured }"
         >
           <div class="profile-top">
             <div class="profile-badge" :class="profile.badgeClass">
@@ -31,13 +30,11 @@
             </li>
           </ul>
 
-          <button
-              v-if="profile.featured"
-              type="button"
-              class="profile-button"
-          >
-            Obtener turno ahora
-          </button>
+          <div class="profile-action">
+            <button type="button" class="profile-button">
+              {{ profile.buttonText }}
+            </button>
+          </div>
         </article>
       </div>
     </div>
@@ -46,45 +43,58 @@
 
 <script>
 export default {
-  name: "TeamSection",
+  name: "ProfilesSection",
   data() {
     return {
-      team: [
+      profiles: [
         {
           id: 1,
-          name: "Alexander",
-          role: "Miembro",
-          photo: "https://via.placeholder.com/220x220.png?text=Alexander",
+          initials: "CL",
+          title: "Ciudadano",
+          subtitle: "Usuario final",
+          badgeClass: "badge-citizen",
+          buttonText: "Obtener turno ahora",
+          items: [
+            "Obtener turno remoto",
+            "Ver posición en cola",
+            "Recibir notificaciones",
+            "Reducir espera",
+          ],
         },
         {
           id: 2,
-          name: "Carlos",
-          role: "Miembro",
-          photo: "https://via.placeholder.com/220x220.png?text=Carlos",
+          initials: "OP",
+          title: "Operador",
+          subtitle: "Personal administrativo",
+          badgeClass: "badge-operator",
+          buttonText: "Gestionar atención",
+          items: [
+            "Llamar turnos",
+            "Priorizar casos especiales",
+            "Controlar flujo en vivo",
+            "Reducir el desorden",
+          ],
         },
         {
           id: 3,
-          name: "Luis",
-          role: "Team Leader",
-          photo: "https://via.placeholder.com/220x220.png?text=Luis",
-        },
-        {
-          id: 4,
-          name: "Jose",
-          role: "Miembro",
-          photo: "https://via.placeholder.com/220x220.png?text=Jose",
-        },
-        {
-          id: 5,
-          name: "Marcelo",
-          role: "Miembro",
-          photo: "https://via.placeholder.com/220x220.png?text=Marcelo",
+          initials: "SV",
+          title: "Supervisor",
+          subtitle: "Responsable de sede",
+          badgeClass: "badge-supervisor",
+          buttonText: "Ver métricas",
+          items: [
+            "Ver métricas por sede",
+            "Identificar horas pico",
+            "Generar reportes",
+            "Optimizar recursos",
+          ],
         },
       ],
     };
   },
 };
 </script>
+
 <style scoped>
 .profiles-section {
   background: #f5f2ec;
@@ -124,17 +134,41 @@ export default {
 
 .profile-card {
   background: #ffffff;
-  border: 1px solid #e3e7eb;
-  border-radius: 16px;
-  padding: 18px 18px 16px;
-  min-height: 300px;
+  border: 1px solid #dfe5ea;
+  border-radius: 18px;
+  padding: 18px 18px 20px;
+  min-height: 350px;
   display: flex;
   flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
 }
 
-.profile-card.featured {
+.profile-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0) 20%,
+      rgba(255, 255, 255, 0.08) 50%,
+      rgba(255, 255, 255, 0) 80%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.5s ease;
+  pointer-events: none;
+}
+
+.profile-card:hover::before {
+  transform: translateX(120%);
+}
+
+.profile-card:hover {
   border: 2px solid #2b6aa4;
-  box-shadow: 0 8px 18px rgba(34, 79, 130, 0.08);
+  box-shadow: 0 14px 28px rgba(34, 79, 130, 0.12);
+  transform: translateY(-6px);
 }
 
 .profile-top {
@@ -155,6 +189,12 @@ export default {
   font-weight: 600;
   color: #5c6a78;
   flex-shrink: 0;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.profile-card:hover .profile-badge {
+  transform: scale(1.08);
+  box-shadow: 0 6px 14px rgba(34, 79, 130, 0.12);
 }
 
 .badge-citizen {
@@ -174,12 +214,22 @@ export default {
   font-size: 1rem;
   font-weight: 600;
   color: #365b80;
+  transition: color 0.25s ease;
 }
 
 .profile-role {
   margin: 4px 0 0;
   font-size: 0.82rem;
   color: #8a97a5;
+  transition: color 0.25s ease;
+}
+
+.profile-card:hover .profile-name {
+  color: #214f82;
+}
+
+.profile-card:hover .profile-role {
+  color: #6c7f92;
 }
 
 .profile-list {
@@ -199,6 +249,11 @@ export default {
   color: #66727f;
   font-size: 0.95rem;
   line-height: 1.4;
+  transition: transform 0.2s ease;
+}
+
+.profile-card:hover .profile-list li {
+  transform: translateX(2px);
 }
 
 .check-icon {
@@ -212,10 +267,30 @@ export default {
   font-size: 0.8rem;
   font-weight: 700;
   flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.profile-card:hover .check-icon {
+  transform: scale(1.08);
+}
+
+.profile-action {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateY(10px);
+  transition: all 0.25s ease;
+}
+
+.profile-card:hover .profile-action {
+  max-height: 80px;
+  opacity: 1;
+  transform: translateY(0);
+  margin-top: 20px;
 }
 
 .profile-button {
-  margin-top: 22px;
+  width: 100%;
   border: none;
   border-radius: 12px;
   padding: 14px 18px;
@@ -224,11 +299,13 @@ export default {
   font-size: 0.95rem;
   font-weight: 500;
   cursor: pointer;
-  transition: 0.2s ease;
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .profile-button:hover {
   background: #cfdbeb;
+  transform: scale(1.02);
+  box-shadow: 0 8px 18px rgba(84, 114, 152, 0.18);
 }
 
 @media (max-width: 960px) {
@@ -238,6 +315,13 @@ export default {
 
   .profile-card {
     min-height: auto;
+  }
+
+  .profile-action {
+    max-height: 80px;
+    opacity: 1;
+    transform: translateY(0);
+    margin-top: 20px;
   }
 }
 </style>
