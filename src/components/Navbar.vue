@@ -1,8 +1,15 @@
 <script setup>
-import { ref } from 'vue'
-const isOpen = ref(false)
-</script>
+import { ref } from "vue";
+import { useI18n } from "vue-i18n";
 
+const isOpen = ref(false);
+const { t, locale } = useI18n();
+
+function changeLanguage(lang) {
+  locale.value = lang;
+  localStorage.setItem("flowqueue_lang", lang);
+}
+</script>
 <template>
   <nav class="navbar">
     <div class="container">
@@ -18,15 +25,30 @@ const isOpen = ref(false)
       </button>
 
       <ul :class="{ open: isOpen }" class="nav-links">
-        <li><a href="#funcionalidades">Funciones</a></li>
-        <li><a href="#como-funciona">Cómo funciona</a></li>
-        <li><a href="#sedes">Sedes</a></li>
-        <li><a href="#precios">Precios</a></li>
-        <li><a href="#sobre-nosotros">Sobre nosotros</a></li>
-        <li><a href="#solicitar" class="solicitar-btn-mobile">Solicitar demo</a></li> 
+        <li><a href="#funcionalidades">{{ t("navbar.features") }}</a></li>
+        <li><a href="#como-funciona">{{ t("navbar.howItWorks") }}</a></li>
+        <li><a href="#sedes">{{ t("navbar.branches") }}</a></li>
+        <li><a href="#precios">{{ t("navbar.pricing") }}</a></li>
+        <li><a href="#sobre-nosotros">{{ t("navbar.aboutUs") }}</a></li>
+        <li>
+          <a href="#solicitar" class="solicitar-btn-mobile">
+            {{ t("navbar.requestDemo") }}
+          </a>
+        </li>
       </ul>
- 
-      <a href="#solicitar" class="solicitar-btn">Solicitar demo</a>
+
+      <div class="language-switcher">
+        <button @click="changeLanguage('es')" :class="{ active: locale === 'es' }">
+          ES
+        </button>
+        <button @click="changeLanguage('en')" :class="{ active: locale === 'en' }">
+          EN
+        </button>
+      </div>
+
+      <a href="#solicitar" class="solicitar-btn">
+        {{ t("navbar.requestDemo") }}
+      </a>
     </div>
   </nav>
 </template>
@@ -38,7 +60,7 @@ const isOpen = ref(false)
   padding: 1rem 2rem;
   height: 60px;
   display: flex;
-  margin-top:0;
+  margin-top: 0;
   align-items: center;
   position: sticky;
   top: 0;
@@ -46,7 +68,6 @@ const isOpen = ref(false)
 }
 
 .container {
-  max-width: auto;
   width: 100%;
   display: flex;
   align-items: center;
@@ -63,10 +84,10 @@ const isOpen = ref(false)
 
 .logo {
   border-radius: 50%;
-  width:auto;
-    height:60px;
-    margin-left: 0;
-    object-fit: cover;
+  width: auto;
+  height: 60px;
+  margin-left: 0;
+  object-fit: cover;
 }
 
 .brand {
@@ -84,11 +105,10 @@ const isOpen = ref(false)
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 6rem;       /* ← gap razonable */
+  gap: 4rem;
   list-style: none;
-  margin: 0 auto;    /* ← centra los links */
+  margin: 0 auto;
   padding: 0;
- 
 }
 
 .nav-links li a {
@@ -96,11 +116,38 @@ const isOpen = ref(false)
   text-decoration: none;
   font-size: 0.875rem;
   font-family: sans-serif;
-  transition: color 0.2s;
+  transition: color 0.2s ease;
   white-space: nowrap;
 }
 
 .nav-links li a:hover {
+  color: #ffffff;
+}
+
+/* Language switcher */
+.language-switcher {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-shrink: 0;
+}
+
+.language-switcher button {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: transparent;
+  color: #c0c4d6;
+  padding: 0.35rem 0.55rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.language-switcher button:hover,
+.language-switcher button.active {
+  background: #22c55e;
+  border-color: #22c55e;
   color: #ffffff;
 }
 
@@ -116,7 +163,7 @@ const isOpen = ref(false)
   text-decoration: none;
   white-space: nowrap;
   flex-shrink: 0;
-  transition: background-color 0.2s;
+  transition: background-color 0.2s ease;
 }
 
 .solicitar-btn:hover {
@@ -139,7 +186,19 @@ const isOpen = ref(false)
   width: 22px;
   height: 2px;
   background-color: white;
-  transition: all 0.3s;
+  transition: all 0.3s ease;
+}
+
+.toggle span.open:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.toggle span.open:nth-child(2) {
+  opacity: 0;
+}
+
+.toggle span.open:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
 .brand-text {
@@ -151,26 +210,35 @@ const isOpen = ref(false)
 .brand-text strong {
   font-weight: 700;
 }
+
 .solicitar-btn-mobile {
-  display: none; /* oculto en desktop */
+  display: none;
 }
 
-/* Responsive */
-/* Pantallas medianas - tablets */
+/* Pantallas medianas */
 @media (max-width: 1280px) {
   .nav-links {
-    gap: 3rem;
+    gap: 2.5rem;
   }
 }
 
 /* Tablet */
 @media (max-width: 1024px) {
   .nav-links {
-    gap: 2rem;
+    gap: 1.5rem;
+  }
+
+  .solicitar-btn {
+    padding: 0.5rem 0.9rem;
   }
 }
 
+/* Mobile */
 @media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+  }
+
   .toggle {
     display: flex;
   }
@@ -178,8 +246,13 @@ const isOpen = ref(false)
   .solicitar-btn {
     display: none;
   }
-    .solicitar-btn-mobile {
-    display: inline-block; /* aparece en móvil */
+
+  .language-switcher {
+    margin-left: auto;
+  }
+
+  .solicitar-btn-mobile {
+    display: inline-block;
     background-color: #22c55e;
     color: white;
     padding: 0.5rem 1.2rem;
@@ -188,6 +261,7 @@ const isOpen = ref(false)
     font-weight: 600;
     text-decoration: none;
   }
+
   .nav-links {
     display: none;
     position: absolute;
@@ -199,10 +273,26 @@ const isOpen = ref(false)
     align-items: flex-start;
     padding: 1rem 2rem;
     gap: 1rem;
+    margin: 0;
   }
 
   .nav-links.open {
     display: flex;
+  }
+}
+
+@media (max-width: 420px) {
+  .brand {
+    font-size: 0.9rem;
+  }
+
+  .logo {
+    height: 48px;
+  }
+
+  .language-switcher button {
+    padding: 0.3rem 0.45rem;
+    font-size: 0.7rem;
   }
 }
 </style>

@@ -1,48 +1,62 @@
 <script setup>
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
+
 const stats = {
   espera: 47,
-  tiempoEstimado: '18 min',
-  ticketActual: 'A-041',
+  tiempoEstimado: "18 min",
+  ticketActual: "A-041",
   ventana: 3,
-  proximoTicket: 'A-042',
-  proximoTiempo: '~3 min'
-}
+  proximoTicket: "A-042",
+  proximoTiempo: "~3 min",
+};
 </script>
 
 <template>
-  <div class="mockup-wrapper">
+  <div class="mockup-wrapper" id="sedes">
     <div class="hero-mockup">
       <div class="hm-bar">
         <span class="hm-bar-brand">
-          <span class="status-dot"></span> FlowQueue — RENIEC Lima Centro
+          <span class="status-dot"></span> {{ t("statistics.brand") }}
         </span>
+
         <div class="hm-bar-links">
-          <span>Dashboard</span>
-          <span>Turnos</span>
+          <span>{{ t("statistics.dashboard") }}</span>
+          <span>{{ t("statistics.turns") }}</span>
         </div>
       </div>
 
       <div class="hm-row">
         <div class="hm-card">
-          <div class="hm-card-label">En espera ahora</div>
+          <div class="hm-card-label">{{ t("statistics.waitingNow") }}</div>
           <div class="hm-card-val">{{ stats.espera }}</div>
-          <div class="hm-card-sub">personas en cola</div>
+          <div class="hm-card-sub">{{ t("statistics.peopleInQueue") }}</div>
         </div>
+
         <div class="hm-card">
-          <div class="hm-card-label">T. espera estimado</div>
+          <div class="hm-card-label">{{ t("statistics.estimatedWaiting") }}</div>
           <div class="hm-card-val">{{ stats.tiempoEstimado }}</div>
-          <div class="hm-card-sub">promedio actual</div>
+          <div class="hm-card-sub">{{ t("statistics.currentAverage") }}</div>
         </div>
       </div>
 
       <div class="hm-queue">
-        <div class="hm-queue-title">Cola en vivo</div>
+        <div class="hm-queue-title">{{ t("statistics.liveQueue") }}</div>
+
         <div class="hm-ticket">
-          <span class="hm-ticket-num">{{ stats.ticketActual }} — En atención</span>
-          <span class="hm-ticket-badge">Ventana {{ stats.ventana }}</span>
+          <span class="hm-ticket-num">
+            {{ stats.ticketActual }} — {{ t("statistics.currentTicketStatus") }}
+          </span>
+          <span class="hm-ticket-badge">
+            {{ t("statistics.window") }} {{ stats.ventana }}
+          </span>
         </div>
+
         <div class="hm-ticket-next">
-          <span class="hm-ticket-next-num">{{ stats.proximoTicket }} — próximo</span>
+          <span class="hm-ticket-next-num">
+            {{ stats.proximoTicket }} — {{ t("statistics.nextTicketStatus") }}
+          </span>
           <span class="hm-ticket-next-time">{{ stats.proximoTiempo }}</span>
         </div>
       </div>
@@ -64,8 +78,8 @@ const stats = {
   background: #042C53;
   border: 1px solid rgba(24, 95, 165, 0.6);
   border-radius: 20px;
-  color:white;
-  font-family:sans-serif;
+  color: white;
+  font-family: sans-serif;
   padding: 1.5rem;
   max-width: 800px;
   width: 100%;
@@ -75,8 +89,14 @@ const stats = {
 
 /* Animación de entrada */
 @keyframes slideUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hm-bar {
@@ -103,6 +123,13 @@ const stats = {
   font-size: 14px;
   color: white;
   font-weight: 500;
+}
+
+.hm-bar-links {
+  display: flex;
+  gap: 16px;
+  font-size: 13px;
+  color: #85B7EB;
 }
 
 .hm-row {
@@ -137,10 +164,24 @@ const stats = {
   color: white;
 }
 
+.hm-card-sub {
+  font-size: 13px;
+  color: #85B7EB;
+  margin-top: 4px;
+}
+
 .hm-queue {
   background: #0C447C;
   border-radius: 12px;
   padding: 20px;
+}
+
+.hm-queue-title {
+  font-size: 14px;
+  color: #85B7EB;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
 }
 
 .hm-ticket {
@@ -159,7 +200,6 @@ const stats = {
   color: white;
 }
 
-
 .hm-ticket-num::before {
   content: '●';
   color: #22c55e;
@@ -168,9 +208,18 @@ const stats = {
 }
 
 @keyframes pulse {
-  0% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(1.2); }
-  100% { opacity: 1; transform: scale(1); }
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .hm-ticket-badge {
@@ -182,12 +231,46 @@ const stats = {
   border: 1px solid rgba(93, 202, 165, 0.3);
 }
 
+.hm-ticket-next {
+  background: rgba(24, 95, 165, 0.45);
+  border-radius: 10px;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hm-ticket-next-num {
+  font-size: 14px;
+  color: #cbd5e1;
+}
+
+.hm-ticket-next-time {
+  font-size: 13px;
+  color: #5DCAA5;
+  font-weight: 600;
+}
+
 @media (max-width: 640px) {
   .hm-row {
     grid-template-columns: 1fr;
   }
+
   .hm-card-val {
     font-size: 26px;
+  }
+
+  .hm-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .hm-ticket,
+  .hm-ticket-next {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
   }
 }
 </style>

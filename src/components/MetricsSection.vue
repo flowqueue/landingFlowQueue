@@ -1,11 +1,20 @@
+<script setup>
+import { computed } from "vue";
+import { useI18n } from "vue-i18n";
+
+const { t, tm } = useI18n();
+
+const metrics = computed(() => tm("metrics.items"));
+</script>
+
 <template>
-  <section class="metrics-section">
+  <section class="metrics-section" id="precios">
     <div class="metrics-container">
       <div class="section-header">
-        <p class="section-label">RESULTADOS ESPERADOS</p>
-        <h2>Impacto medible desde el día uno</h2>
+        <p class="section-label">{{ t("metrics.label") }}</p>
+        <h2>{{ t("metrics.title") }}</h2>
         <p class="section-description">
-          Basado en hipótesis y pruebas piloto con instituciones públicas de Lima.
+          {{ t("metrics.description") }}
         </p>
       </div>
 
@@ -21,38 +30,6 @@
     </div>
   </section>
 </template>
-
-<script>
-export default {
-  name: "MetricsSection",
-  data() {
-    return {
-      metrics: [
-        {
-          id: 1,
-          value: 30,
-          text: "reducción en tiempo de espera presencial",
-        },
-        {
-          id: 2,
-          value: 25,
-          text: "aumento en satisfacción del ciudadano (NPS)",
-        },
-        {
-          id: 3,
-          value: 70,
-          text: "tickets generados de forma remota",
-        },
-        {
-          id: 4,
-          value: 15,
-          text: "reducción de costos operativos de gestión",
-        },
-      ],
-    };
-  },
-};
-</script>
 
 <style scoped>
 .metrics-section {

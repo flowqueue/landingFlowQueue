@@ -1,30 +1,35 @@
 <script setup>
+import { useI18n } from "vue-i18n";
+
 const currentYear = new Date().getFullYear();
+const { t } = useI18n();
 </script>
 
 <template>
   <footer class="footer">
     <div class="footer-container">
       <div class="footer-brand">
-        Flow<span>Queue</span> <span class="country">— Perú</span>
+        Flow<span>Queue</span>
+        <span class="country">{{ t("footer.country") }}</span>
       </div>
 
       <nav class="footer-links">
-        <a href="#">Privacidad</a>
-        <a href="#">Términos</a>
-        <a href="#">Contacto</a>
-        <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+        <a href="#">{{ t("footer.privacy") }}</a>
+        <a href="#">{{ t("footer.terms") }}</a>
+        <a href="#">{{ t("footer.contact") }}</a>
+        <a href="https://github.com" target="_blank" rel="noopener">
+          {{ t("footer.github") }}
+        </a>
       </nav>
 
       <div class="footer-copy">
-        © {{ currentYear }} <strong>FlowQueue</strong>. Todos los derechos reservados.
+        © {{ currentYear }} <strong>FlowQueue</strong>. {{ t("footer.rights") }}
       </div>
     </div>
   </footer>
 </template>
 
 <style scoped>
-
 .footer {
   background: #042C53;
   padding: 3rem 1.5rem;
@@ -59,7 +64,6 @@ const currentYear = new Date().getFullYear();
   margin-left: 5px;
 }
 
-
 .footer-links {
   display: flex;
   gap: 2rem;
@@ -79,7 +83,6 @@ const currentYear = new Date().getFullYear();
   color: #ffffff;
   transform: translateY(-1px);
 }
-
 
 .footer-copy {
   font-size: 0.85rem;

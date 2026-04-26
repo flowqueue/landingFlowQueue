@@ -1,0 +1,214 @@
+{
+  "navbar": {
+    "features": "Funciones",
+    "howItWorks": "Cómo funciona",
+    "branches": "Sedes",
+    "pricing": "Precios",
+    "aboutUs": "Sobre nosotros",
+    "requestDemo": "Solicitar demo"
+  },
+  "home": {
+    "location": "🟢 Plataforma activa en Lima, Perú",
+    "titleStart": "Di adiós a las",
+    "titleHighlight": "filas interminables",
+    "description": "FlowQueue digitaliza la gestión de turnos en instituciones públicas. Obtén tu número desde el celular, ve tu posición en tiempo real.",
+    "primaryButton": "Obtener mi turno ahora",
+    "secondaryButton": "Ver cómo funciona",
+    "stats": [
+      {
+        "value": "30%",
+        "label": "menos espera"
+      },
+      {
+        "value": "+5k",
+        "label": "turnos gestionados"
+      },
+      {
+        "value": "3",
+        "label": "instituciones piloto"
+      },
+      {
+        "value": "87%",
+        "label": "satisfacción"
+      }
+    ]
+  },
+  "statistics": {
+    "brand": "FlowQueue — RENIEC Lima Centro",
+    "dashboard": "Dashboard",
+    "turns": "Turnos",
+    "waitingNow": "En espera ahora",
+    "peopleInQueue": "personas en cola",
+    "estimatedWaiting": "T. espera estimado",
+    "currentAverage": "promedio actual",
+    "liveQueue": "Cola en vivo",
+    "currentTicketStatus": "En atención",
+    "window": "Ventanilla",
+    "nextTicketStatus": "próximo"
+  },
+  "functionalities": {
+    "label": "FUNCIONALIDADES",
+    "title": "Todo lo que necesitas",
+    "description": "Una sola plataforma para ciudadanos, operadores y supervisores.",
+    "items": [
+      {
+        "title": "Ticket virtual",
+        "desc": "Obtén tu número desde el celular sin ir a la sede.",
+        "color": "blue",
+        "icon": "ticket"
+      },
+      {
+        "title": "Cola en tiempo real",
+        "desc": "Visualiza tu posición y tiempo estimado actualizado.",
+        "color": "green",
+        "icon": "clock"
+      },
+      {
+        "title": "Notificaciones",
+        "desc": "Alertas cuando tu turno esté próximo. Llega a tiempo.",
+        "color": "orange",
+        "icon": "bell"
+      },
+      {
+        "title": "Dashboard admin",
+        "desc": "Panel para gestionar turnos y controlar el flujo en vivo.",
+        "color": "blue",
+        "icon": "dashboard"
+      },
+      {
+        "title": "Analítica",
+        "desc": "Reportes de afluencia y horas pico por sede.",
+        "color": "green",
+        "icon": "chart"
+      },
+      {
+        "title": "Multi-sede",
+        "desc": "Administra varias sedes desde una sola cuenta.",
+        "color": "blue",
+        "icon": "layers"
+      }
+    ]
+  },
+  "profiles": {
+    "label": "PARA QUIÉN",
+    "title": "Una plataforma, tres perfiles",
+    "citizen": {
+      "title": "Ciudadano",
+      "subtitle": "Usuario final",
+      "items": [
+        "Obtener turno remoto",
+        "Ver posición en cola",
+        "Recibir notificaciones",
+        "Reducir espera"
+      ],
+      "button": "Obtener turno ahora"
+    },
+    "operator": {
+      "title": "Operador",
+      "subtitle": "Personal administrativo",
+      "items": [
+        "Llamar turnos",
+        "Priorizar casos especiales",
+        "Controlar flujo en vivo",
+        "Reducir el desorden"
+      ],
+      "button": "Gestionar atención"
+    },
+    "supervisor": {
+      "title": "Supervisor",
+      "subtitle": "Responsable de sede",
+      "items": [
+        "Ver métricas por sede",
+        "Identificar horas pico",
+        "Generar reportes",
+        "Optimizar recursos"
+      ],
+      "button": "Ver métricas"
+    }
+  },
+  "metrics": {
+    "label": "RESULTADOS ESPERADOS",
+    "title": "Impacto medible desde el día uno",
+    "description": "Basado en hipótesis y pruebas piloto con instituciones públicas de Lima.",
+    "items": [
+      {
+        "id": 1,
+        "value": "30",
+        "text": "reducción en tiempo de espera presencial"
+      },
+      {
+        "id": 2,
+        "value": "25",
+        "text": "aumento en satisfacción del ciudadano (NPS)"
+      },
+      {
+        "id": 3,
+        "value": "70",
+        "text": "tickets generados de forma remota"
+      },
+      {
+        "id": 4,
+        "value": "15",
+        "text": "reducción de costos operativos de gestión"
+      }
+    ]
+  },
+  "access": {
+    "brand": "Flow Queue",
+    "title": "¿Listo para eliminar las filas en tu institución?",
+    "subtitle": "Solicita acceso anticipado y sé parte del piloto en Lima.",
+    "emailPlaceholder": "Tu correo institucional",
+    "submit": "Solicitar acceso",
+    "loading": "Enviando...",
+    "meta": "Sin compromiso · Respuesta en 24 horas · Soporte incluido",
+    "consoleMessage": "Email enviado:"
+  },
+  "team": {
+    "title": "Sobre nosotros",
+    "footer": "EQUIPO DE FLOWQUEUE",
+    "roles": {
+      "member": "Miembro",
+      "leader": "Team Leader"
+    },
+    "members": [
+      {
+        "id": 1,
+        "name": "Alexander",
+        "role": "member",
+        "photo": "https://via.placeholder.com/220x220.png?text=Alexander"
+      },
+      {
+        "id": 2,
+        "name": "Carlos",
+        "role": "member",
+        "photo": "https://via.placeholder.com/220x220.png?text=Carlos"
+      },
+      {
+        "id": 3,
+        "name": "Luis",
+        "role": "leader",
+        "photo": "https://via.placeholder.com/220x220.png?text=Luis"
+      },
+      {
+        "id": 4,
+        "name": "Jose",
+        "role": "member",
+        "photo": "https://via.placeholder.com/220x220.png?text=Jose"
+      },
+      {
+        "id": 5,
+        "name": "Marcelo",
+        "role": "member",
+        "photo": "https://via.placeholder.com/220x220.png?text=Marcelo"
+      }
+    ]
+  },
+  "footer": {
+    "country": "— Perú",
+    "privacy": "Privacidad",
+    "terms": "Términos",
+    "contact": "Contacto",
+    "github": "GitHub",
+    "rights": "Todos los derechos reservados."
+  }
+}

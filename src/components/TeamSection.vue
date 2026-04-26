@@ -1,64 +1,35 @@
+<script setup>
+import { computed } from "vue";
+import { useI18n } from "vue-i18n";
+
+const { t, tm } = useI18n();
+
+const team = computed(() => tm("team.members"));
+
+const getRole = (role) => {
+  return t(`team.roles.${role}`);
+};
+</script>
+
 <template>
-  <section class="team-section">
+  <section class="team-section" id="sobre-nosotros">
     <div class="team-container">
       <div class="section-header">
-        <h2>Sobre nosotros</h2>
+        <h2>{{ t("team.title") }}</h2>
       </div>
 
       <div class="team-grid">
         <div v-for="member in team" :key="member.id" class="team-card">
           <img :src="member.photo" :alt="member.name" class="team-photo" />
           <h3>{{ member.name }}</h3>
-          <p class="team-role">{{ member.role }}</p>
+          <p class="team-role">{{ getRole(member.role) }}</p>
         </div>
       </div>
 
-      <p class="team-footer">EQUIPO DE FLOWQUEUE</p>
+      <p class="team-footer">{{ t("team.footer") }}</p>
     </div>
   </section>
 </template>
-
-<script>
-export default {
-  name: "TeamSection",
-  data() {
-    return {
-      team: [
-        {
-          id: 1,
-          name: "Alexander",
-          role: "Miembro",
-          photo: "https://via.placeholder.com/220x220.png?text=Alexander",
-        },
-        {
-          id: 2,
-          name: "Carlos",
-          role: "Miembro",
-          photo: "https://via.placeholder.com/220x220.png?text=Carlos",
-        },
-        {
-          id: 3,
-          name: "Luis",
-          role: "Team Leader",
-          photo: "https://via.placeholder.com/220x220.png?text=Luis",
-        },
-        {
-          id: 4,
-          name: "Jose",
-          role: "Miembro",
-          photo: "https://via.placeholder.com/220x220.png?text=Jose",
-        },
-        {
-          id: 5,
-          name: "Marcelo",
-          role: "Miembro",
-          photo: "https://via.placeholder.com/220x220.png?text=Marcelo",
-        },
-      ],
-    };
-  },
-};
-</script>
 
 <style scoped>
 .team-section {
@@ -139,23 +110,17 @@ export default {
   grid-column: 3 / 4;
 }
 
-.team-avatar {
+.team-photo {
   width: 120px;
   height: 120px;
+  object-fit: cover;
   border-radius: 50%;
   margin: 0 auto 16px;
   border: 3px solid #1f629d;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 34px;
-  font-weight: 700;
-  color: #d7e7f7;
-  background-color: #0a3d6b;
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
-.team-card:hover .team-avatar {
+.team-card:hover .team-photo {
   transform: scale(1.08);
   border-color: #3e83c0;
   box-shadow: 0 10px 18px rgba(31, 98, 157, 0.22);

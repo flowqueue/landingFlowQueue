@@ -1,38 +1,40 @@
 <script setup>
-import { ref } from 'vue'
+import { ref } from "vue";
+import { useI18n } from "vue-i18n";
 
-const email = ref('')
-const loading = ref(false)
+const email = ref("");
+const loading = ref(false);
+
+const { t } = useI18n();
 
 const submit = () => {
-  if (!email.value) return
+  if (!email.value) return;
 
-  loading.value = true
+  loading.value = true;
 
   // simular request
   setTimeout(() => {
-    console.log('Email enviado:', email.value)
-    loading.value = false
-    email.value = ''
-  }, 1000)
-}
+    console.log(t("access.consoleMessage"), email.value);
+    loading.value = false;
+    email.value = "";
+  }, 1000);
+};
 </script>
 
 <template>
-  <section class="cta-section">
+  <section class="cta-section" id="solicitar">
     <div class="container">
-
       <!-- BRAND -->
       <div class="brand">
-        Flow Queue
+        {{ t("access.brand") }}
       </div>
 
       <!-- TITLE -->
-      <h1>¿Listo para eliminar las filas en tu institución?</h1>
+      <h1>{{ t("access.title") }}</h1>
 
       <!-- SUBTITLE -->
       <p class="subtitle">
-        Solicita acceso anticipado y sé parte del piloto en Lima.
+        {{ t("access.subtitle") }}
       </p>
 
       <!-- FORM -->
@@ -40,19 +42,18 @@ const submit = () => {
         <input
             v-model="email"
             type="email"
-            placeholder="Tu correo institucional"
+            :placeholder="t('access.emailPlaceholder')"
         />
 
         <button @click="submit" :disabled="loading">
-          {{ loading ? 'Enviando...' : 'Solicitar acceso' }}
+          {{ loading ? t("access.loading") : t("access.submit") }}
         </button>
       </div>
 
       <!-- FOOTER TEXT -->
       <p class="meta">
-        Sin compromiso · Respuesta en 24 horas · Soporte incluido
+        {{ t("access.meta") }}
       </p>
-
     </div>
   </section>
 </template>
@@ -129,6 +130,11 @@ h1 {
 
 .form button:hover {
   background: #1e40af;
+}
+
+.form button:disabled {
+  cursor: not-allowed;
+  opacity: 0.75;
 }
 
 /* META */

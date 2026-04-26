@@ -1,0 +1,214 @@
+{
+  "navbar": {
+    "features": "Features",
+    "howItWorks": "How it works",
+    "branches": "Branches",
+    "pricing": "Pricing",
+    "aboutUs": "About us",
+    "requestDemo": "Request demo"
+  },
+  "home": {
+    "location": "🟢 Platform active in Lima, Peru",
+    "titleStart": "Say goodbye to",
+    "titleHighlight": "endless queues",
+    "description": "FlowQueue digitizes turn management in public institutions. Get your number from your phone and view your position in real time.",
+    "primaryButton": "Get my ticket now",
+    "secondaryButton": "See how it works",
+    "stats": [
+      {
+        "value": "30%",
+        "label": "less waiting"
+      },
+      {
+        "value": "+5k",
+        "label": "turns managed"
+      },
+      {
+        "value": "3",
+        "label": "pilot institutions"
+      },
+      {
+        "value": "87%",
+        "label": "satisfaction"
+      }
+    ]
+  },
+  "statistics": {
+    "brand": "FlowQueue — RENIEC Lima Center",
+    "dashboard": "Dashboard",
+    "turns": "Turns",
+    "waitingNow": "Waiting now",
+    "peopleInQueue": "people in queue",
+    "estimatedWaiting": "Estimated wait",
+    "currentAverage": "current average",
+    "liveQueue": "Live queue",
+    "currentTicketStatus": "Being served",
+    "window": "Counter",
+    "nextTicketStatus": "next"
+  },
+  "functionalities": {
+    "label": "FEATURES",
+    "title": "Everything you need",
+    "description": "One platform for citizens, operators and supervisors.",
+    "items": [
+      {
+        "title": "Virtual ticket",
+        "desc": "Get your number from your phone without going to the branch.",
+        "color": "blue",
+        "icon": "ticket"
+      },
+      {
+        "title": "Real-time queue",
+        "desc": "View your position and updated estimated waiting time.",
+        "color": "green",
+        "icon": "clock"
+      },
+      {
+        "title": "Notifications",
+        "desc": "Alerts when your turn is coming soon. Arrive on time.",
+        "color": "orange",
+        "icon": "bell"
+      },
+      {
+        "title": "Admin dashboard",
+        "desc": "Panel to manage turns and control the live service flow.",
+        "color": "blue",
+        "icon": "dashboard"
+      },
+      {
+        "title": "Analytics",
+        "desc": "Reports on attendance and peak hours by branch.",
+        "color": "green",
+        "icon": "chart"
+      },
+      {
+        "title": "Multi-branch",
+        "desc": "Manage multiple branches from a single account.",
+        "color": "blue",
+        "icon": "layers"
+      }
+    ]
+  },
+  "profiles": {
+    "label": "FOR WHOM",
+    "title": "One platform, three profiles",
+    "citizen": {
+      "title": "Citizen",
+      "subtitle": "End user",
+      "items": [
+        "Get a remote ticket",
+        "View queue position",
+        "Receive notifications",
+        "Reduce waiting time"
+      ],
+      "button": "Get ticket now"
+    },
+    "operator": {
+      "title": "Operator",
+      "subtitle": "Administrative staff",
+      "items": [
+        "Call turns",
+        "Prioritize special cases",
+        "Control live flow",
+        "Reduce disorder"
+      ],
+      "button": "Manage service"
+    },
+    "supervisor": {
+      "title": "Supervisor",
+      "subtitle": "Branch manager",
+      "items": [
+        "View branch metrics",
+        "Identify peak hours",
+        "Generate reports",
+        "Optimize resources"
+      ],
+      "button": "View metrics"
+    }
+  },
+  "metrics": {
+    "label": "EXPECTED RESULTS",
+    "title": "Measurable impact from day one",
+    "description": "Based on hypotheses and pilot tests with public institutions in Lima.",
+    "items": [
+      {
+        "id": 1,
+        "value": "30",
+        "text": "reduction in on-site waiting time"
+      },
+      {
+        "id": 2,
+        "value": "25",
+        "text": "increase in citizen satisfaction (NPS)"
+      },
+      {
+        "id": 3,
+        "value": "70",
+        "text": "tickets generated remotely"
+      },
+      {
+        "id": 4,
+        "value": "15",
+        "text": "reduction in operational management costs"
+      }
+    ]
+  },
+  "access": {
+    "brand": "Flow Queue",
+    "title": "Ready to eliminate queues in your institution?",
+    "subtitle": "Request early access and join the pilot program in Lima.",
+    "emailPlaceholder": "Your institutional email",
+    "submit": "Request access",
+    "loading": "Sending...",
+    "meta": "No commitment · Response within 24 hours · Support included",
+    "consoleMessage": "Email sent:"
+  },
+  "team": {
+    "title": "About us",
+    "footer": "FLOWQUEUE TEAM",
+    "roles": {
+      "member": "Member",
+      "leader": "Team Leader"
+    },
+    "members": [
+      {
+        "id": 1,
+        "name": "Alexander",
+        "role": "member",
+        "photo": "https://via.placeholder.com/220x220.png?text=Alexander"
+      },
+      {
+        "id": 2,
+        "name": "Carlos",
+        "role": "member",
+        "photo": "https://via.placeholder.com/220x220.png?text=Carlos"
+      },
+      {
+        "id": 3,
+        "name": "Luis",
+        "role": "leader",
+        "photo": "https://via.placeholder.com/220x220.png?text=Luis"
+      },
+      {
+        "id": 4,
+        "name": "Jose",
+        "role": "member",
+        "photo": "https://via.placeholder.com/220x220.png?text=Jose"
+      },
+      {
+        "id": 5,
+        "name": "Marcelo",
+        "role": "member",
+        "photo": "https://via.placeholder.com/220x220.png?text=Marcelo"
+      }
+    ]
+  },
+  "footer": {
+    "country": "— Peru",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "contact": "Contact",
+    "github": "GitHub",
+    "rights": "All rights reserved."
+  }
+}

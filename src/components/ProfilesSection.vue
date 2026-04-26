@@ -2,8 +2,8 @@
   <section class="profiles-section">
     <div class="profiles-container">
       <div class="profiles-header">
-        <p class="profiles-label">PARA QUIÉN</p>
-        <h2 class="profiles-title">Una plataforma, tres perfiles</h2>
+        <h2>{{ $t("profiles.title") }}</h2>
+        <p>{{ $t("profiles.label") }}</p>
       </div>
 
       <div class="profiles-grid">
