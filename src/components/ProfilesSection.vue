@@ -46,58 +46,45 @@
 
 <script>
 export default {
-  name: "ProfilesSection",
+  name: "TeamSection",
   data() {
     return {
-      profiles: [
+      team: [
         {
           id: 1,
-          initials: "CL",
-          title: "Ciudadano",
-          subtitle: "Usuario final",
-          badgeClass: "badge-citizen",
-          featured: true,
-          items: [
-            "Obtener turno remoto",
-            "Ver posición en cola",
-            "Recibir notificaciones",
-            "Reducir espera",
-          ],
+          name: "Alexander",
+          role: "Miembro",
+          photo: "https://via.placeholder.com/220x220.png?text=Alexander",
         },
         {
           id: 2,
-          initials: "OP",
-          title: "Operador",
-          subtitle: "Personal administrativo",
-          badgeClass: "badge-operator",
-          featured: false,
-          items: [
-            "Llamar turnos",
-            "Priorizar casos especiales",
-            "Controlar flujo en vivo",
-            "Reducir el desorden",
-          ],
+          name: "Carlos",
+          role: "Miembro",
+          photo: "https://via.placeholder.com/220x220.png?text=Carlos",
         },
         {
           id: 3,
-          initials: "SV",
-          title: "Supervisor",
-          subtitle: "Responsable de sede",
-          badgeClass: "badge-supervisor",
-          featured: false,
-          items: [
-            "Ver métricas por sede",
-            "Identificar horas pico",
-            "Generar reportes",
-            "Optimizar recursos",
-          ],
+          name: "Luis",
+          role: "Team Leader",
+          photo: "https://via.placeholder.com/220x220.png?text=Luis",
+        },
+        {
+          id: 4,
+          name: "Jose",
+          role: "Miembro",
+          photo: "https://via.placeholder.com/220x220.png?text=Jose",
+        },
+        {
+          id: 5,
+          name: "Marcelo",
+          role: "Miembro",
+          photo: "https://via.placeholder.com/220x220.png?text=Marcelo",
         },
       ],
     };
   },
 };
 </script>
-
 <style scoped>
 .profiles-section {
   background: #f5f2ec;
