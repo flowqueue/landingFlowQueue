@@ -2,9 +2,28 @@
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
 
+import carlosPhoto from "@/assets/carlosfoto.jpg";
+import franciscoPhoto from "@/assets/franciscofoto.jpg";
+import danielPhoto from "@/assets/danielfoto.jpg";
+import alexPhoto from "@/assets/alexfoto.jpg";
+import luisPhoto from "@/assets/luisfoto.jpg";
+
 const { t, tm } = useI18n();
 
-const team = computed(() => tm("team.members"));
+const photos = {
+  carlos: carlosPhoto,
+  francisco: franciscoPhoto,
+  daniel: danielPhoto,
+  alex: alexPhoto,
+  luis: luisPhoto,
+};
+
+const team = computed(() => {
+  return tm("team.members").map((member) => ({
+    ...member,
+    photo: photos[member.photoKey],
+  }));
+});
 
 const getRole = (role) => {
   return t(`team.roles.${role}`);

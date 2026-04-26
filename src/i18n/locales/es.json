@@ -173,33 +173,33 @@
     "members": [
       {
         "id": 1,
-        "name": "Alexander",
+        "name": "Carlos Mansilla",
         "role": "member",
-        "photo": "https://via.placeholder.com/220x220.png?text=Alexander"
+        "photoKey": "carlos"
       },
       {
         "id": 2,
-        "name": "Carlos",
+        "name": "Francisco Uribe",
         "role": "member",
-        "photo": "https://via.placeholder.com/220x220.png?text=Carlos"
+        "photoKey": "francisco"
       },
       {
         "id": 3,
-        "name": "Luis",
-        "role": "leader",
-        "photo": "https://via.placeholder.com/220x220.png?text=Luis"
+        "name": "Daniel Ruiz",
+        "role": "member",
+        "photoKey": "daniel"
       },
       {
         "id": 4,
-        "name": "Jose",
+        "name": "Alexander Aliaga",
         "role": "member",
-        "photo": "https://via.placeholder.com/220x220.png?text=Jose"
+        "photoKey": "alex"
       },
       {
         "id": 5,
-        "name": "Marcelo",
-        "role": "member",
-        "photo": "https://via.placeholder.com/220x220.png?text=Marcelo"
+        "name": "Luis Pillaca",
+        "role": "leader",
+        "photoKey": "luis"
       }
     ]
   },
