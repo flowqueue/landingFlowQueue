@@ -6,20 +6,32 @@ import Home from "@/components/Home.vue";
 import MetricsSection from "@/components/MetricsSection.vue";
 import TeamSection from "@/components/TeamSection.vue";
 import ProfilesSection from "@/components/ProfilesSection.vue";
-
+import Statics from "@/components/Statistics.vue";
+import Footer from "@/components/Footer.vue";
 </script>
-<template>
-  <Navbar></Navbar>
-  <Home>  </Home>
 
-  <Funcionalities></Funcionalities>
-  <Access></Access>
+<template>
+  <Navbar />
+  <Home />
+  <Statics />
+  <Funcionalities />
   <ProfilesSection />
   <MetricsSection />
+  <Access />
   <TeamSection />
-
+  <Footer />
 </template>
-<style scoped>
 
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
 </style>
-
