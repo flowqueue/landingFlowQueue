@@ -8,6 +8,7 @@ import TeamSection from "@/components/TeamSection.vue";
 import ProfilesSection from "@/components/ProfilesSection.vue";
 import Statics from "@/components/Statistics.vue";
 import Footer from "@/components/Footer.vue";
+import Contact from "./components/Contact.vue";
 </script>
 
 <template>
@@ -19,7 +20,9 @@ import Footer from "@/components/Footer.vue";
   <MetricsSection />
   <Access />
   <TeamSection />
+  <Contact/>
   <Footer />
+
 </template>
 
 <style>
