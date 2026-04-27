@@ -5,7 +5,8 @@
     "branches": "Sedes",
     "pricing": "Precios",
     "aboutUs": "Sobre nosotros",
-    "requestDemo": "Solicitar demo"
+    "requestDemo": "Solicitar demo",
+    "contact": "Contacto"
   },
   "home": {
     "location": "🟢 Plataforma activa en Lima, Perú",
@@ -209,16 +210,15 @@
     "terms": "Términos",
     "contact": "Contacto",
     "github": "GitHub",
-    "rights": "Todos los derechos reservados.",
-
+    "rights": "Todos los derechos reservados."
   },
   "contact": {
-    "title": "Contact us",
-    "namePlaceholder": "Enter your first name",
-    "lastnamePlaceholder": "Enter your last name",
-    "emailPlaceholder": "Enter your email address",
-    "phonePlaceholder": "Enter your phone number",
-    "submit": "Send",
-    "securityText": "We handle your information with the highest security and encryption standards. We will never share your data with third parties."
+    "title": "Contáctenos",
+    "namePlaceholder": "Ingrese su nombre",
+    "lastnamePlaceholder": "Ingrese sus apellidos",
+    "emailPlaceholder": "Ingrese su correo electrónico",
+    "phonePlaceholder": "Ingrese su número de teléfono",
+    "submit": "Enviar",
+    "securityText": "Tratamos tu información con los más altos estándares de seguridad y cifrado. Nunca compartiremos tus datos con terceros."
   }
 }
