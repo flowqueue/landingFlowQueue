@@ -1,47 +1,17 @@
 <script setup>
 import { useI18n } from "vue-i18n";
 
-const { t } = useI18n();
 </script>
 
 <template>
-  <section class="contacto" id="contacto">
     <div class="titulo-box">
-      <h1>{{ t("contact.title") }}</h1>
     </div>
 
     <form class="formulario">
-      <input
-          type="text"
-          :placeholder="t('contact.namePlaceholder')"
-          required
-      />
 
-      <input
-          type="text"
-          :placeholder="t('contact.lastnamePlaceholder')"
-          required
-      />
-
-      <input
-          type="email"
-          :placeholder="t('contact.emailPlaceholder')"
-          required
-      />
-
-      <input
-          type="tel"
-          :placeholder="t('contact.phonePlaceholder')"
-          required
-      />
-
-      <button type="submit">
-        {{ t("contact.submit") }}
-      </button>
     </form>
 
     <p class="texto-seguridad">
-      {{ t("contact.securityText") }}
     </p>
   </section>
 </template>
@@ -65,7 +35,6 @@ const { t } = useI18n();
   align-items: center;
 }
 
-/* ── Título ── */
 .titulo-box {
   width: min(415px, 100%);
   height: 55px;
@@ -119,14 +88,6 @@ const { t } = useI18n();
   font-size: clamp(28px, 5vw, 48px);
   cursor: pointer;
   color: black;
-  transition: all 0.25s ease;
-}
-
-.formulario button:hover {
-  transform: translateY(-4px);
-  background-color: #0c447c;
-  color: white;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
 }
 
 /* ── Texto seguridad ── */
@@ -136,7 +97,6 @@ const { t } = useI18n();
   color: #3c3c3c;
   text-align: center;
   line-height: 1.6;
-  max-width: 650px;
 }
 
 /* ── Tablet ── */
