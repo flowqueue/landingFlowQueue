@@ -4,8 +4,9 @@ import Home from "@/components/Home.vue";
 import ProblemSection from "@/components/ProblemSection.vue";
 import HowItWorks from "@/components/HowItWorks.vue";
 import Funcionalities from "@/components/Funcionalities.vue";
-import ProfilesSection from "@/components/ProfilesSection.vue";
+import PricingSection from "@/components/PricingSection.vue";
 import MetricsSection from "@/components/MetricsSection.vue";
+import ProfilesSection from "@/components/ProfilesSection.vue";
 import Access from "@/components/Access.vue";
 import TeamSection from "@/components/TeamSection.vue";
 import Contact from "@/components/Contact.vue";
@@ -20,6 +21,7 @@ import Footer from "@/components/Footer.vue";
   <Funcionalities />
   <ProfilesSection />
   <MetricsSection />
+  <PricingSection />
   <Access />
   <TeamSection />
   <Contact />

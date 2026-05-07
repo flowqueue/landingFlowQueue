@@ -1,9 +1,9 @@
 {
   "navbar": {
+    "home": "Inicio",
     "features": "Funciones",
     "howItWorks": "Cómo funciona",
-    "branches": "Sedes",
-    "pricing": "Precios",
+    "pricing": "Planes",
     "aboutUs": "Sobre nosotros",
     "requestDemo": "Solicitar demo",
     "contact": "Contacto"
@@ -322,5 +322,64 @@
     "demoTitle": "Prueba FlowQueue en una sede piloto",
     "demoDescription": "Solicita una demostración para visualizar cómo funcionaría la cola virtual en una institución pública.",
     "demoButton": "Solicitar demo"
+  },
+  "pricing": {
+    "label": "Planes",
+    "title": "Elige el plan ideal para tu institución",
+    "description": "FlowQueue se adapta a sedes pequeñas, instituciones con alta demanda y organizaciones que necesitan una gestión avanzada de colas virtuales.",
+    "featured": "Recomendado",
+    "plans": [
+      {
+        "id": 1,
+        "name": "Básico",
+        "description": "Para sedes pequeñas que necesitan ordenar la atención y reducir el desorden en filas físicas.",
+        "price": "S/ 0",
+        "period": "piloto",
+        "featured": false,
+        "features": [
+          "Ticket virtual para ciudadanos",
+          "Cola en tiempo real",
+          "Panel básico para operador",
+          "Historial simple de turnos",
+          "Soporte inicial para implementación"
+        ],
+        "button": "Empezar piloto"
+      },
+      {
+        "id": 2,
+        "name": "Institucional",
+        "description": "Para entidades públicas con mayor flujo de ciudadanos y necesidad de control por sede.",
+        "price": "Demo",
+        "period": "institucional",
+        "featured": true,
+        "features": [
+          "Todo lo del plan Básico",
+          "Gestión multi-sede",
+          "Dashboard para supervisores",
+          "Reportes de tiempos de espera",
+          "Notificaciones al ciudadano",
+          "Métricas por ventanilla y horario"
+        ],
+        "button": "Solicitar demo"
+      },
+      {
+        "id": 3,
+        "name": "Enterprise",
+        "description": "Para instituciones que requieren integraciones, analítica avanzada y soporte personalizado.",
+        "price": "A medida",
+        "period": "según sede",
+        "featured": false,
+        "features": [
+          "Todo lo del plan Institucional",
+          "Integraciones con sistemas internos",
+          "Roles personalizados",
+          "Analítica avanzada",
+          "Soporte prioritario",
+          "Configuración según procesos internos"
+        ],
+        "button": "Contactar equipo"
+      }
+    ],
+    "note": "Los precios son referenciales para la etapa de validación. FlowQueue puede adaptarse a las necesidades reales de cada institución pública o sede piloto."
   }
 }

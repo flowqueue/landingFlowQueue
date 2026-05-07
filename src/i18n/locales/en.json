@@ -1,9 +1,9 @@
 {
   "navbar": {
+    "home": "Home",
     "features": "Features",
     "howItWorks": "How it works",
-    "branches": "Branches",
-    "pricing": "Pricing",
+    "pricing": "Plans",
     "aboutUs": "About us",
     "requestDemo": "Request demo",
     "contact": "Contact"
@@ -321,5 +321,64 @@
     "demoTitle": "Test FlowQueue in a pilot branch",
     "demoDescription": "Request a demo to see how the virtual queue would work in a public institution.",
     "demoButton": "Request demo"
+  },
+  "pricing": {
+    "label": "Plans",
+    "title": "Choose the right plan for your institution",
+    "description": "FlowQueue adapts to small branches, high-demand institutions and organizations that need advanced virtual queue management.",
+    "featured": "Recommended",
+    "plans": [
+      {
+        "id": 1,
+        "name": "Basic",
+        "description": "For small branches that need to organize service and reduce disorder in physical queues.",
+        "price": "S/ 0",
+        "period": "pilot",
+        "featured": false,
+        "features": [
+          "Virtual ticket for citizens",
+          "Real-time queue",
+          "Basic operator panel",
+          "Simple ticket history",
+          "Initial implementation support"
+        ],
+        "button": "Start pilot"
+      },
+      {
+        "id": 2,
+        "name": "Institutional",
+        "description": "For public entities with higher citizen flow and branch-level service control needs.",
+        "price": "Demo",
+        "period": "institutional",
+        "featured": true,
+        "features": [
+          "Everything in Basic",
+          "Multi-branch management",
+          "Supervisor dashboard",
+          "Waiting time reports",
+          "Citizen notifications",
+          "Metrics by counter and schedule"
+        ],
+        "button": "Request demo"
+      },
+      {
+        "id": 3,
+        "name": "Enterprise",
+        "description": "For institutions that require integrations, advanced analytics and personalized support.",
+        "price": "Custom",
+        "period": "per branch",
+        "featured": false,
+        "features": [
+          "Everything in Institutional",
+          "Internal system integrations",
+          "Custom roles",
+          "Advanced analytics",
+          "Priority support",
+          "Configuration based on internal processes"
+        ],
+        "button": "Contact team"
+      }
+    ],
+    "note": "Prices are referential for the validation stage. FlowQueue can adapt to the real needs of each public institution or pilot branch."
   }
 }
