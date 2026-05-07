@@ -1,9 +1,50 @@
+<script setup>
+import { computed } from "vue";
+import { useI18n } from "vue-i18n";
+
+const { t, tm } = useI18n();
+
+const profiles = computed(() => [
+  {
+    id: 1,
+    initials: "CL",
+    badgeClass: "badge-citizen",
+    title: t("profiles.citizen.title"),
+    subtitle: t("profiles.citizen.subtitle"),
+    items: tm("profiles.citizen.items"),
+    buttonText: t("profiles.citizen.button"),
+    href: "#solicitar",
+  },
+  {
+    id: 2,
+    initials: "OP",
+    badgeClass: "badge-operator",
+    title: t("profiles.operator.title"),
+    subtitle: t("profiles.operator.subtitle"),
+    items: tm("profiles.operator.items"),
+    buttonText: t("profiles.operator.button"),
+    href: "#como-funciona",
+  },
+  {
+    id: 3,
+    initials: "SV",
+    badgeClass: "badge-supervisor",
+    title: t("profiles.supervisor.title"),
+    subtitle: t("profiles.supervisor.subtitle"),
+    items: tm("profiles.supervisor.items"),
+    buttonText: t("profiles.supervisor.button"),
+    href: "#resultados",
+  },
+]);
+</script>
+
 <template>
-  <section class="profiles-section">
+  <section class="profiles-section" id="perfiles">
     <div class="profiles-container">
       <div class="profiles-header">
-        <h2>{{ $t("profiles.title") }}</h2>
-        <p>{{ $t("profiles.label") }}</p>
+        <p class="profiles-label">{{ t("profiles.label") }}</p>
+        <h2 class="profiles-title">{{ t("profiles.title") }}</h2>
+        <p class="profiles-description">{{ t("profiles.description") }}</p>
       </div>
 
       <div class="profiles-grid">
@@ -31,9 +72,9 @@
           </ul>
 
           <div class="profile-action">
-            <button type="button" class="profile-button">
+            <a :href="profile.href" class="profile-button">
               {{ profile.buttonText }}
-            </button>
+            </a>
           </div>
         </article>
       </div>
@@ -41,64 +82,12 @@
   </section>
 </template>
 
-<script>
-export default {
-  name: "ProfilesSection",
-  data() {
-    return {
-      profiles: [
-        {
-          id: 1,
-          initials: "CL",
-          title: "Ciudadano",
-          subtitle: "Usuario final",
-          badgeClass: "badge-citizen",
-          buttonText: "Obtener turno ahora",
-          items: [
-            "Obtener turno remoto",
-            "Ver posición en cola",
-            "Recibir notificaciones",
-            "Reducir espera",
-          ],
-        },
-        {
-          id: 2,
-          initials: "OP",
-          title: "Operador",
-          subtitle: "Personal administrativo",
-          badgeClass: "badge-operator",
-          buttonText: "Gestionar atención",
-          items: [
-            "Llamar turnos",
-            "Priorizar casos especiales",
-            "Controlar flujo en vivo",
-            "Reducir el desorden",
-          ],
-        },
-        {
-          id: 3,
-          initials: "SV",
-          title: "Supervisor",
-          subtitle: "Responsable de sede",
-          badgeClass: "badge-supervisor",
-          buttonText: "Ver métricas",
-          items: [
-            "Ver métricas por sede",
-            "Identificar horas pico",
-            "Generar reportes",
-            "Optimizar recursos",
-          ],
-        },
-      ],
-    };
-  },
-};
-</script>
-
 <style scoped>
 .profiles-section {
+  width: 100%;
   background: #f5f2ec;
-  padding: 72px 24px;
+  padding: 90px 24px;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
 }
 
 .profiles-container {
@@ -107,37 +96,46 @@ export default {
 }
 
 .profiles-header {
-  margin-bottom: 32px;
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 46px;
 }
 
 .profiles-label {
-  margin: 0 0 8px;
+  margin: 0 0 12px;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 800;
   letter-spacing: 0.08em;
-  color: #5d7590;
+  color: #1fa178;
+  text-transform: uppercase;
 }
 
 .profiles-title {
+  margin: 0 0 14px;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #0c447c;
+}
+
+.profiles-description {
   margin: 0;
-  font-size: 2rem;
-  font-weight: 500;
-  line-height: 1.2;
-  color: #214f82;
+  color: #5f6f7c;
+  line-height: 1.8;
 }
 
 .profiles-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+  gap: 22px;
 }
 
 .profile-card {
   background: #ffffff;
   border: 1px solid #dfe5ea;
-  border-radius: 18px;
-  padding: 18px 18px 20px;
-  min-height: 350px;
+  border-radius: 24px;
+  padding: 28px;
+  min-height: 390px;
   display: flex;
   flex-direction: column;
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
@@ -153,11 +151,11 @@ export default {
   background: linear-gradient(
       120deg,
       rgba(255, 255, 255, 0) 20%,
-      rgba(255, 255, 255, 0.08) 50%,
+      rgba(31, 161, 120, 0.08) 50%,
       rgba(255, 255, 255, 0) 80%
   );
   transform: translateX(-120%);
-  transition: transform 0.5s ease;
+  transition: transform 0.55s ease;
   pointer-events: none;
 }
 
@@ -166,35 +164,35 @@ export default {
 }
 
 .profile-card:hover {
-  border: 2px solid #2b6aa4;
-  box-shadow: 0 14px 28px rgba(34, 79, 130, 0.12);
-  transform: translateY(-6px);
+  border-color: #1fa178;
+  box-shadow: 0 18px 38px rgba(34, 79, 130, 0.13);
+  transform: translateY(-7px);
 }
 
 .profile-top {
   display: flex;
   align-items: center;
   gap: 14px;
-  padding-bottom: 14px;
+  padding-bottom: 18px;
   border-bottom: 1px solid #edf0f2;
 }
 
 .profile-badge {
-  width: 42px;
-  height: 42px;
-  border-radius: 999px;
+  width: 50px;
+  height: 50px;
+  border-radius: 16px;
   display: grid;
   place-items: center;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #5c6a78;
+  font-size: 0.95rem;
+  font-weight: 900;
+  color: #0c447c;
   flex-shrink: 0;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .profile-card:hover .profile-badge {
-  transform: scale(1.08);
-  box-shadow: 0 6px 14px rgba(34, 79, 130, 0.12);
+  transform: scale(1.07);
+  box-shadow: 0 8px 18px rgba(34, 79, 130, 0.12);
 }
 
 .badge-citizen {
@@ -211,30 +209,20 @@ export default {
 
 .profile-name {
   margin: 0;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #365b80;
-  transition: color 0.25s ease;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0c447c;
 }
 
 .profile-role {
   margin: 4px 0 0;
-  font-size: 0.82rem;
-  color: #8a97a5;
-  transition: color 0.25s ease;
-}
-
-.profile-card:hover .profile-name {
-  color: #214f82;
-}
-
-.profile-card:hover .profile-role {
-  color: #6c7f92;
+  font-size: 0.9rem;
+  color: #81909f;
 }
 
 .profile-list {
   list-style: none;
-  padding: 16px 0 0;
+  padding: 20px 0 0;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -244,68 +232,48 @@ export default {
 
 .profile-list li {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
-  color: #66727f;
-  font-size: 0.95rem;
-  line-height: 1.4;
-  transition: transform 0.2s ease;
-}
-
-.profile-card:hover .profile-list li {
-  transform: translateX(2px);
+  color: #5f6f7c;
+  font-size: 0.96rem;
+  line-height: 1.5;
 }
 
 .check-icon {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   border-radius: 999px;
   display: inline-grid;
   place-items: center;
   background: #e3f4ef;
-  color: #44b89d;
-  font-size: 0.8rem;
-  font-weight: 700;
+  color: #1fa178;
+  font-size: 0.78rem;
+  font-weight: 900;
   flex-shrink: 0;
-  transition: transform 0.25s ease;
-}
-
-.profile-card:hover .check-icon {
-  transform: scale(1.08);
 }
 
 .profile-action {
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
-  transform: translateY(10px);
-  transition: all 0.25s ease;
-}
-
-.profile-card:hover .profile-action {
-  max-height: 80px;
-  opacity: 1;
-  transform: translateY(0);
-  margin-top: 20px;
+  margin-top: 24px;
 }
 
 .profile-button {
+  display: block;
   width: 100%;
-  border: none;
-  border-radius: 12px;
+  text-align: center;
+  border-radius: 14px;
   padding: 14px 18px;
-  background: #dbe5f1;
-  color: #547298;
+  background: #0c447c;
+  color: white;
   font-size: 0.95rem;
-  font-weight: 500;
-  cursor: pointer;
+  font-weight: 800;
+  text-decoration: none;
   transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .profile-button:hover {
-  background: #cfdbeb;
-  transform: scale(1.02);
-  box-shadow: 0 8px 18px rgba(84, 114, 152, 0.18);
+  background: #08345f;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(12, 68, 124, 0.2);
 }
 
 @media (max-width: 960px) {
@@ -315,13 +283,6 @@ export default {
 
   .profile-card {
     min-height: auto;
-  }
-
-  .profile-action {
-    max-height: 80px;
-    opacity: 1;
-    transform: translateY(0);
-    margin-top: 20px;
   }
 }
 </style>

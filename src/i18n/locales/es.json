@@ -91,16 +91,17 @@
     ]
   },
   "profiles": {
-    "label": "PARA QUIÉN",
-    "title": "Una plataforma, tres perfiles",
+    "label": "Perfiles de usuario",
+    "title": "Una plataforma para ciudadanos, operadores y supervisores",
+    "description": "FlowQueue organiza la experiencia de cada actor involucrado en la atención, desde la solicitud del turno hasta el análisis de resultados por sede.",
     "citizen": {
       "title": "Ciudadano",
       "subtitle": "Usuario final",
       "items": [
-        "Obtener turno remoto",
-        "Ver posición en cola",
-        "Recibir notificaciones",
-        "Reducir espera"
+        "Obtener un turno remoto desde el celular",
+        "Ver su posición en la cola en tiempo real",
+        "Recibir notificaciones antes de ser atendido",
+        "Reducir el tiempo perdido en filas físicas"
       ],
       "button": "Obtener turno ahora"
     },
@@ -108,10 +109,10 @@
       "title": "Operador",
       "subtitle": "Personal administrativo",
       "items": [
-        "Llamar turnos",
-        "Priorizar casos especiales",
-        "Controlar flujo en vivo",
-        "Reducir el desorden"
+        "Llamar turnos desde un panel simple",
+        "Priorizar casos especiales o urgentes",
+        "Controlar el flujo de atención en vivo",
+        "Reducir errores en la gestión manual"
       ],
       "button": "Gestionar atención"
     },
@@ -119,38 +120,42 @@
       "title": "Supervisor",
       "subtitle": "Responsable de sede",
       "items": [
-        "Ver métricas por sede",
-        "Identificar horas pico",
-        "Generar reportes",
-        "Optimizar recursos"
+        "Ver métricas por sede y ventanilla",
+        "Identificar horas pico y congestión",
+        "Generar reportes de atención",
+        "Optimizar recursos y personal disponible"
       ],
-      "button": "Ver métricas"
+      "button": "Ver resultados"
     }
   },
   "metrics": {
-    "label": "RESULTADOS ESPERADOS",
-    "title": "Impacto medible desde el día uno",
-    "description": "Basado en hipótesis y pruebas piloto con instituciones públicas de Lima.",
+    "label": "Impacto esperado",
+    "title": "Resultados medibles para una atención más eficiente",
+    "description": "FlowQueue busca generar mejoras visibles en la experiencia del ciudadano y en la gestión interna de las instituciones públicas.",
     "items": [
       {
         "id": 1,
         "value": "30",
-        "text": "reducción en tiempo de espera presencial"
+        "title": "Menos espera presencial",
+        "text": "Reducción estimada del tiempo que el ciudadano permanece físicamente en una sede."
       },
       {
         "id": 2,
         "value": "25",
-        "text": "aumento en satisfacción del ciudadano (NPS)"
+        "title": "Más satisfacción",
+        "text": "Mejora esperada en la percepción del ciudadano al recibir información clara sobre su turno."
       },
       {
         "id": 3,
         "value": "70",
-        "text": "tickets generados de forma remota"
+        "title": "Tickets remotos",
+        "text": "Porcentaje estimado de turnos que podrían generarse desde un celular o navegador web."
       },
       {
         "id": 4,
         "value": "15",
-        "text": "reducción de costos operativos de gestión"
+        "title": "Menos carga operativa",
+        "text": "Reducción proyectada del esfuerzo manual en la organización y control de colas."
       }
     ]
   },

@@ -8,7 +8,7 @@ const metrics = computed(() => tm("metrics.items"));
 </script>
 
 <template>
-  <section class="metrics-section" id="precios">
+  <section class="metrics-section" id="resultados">
     <div class="metrics-container">
       <div class="section-header">
         <p class="section-label">{{ t("metrics.label") }}</p>
@@ -19,13 +19,17 @@ const metrics = computed(() => tm("metrics.items"));
       </div>
 
       <div class="metrics-grid">
-        <div v-for="item in metrics" :key="item.id" class="metric-card">
-          <div class="metric-value">
-            <span class="number">{{ item.value }}</span>
-            <span class="percent">%</span>
+        <article v-for="item in metrics" :key="item.id" class="metric-card">
+          <div class="metric-top">
+            <div class="metric-value">
+              <span class="number">{{ item.value }}</span>
+              <span class="percent">%</span>
+            </div>
           </div>
+
+          <h3>{{ item.title }}</h3>
           <p class="metric-text">{{ item.text }}</p>
-        </div>
+        </article>
       </div>
     </div>
   </section>
@@ -33,9 +37,11 @@ const metrics = computed(() => tm("metrics.items"));
 
 <style scoped>
 .metrics-section {
-  background-color: #0d4f8b;
-  padding: 70px 24px;
+  width: 100%;
+  background: linear-gradient(180deg, #0c447c 0%, #08345f 100%);
+  padding: 90px 24px;
   color: #ffffff;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
 }
 
 .metrics-container {
@@ -45,28 +51,31 @@ const metrics = computed(() => tm("metrics.items"));
 
 .section-header {
   text-align: center;
-  margin-bottom: 36px;
+  max-width: 760px;
+  margin: 0 auto 46px;
 }
 
 .section-label {
-  margin: 0 0 10px;
+  margin: 0 0 12px;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 800;
   letter-spacing: 0.08em;
-  color: #9fc2e4;
+  color: #7ee7bf;
+  text-transform: uppercase;
 }
 
 .section-header h2 {
-  margin: 0 0 10px;
-  font-size: 2.2rem;
-  font-weight: 500;
-  line-height: 1.2;
+  margin: 0 0 14px;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
 }
 
 .section-description {
   margin: 0;
-  font-size: 15px;
-  color: #c7d9ec;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.8;
 }
 
 .metrics-grid {
@@ -76,15 +85,13 @@ const metrics = computed(() => tm("metrics.items"));
 }
 
 .metric-card {
-  background-color: #083763;
-  border-radius: 18px;
-  min-height: 190px;
-  padding: 30px 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 24px;
+  min-height: 250px;
+  padding: 30px 22px;
   text-align: center;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
   position: relative;
   overflow: hidden;
   cursor: pointer;
@@ -97,11 +104,11 @@ const metrics = computed(() => tm("metrics.items"));
   background: linear-gradient(
       120deg,
       rgba(255, 255, 255, 0) 20%,
-      rgba(255, 255, 255, 0.08) 50%,
+      rgba(255, 255, 255, 0.09) 50%,
       rgba(255, 255, 255, 0) 80%
   );
   transform: translateX(-120%);
-  transition: transform 0.5s ease;
+  transition: transform 0.55s ease;
   pointer-events: none;
 }
 
@@ -110,48 +117,44 @@ const metrics = computed(() => tm("metrics.items"));
 }
 
 .metric-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
-  background-color: #0a3f72;
+  transform: translateY(-7px);
+  background: rgba(255, 255, 255, 0.13);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.2);
 }
 
 .metric-value {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: center;
-  gap: 6px;
-  margin-bottom: 18px;
+  gap: 5px;
+  margin-bottom: 20px;
 }
 
 .number {
-  font-size: 52px;
-  font-weight: 500;
+  font-size: 56px;
+  font-weight: 900;
   line-height: 1;
-  transition: transform 0.25s ease;
+  color: white;
 }
 
 .percent {
-  font-size: 24px;
-  color: #49d3c5;
-  font-weight: 500;
-  transition: transform 0.25s ease, color 0.25s ease;
+  font-size: 25px;
+  color: #7ee7bf;
+  font-weight: 800;
 }
 
-.metric-card:hover .number,
-.metric-card:hover .percent {
-  transform: scale(1.06);
-}
-
-.metric-card:hover .percent {
-  color: #67eadc;
+.metric-card h3 {
+  margin: 0 0 12px;
+  font-size: 1.05rem;
+  color: #ffffff;
 }
 
 .metric-text {
   margin: 0 auto;
-  max-width: 180px;
-  font-size: 14px;
-  line-height: 1.5;
-  color: #c7d9ec;
+  max-width: 220px;
+  font-size: 0.94rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.78);
 }
 
 @media (max-width: 1024px) {
@@ -162,11 +165,7 @@ const metrics = computed(() => tm("metrics.items"));
 
 @media (max-width: 640px) {
   .metrics-section {
-    padding: 50px 20px;
-  }
-
-  .section-header h2 {
-    font-size: 1.8rem;
+    padding: 70px 18px;
   }
 
   .metrics-grid {
@@ -174,7 +173,7 @@ const metrics = computed(() => tm("metrics.items"));
   }
 
   .number {
-    font-size: 42px;
+    font-size: 46px;
   }
 }
 </style>

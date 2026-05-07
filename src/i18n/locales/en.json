@@ -91,16 +91,17 @@
     ]
   },
   "profiles": {
-    "label": "FOR WHOM",
-    "title": "One platform, three profiles",
+    "label": "User profiles",
+    "title": "One platform for citizens, operators and supervisors",
+    "description": "FlowQueue organizes the experience of each actor involved in service delivery, from ticket request to branch-level performance analysis.",
     "citizen": {
       "title": "Citizen",
       "subtitle": "End user",
       "items": [
-        "Get a remote ticket",
-        "View queue position",
-        "Receive notifications",
-        "Reduce waiting time"
+        "Get a remote ticket from a phone",
+        "View queue position in real time",
+        "Receive notifications before being served",
+        "Reduce time lost in physical queues"
       ],
       "button": "Get ticket now"
     },
@@ -108,10 +109,10 @@
       "title": "Operator",
       "subtitle": "Administrative staff",
       "items": [
-        "Call turns",
-        "Prioritize special cases",
-        "Control live flow",
-        "Reduce disorder"
+        "Call tickets from a simple panel",
+        "Prioritize special or urgent cases",
+        "Control the live service flow",
+        "Reduce errors in manual management"
       ],
       "button": "Manage service"
     },
@@ -119,38 +120,42 @@
       "title": "Supervisor",
       "subtitle": "Branch manager",
       "items": [
-        "View branch metrics",
-        "Identify peak hours",
-        "Generate reports",
-        "Optimize resources"
+        "View metrics by branch and counter",
+        "Identify peak hours and congestion",
+        "Generate service reports",
+        "Optimize resources and available staff"
       ],
-      "button": "View metrics"
+      "button": "View results"
     }
   },
   "metrics": {
-    "label": "EXPECTED RESULTS",
-    "title": "Measurable impact from day one",
-    "description": "Based on hypotheses and pilot tests with public institutions in Lima.",
+    "label": "Expected impact",
+    "title": "Measurable results for more efficient service",
+    "description": "FlowQueue aims to generate visible improvements in citizen experience and internal management for public institutions.",
     "items": [
       {
         "id": 1,
         "value": "30",
-        "text": "reduction in on-site waiting time"
+        "title": "Less on-site waiting",
+        "text": "Estimated reduction in the time citizens spend physically waiting at a branch."
       },
       {
         "id": 2,
         "value": "25",
-        "text": "increase in citizen satisfaction (NPS)"
+        "title": "Higher satisfaction",
+        "text": "Expected improvement in citizen perception by providing clear information about their turn."
       },
       {
         "id": 3,
         "value": "70",
-        "text": "tickets generated remotely"
+        "title": "Remote tickets",
+        "text": "Estimated percentage of turns that could be generated from a phone or web browser."
       },
       {
         "id": 4,
         "value": "15",
-        "text": "reduction in operational management costs"
+        "title": "Less operational workload",
+        "text": "Projected reduction in manual effort for organizing and controlling queues."
       }
     ]
   },
