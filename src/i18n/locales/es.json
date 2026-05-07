@@ -165,8 +165,39 @@
     "consoleMessage": "Email enviado:"
   },
   "team": {
-    "title": "Sobre nosotros",
-    "footer": "EQUIPO DE FLOWQUEUE",
+    "label": "Sobre nosotros",
+    "title": "Construimos una forma más ordenada de atender al ciudadano",
+    "description": "FlowQueue nace como una propuesta académica y tecnológica para reducir el desorden de las filas físicas en instituciones públicas, mejorando la experiencia del ciudadano y la gestión del personal administrativo.",
+    "storyLabel": "Nuestra historia",
+    "storyTitle": "Una solución pensada desde un problema cotidiano",
+    "storyDescription": "El proyecto surge al identificar que muchas personas pierden tiempo en colas sin información clara sobre su turno. Por eso, FlowQueue propone una plataforma web para gestionar turnos virtuales, monitorear colas y apoyar la toma de decisiones por sede.",
+    "missionLabel": "Misión",
+    "missionTitle": "Digitalizar la atención",
+    "missionDescription": "Ayudar a instituciones públicas a organizar sus procesos de atención mediante una solución simple, accesible y orientada a datos.",
+    "visionLabel": "Visión",
+    "visionTitle": "Atención pública más eficiente",
+    "visionDescription": "Convertir FlowQueue en una solución escalable para sedes con alta demanda, reduciendo tiempos de espera y mejorando la confianza ciudadana.",
+    "valuesTitle": "Nuestros valores",
+    "values": [
+      {
+        "icon": "🤝",
+        "text": "Trabajo colaborativo"
+      },
+      {
+        "icon": "♿",
+        "text": "Accesibilidad"
+      },
+      {
+        "icon": "📊",
+        "text": "Decisiones basadas en datos"
+      },
+      {
+        "icon": "⚡",
+        "text": "Eficiencia operativa"
+      }
+    ],
+    "membersTitle": "Nuestro equipo",
+    "membersDescription": "Somos un equipo de estudiantes enfocado en diseñar una solución útil, clara y aplicable a escenarios reales de atención ciudadana.",
     "roles": {
       "member": "Miembro",
       "leader": "Team Leader"
@@ -202,15 +233,66 @@
         "role": "leader",
         "photoKey": "luis"
       }
-    ]
+    ],
+    "footer": "Equipo de FlowQueue"
   },
   "footer": {
-    "country": "— Perú",
-    "privacy": "Privacidad",
-    "terms": "Términos",
-    "contact": "Contacto",
-    "github": "GitHub",
-    "rights": "Todos los derechos reservados."
+    "description": "FlowQueue es una plataforma web para gestionar colas virtuales, mejorar la atención ciudadana y apoyar a instituciones públicas con métricas en tiempo real.",
+    "productTitle": "Producto",
+    "companyTitle": "Empresa",
+    "legalTitle": "Legal",
+    "contactTitle": "Contacto",
+    "email": "contacto@flowqueue.pe",
+    "phone": "+51 987 654 321",
+    "location": "Lima, Perú",
+    "rights": "Todos los derechos reservados.",
+    "note": "Proyecto académico desarrollado para validar una solución de gestión de colas virtuales.",
+    "productLinks": [
+      {
+        "label": "Inicio",
+        "href": "#home"
+      },
+      {
+        "label": "Cómo funciona",
+        "href": "#como-funciona"
+      },
+      {
+        "label": "Funciones",
+        "href": "#funcionalidades"
+      },
+      {
+        "label": "Planes",
+        "href": "#planes"
+      }
+    ],
+    "companyLinks": [
+      {
+        "label": "Sobre nosotros",
+        "href": "#sobre-nosotros"
+      },
+      {
+        "label": "Contacto",
+        "href": "#contacto"
+      },
+      {
+        "label": "Solicitar demo",
+        "href": "#solicitar"
+      }
+    ],
+    "legalLinks": [
+      {
+        "label": "Privacidad",
+        "href": "#"
+      },
+      {
+        "label": "Términos",
+        "href": "#"
+      },
+      {
+        "label": "Políticas",
+        "href": "#"
+      }
+    ]
   },
 
   "contact": {

@@ -1,29 +1,90 @@
 <script setup>
+import { computed } from "vue";
 import { useI18n } from "vue-i18n";
 
 const currentYear = new Date().getFullYear();
-const { t } = useI18n();
+const { t, tm } = useI18n();
+
+const productLinks = computed(() => tm("footer.productLinks"));
+const companyLinks = computed(() => tm("footer.companyLinks"));
+const legalLinks = computed(() => tm("footer.legalLinks"));
 </script>
 
 <template>
   <footer class="footer">
     <div class="footer-container">
-      <div class="footer-brand">
-        Flow<span>Queue</span>
-        <span class="country">{{ t("footer.country") }}</span>
+      <div class="footer-main">
+        <div class="footer-brand-block">
+          <a href="#home" class="footer-brand">
+            Flow<span>Queue</span>
+          </a>
+
+          <p class="footer-description">
+            {{ t("footer.description") }}
+          </p>
+
+          <div class="footer-socials">
+            <a href="https://github.com/flowqueue" target="_blank" rel="noopener">
+              GitHub
+            </a>
+            <a href="#" target="_blank" rel="noopener">
+              LinkedIn
+            </a>
+            <a href="#" target="_blank" rel="noopener">
+              Instagram
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h3>{{ t("footer.productTitle") }}</h3>
+          <a
+              v-for="(link, index) in productLinks"
+              :key="index"
+              :href="link.href"
+          >
+            {{ link.label }}
+          </a>
+        </div>
+
+        <div class="footer-column">
+          <h3>{{ t("footer.companyTitle") }}</h3>
+          <a
+              v-for="(link, index) in companyLinks"
+              :key="index"
+              :href="link.href"
+          >
+            {{ link.label }}
+          </a>
+        </div>
+
+        <div class="footer-column">
+          <h3>{{ t("footer.legalTitle") }}</h3>
+          <a
+              v-for="(link, index) in legalLinks"
+              :key="index"
+              :href="link.href"
+          >
+            {{ link.label }}
+          </a>
+        </div>
+
+        <div class="footer-column contact-column">
+          <h3>{{ t("footer.contactTitle") }}</h3>
+          <p>{{ t("footer.email") }}</p>
+          <p>{{ t("footer.phone") }}</p>
+          <p>{{ t("footer.location") }}</p>
+        </div>
       </div>
 
-      <nav class="footer-links">
-        <a href="#">{{ t("footer.privacy") }}</a>
-        <a href="#">{{ t("footer.terms") }}</a>
-        <a href="#">{{ t("footer.contact") }}</a>
-        <a href="https://github.com" target="_blank" rel="noopener">
-          {{ t("footer.github") }}
-        </a>
-      </nav>
+      <div class="footer-bottom">
+        <p>
+          © {{ currentYear }} <strong>FlowQueue</strong>. {{ t("footer.rights") }}
+        </p>
 
-      <div class="footer-copy">
-        © {{ currentYear }} <strong>FlowQueue</strong>. {{ t("footer.rights") }}
+        <p class="footer-note">
+          {{ t("footer.note") }}
+        </p>
       </div>
     </div>
   </footer>
@@ -31,93 +92,154 @@ const { t } = useI18n();
 
 <style scoped>
 .footer {
-  background: #042C53;
-  padding: 3rem 1.5rem;
+  background: #042c53;
+  padding: 4rem 1.5rem 2rem;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
+}
+
+.footer-main {
+  display: grid;
+  grid-template-columns: 1.5fr repeat(4, 1fr);
+  gap: 34px;
+  align-items: start;
 }
 
 .footer-brand {
-  font-size: 1.1rem;
-  font-weight: 700;
+  display: inline-block;
   color: #ffffff;
-  letter-spacing: -0.02em;
+  font-size: 1.35rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  text-decoration: none;
+  margin-bottom: 14px;
 }
 
 .footer-brand span {
   color: #22c55e;
 }
 
-.footer-brand .country {
-  color: rgba(255, 255, 255, 0.5);
-  font-weight: 400;
-  font-size: 0.9rem;
-  margin-left: 5px;
+.footer-description {
+  max-width: 340px;
+  margin: 0 0 18px;
+  color: #b8cce0;
+  line-height: 1.7;
+  font-size: 0.94rem;
 }
 
-.footer-links {
+.footer-socials {
   display: flex;
-  gap: 2rem;
   flex-wrap: wrap;
-  justify-content: center;
+  gap: 10px;
 }
 
-.footer-links a {
-  font-size: 0.9rem;
-  color: #9fc2e4;
+.footer-socials a {
+  color: #dcecff;
   text-decoration: none;
-  font-weight: 500;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
   transition: all 0.2s ease;
 }
 
-.footer-links a:hover {
-  color: #ffffff;
-  transform: translateY(-1px);
+.footer-socials a:hover {
+  background: #22c55e;
+  color: white;
+  transform: translateY(-2px);
 }
 
-.footer-copy {
-  font-size: 0.85rem;
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-column h3 {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.footer-column a,
+.footer-column p {
+  margin: 0;
+  color: #9fc2e4;
+  text-decoration: none;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-column a:hover {
+  color: #ffffff;
+  transform: translateX(3px);
+}
+
+.contact-column p {
+  color: #b8cce0;
+}
+
+.footer-bottom {
+  margin-top: 38px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
   color: #cbd5e1;
-  opacity: 0.8;
+  font-size: 0.85rem;
 }
 
-.footer-copy strong {
+.footer-bottom p {
+  margin: 0;
+}
+
+.footer-bottom strong {
   color: #ffffff;
-  font-weight: 600;
 }
 
-/* RESPONSIVE */
-@media (min-width: 768px) {
-  .footer-container {
-    flex-direction: row;
-    justify-content: space-between;
+.footer-note {
+  color: #8fb0ce;
+  text-align: right;
+}
+
+@media (max-width: 1024px) {
+  .footer-main {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .footer-brand {
-    order: 1;
-  }
-
-  .footer-links {
-    order: 2;
-  }
-
-  .footer-copy {
-    order: 3;
+  .footer-brand-block {
+    grid-column: 1 / 3;
   }
 }
 
-@media (max-width: 767px) {
-  .footer-links {
-    gap: 1.2rem;
+@media (max-width: 640px) {
+  .footer {
+    padding: 3.5rem 1.2rem 2rem;
+  }
+
+  .footer-main {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-brand-block {
+    grid-column: auto;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+  }
+
+  .footer-note {
+    text-align: left;
   }
 }
 </style>

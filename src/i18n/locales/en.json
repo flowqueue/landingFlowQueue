@@ -165,8 +165,39 @@
     "consoleMessage": "Email sent:"
   },
   "team": {
-    "title": "About us",
-    "footer": "FLOWQUEUE TEAM",
+    "label": "About us",
+    "title": "We build a more organized way to serve citizens",
+    "description": "FlowQueue was created as an academic and technological proposal to reduce disorder in physical queues at public institutions, improving citizen experience and administrative staff management.",
+    "storyLabel": "Our story",
+    "storyTitle": "A solution based on an everyday problem",
+    "storyDescription": "The project started by identifying that many people lose time in queues without clear information about their turn. FlowQueue proposes a web platform to manage virtual tickets, monitor queues and support branch-level decision-making.",
+    "missionLabel": "Mission",
+    "missionTitle": "Digitize citizen service",
+    "missionDescription": "Help public institutions organize their service processes through a simple, accessible and data-oriented solution.",
+    "visionLabel": "Vision",
+    "visionTitle": "More efficient public service",
+    "visionDescription": "Turn FlowQueue into a scalable solution for high-demand branches, reducing waiting times and improving citizen trust.",
+    "valuesTitle": "Our values",
+    "values": [
+      {
+        "icon": "🤝",
+        "text": "Collaborative work"
+      },
+      {
+        "icon": "♿",
+        "text": "Accessibility"
+      },
+      {
+        "icon": "📊",
+        "text": "Data-driven decisions"
+      },
+      {
+        "icon": "⚡",
+        "text": "Operational efficiency"
+      }
+    ],
+    "membersTitle": "Our team",
+    "membersDescription": "We are a student team focused on designing a useful, clear and applicable solution for real citizen service scenarios.",
     "roles": {
       "member": "Member",
       "leader": "Team Leader"
@@ -202,15 +233,66 @@
         "role": "leader",
         "photoKey": "luis"
       }
-    ]
+    ],
+    "footer": "FlowQueue team"
   },
   "footer": {
-    "country": "— Peru",
-    "privacy": "Privacy",
-    "terms": "Terms",
-    "contact": "Contact",
-    "github": "GitHub",
-    "rights": "All rights reserved."
+    "description": "FlowQueue is a web platform for managing virtual queues, improving citizen service and supporting public institutions with real-time metrics.",
+    "productTitle": "Product",
+    "companyTitle": "Company",
+    "legalTitle": "Legal",
+    "contactTitle": "Contact",
+    "email": "contacto@flowqueue.pe",
+    "phone": "+51 987 654 321",
+    "location": "Lima, Peru",
+    "rights": "All rights reserved.",
+    "note": "Academic project developed to validate a virtual queue management solution.",
+    "productLinks": [
+      {
+        "label": "Home",
+        "href": "#home"
+      },
+      {
+        "label": "How it works",
+        "href": "#como-funciona"
+      },
+      {
+        "label": "Features",
+        "href": "#funcionalidades"
+      },
+      {
+        "label": "Plans",
+        "href": "#planes"
+      }
+    ],
+    "companyLinks": [
+      {
+        "label": "About us",
+        "href": "#sobre-nosotros"
+      },
+      {
+        "label": "Contact",
+        "href": "#contacto"
+      },
+      {
+        "label": "Request demo",
+        "href": "#solicitar"
+      }
+    ],
+    "legalLinks": [
+      {
+        "label": "Privacy",
+        "href": "#"
+      },
+      {
+        "label": "Terms",
+        "href": "#"
+      },
+      {
+        "label": "Policies",
+        "href": "#"
+      }
+    ]
   },
   "contact": {
     "label": "Contact",
