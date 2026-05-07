@@ -212,13 +212,115 @@
     "github": "GitHub",
     "rights": "Todos los derechos reservados."
   },
+
   "contact": {
-    "title": "Contáctenos",
+    "label": "Contacto",
+    "title": "Hablemos sobre FlowQueue",
+    "description": "Estamos listos para ayudarte a modernizar la atención en tu institución. Escríbenos, agenda una conversación o revisa nuestros canales de contacto.",
+    "formTitle": "Envíanos un mensaje",
+    "formSubtitle": "Completa el formulario y nuestro equipo se pondrá en contacto contigo lo antes posible.",
     "namePlaceholder": "Ingrese su nombre",
     "lastnamePlaceholder": "Ingrese sus apellidos",
     "emailPlaceholder": "Ingrese su correo electrónico",
     "phonePlaceholder": "Ingrese su número de teléfono",
-    "submit": "Enviar",
-    "securityText": "Tratamos tu información con los más altos estándares de seguridad y cifrado. Nunca compartiremos tus datos con terceros."
+    "messagePlaceholder": "Cuéntanos qué necesita tu institución",
+    "submit": "Enviar mensaje",
+    "securityText": "Tratamos tu información con los más altos estándares de seguridad y confidencialidad. Nunca compartiremos tus datos con terceros sin tu autorización.",
+    "infoTitle": "Información de contacto",
+    "socialTitle": "Síguenos",
+    "mapTitle": "Nuestra ubicación",
+    "infoItems": [
+      {
+        "icon": "📞",
+        "label": "Teléfono",
+        "value": "+51 987 654 321"
+      },
+      {
+        "icon": "✉️",
+        "label": "Correo",
+        "value": "contacto@flowqueue.pe"
+      },
+      {
+        "icon": "📍",
+        "label": "Dirección",
+        "value": "Lima, Perú"
+      },
+      {
+        "icon": "🕒",
+        "label": "Horario de atención",
+        "value": "Lunes a viernes, 9:00 a. m. - 6:00 p. m."
+      }
+    ],
+    "socialLinks": [
+      {
+        "icon": "🌐",
+        "name": "Sitio web",
+        "url": "#"
+      },
+      {
+        "icon": "💼",
+        "name": "LinkedIn",
+        "url": "#"
+      },
+      {
+        "icon": "📸",
+        "name": "Instagram",
+        "url": "#"
+      },
+      {
+        "icon": "💻",
+        "name": "GitHub",
+        "url": "https://github.com/flowqueue"
+      }
+    ]
+  },
+  "problem": {
+    "label": "Problema",
+    "title": "Las filas físicas siguen afectando la atención ciudadana",
+    "description": "Muchas instituciones públicas todavía gestionan la atención con procesos manuales, lo que genera largas esperas, desorden en ventanillas y poca información para el ciudadano.",
+    "items": [
+      {
+        "icon": "⏳",
+        "title": "Espera incierta",
+        "description": "El ciudadano no sabe cuánto falta para ser atendido ni en qué momento debe acercarse a la sede."
+      },
+      {
+        "icon": "📋",
+        "title": "Gestión manual",
+        "description": "El personal administrativo suele controlar los turnos de forma manual, aumentando errores y retrasos."
+      },
+      {
+        "icon": "📊",
+        "title": "Falta de datos",
+        "description": "Los supervisores no cuentan con métricas claras para identificar horas pico o mejorar la distribución de recursos."
+      }
+    ]
+  },
+  "howItWorks": {
+    "label": "Cómo funciona",
+    "title": "Un proceso simple para ciudadanos e instituciones",
+    "description": "FlowQueue organiza la atención desde que el ciudadano solicita un turno hasta que la institución mide el rendimiento de sus sedes.",
+    "steps": [
+      {
+        "title": "Busca una entidad",
+        "description": "El ciudadano selecciona la institución, sede y trámite que desea realizar."
+      },
+      {
+        "title": "Genera un ticket virtual",
+        "description": "Obtiene un código de turno desde su celular sin necesidad de hacer una fila física desde el inicio."
+      },
+      {
+        "title": "Monitorea la cola",
+        "description": "Visualiza su posición, el estado del turno y el tiempo estimado de espera en tiempo real."
+      },
+      {
+        "title": "Gestiona la atención",
+        "description": "El operador llama turnos y el supervisor revisa métricas para mejorar el flujo de atención."
+      }
+    ],
+    "demoLabel": "Demo institucional",
+    "demoTitle": "Prueba FlowQueue en una sede piloto",
+    "demoDescription": "Solicita una demostración para visualizar cómo funcionaría la cola virtual en una institución pública.",
+    "demoButton": "Solicitar demo"
   }
 }

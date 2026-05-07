@@ -213,12 +213,113 @@
     "rights": "All rights reserved."
   },
   "contact": {
-    "title": "Contact us",
+    "label": "Contact",
+    "title": "Let’s talk about FlowQueue",
+    "description": "We are ready to help you modernize citizen service in your institution. Write to us, schedule a conversation, or explore our contact channels.",
+    "formTitle": "Send us a message",
+    "formSubtitle": "Complete the form and our team will contact you as soon as possible.",
     "namePlaceholder": "Enter your first name",
     "lastnamePlaceholder": "Enter your last name",
     "emailPlaceholder": "Enter your email address",
     "phonePlaceholder": "Enter your phone number",
-    "submit": "Send",
-    "securityText": "We handle your information with the highest security and encryption standards. We will never share your data with third parties."
+    "messagePlaceholder": "Tell us what your institution needs",
+    "submit": "Send message",
+    "securityText": "We treat your information with the highest standards of security and confidentiality. We will never share your data with third parties without your authorization.",
+    "infoTitle": "Contact information",
+    "socialTitle": "Follow us",
+    "mapTitle": "Our location",
+    "infoItems": [
+      {
+        "icon": "📞",
+        "label": "Phone",
+        "value": "+51 987 654 321"
+      },
+      {
+        "icon": "✉️",
+        "label": "Email",
+        "value": "contacto@flowqueue.pe"
+      },
+      {
+        "icon": "📍",
+        "label": "Address",
+        "value": "Lima, Peru"
+      },
+      {
+        "icon": "🕒",
+        "label": "Business hours",
+        "value": "Monday to Friday, 9:00 a.m. - 6:00 p.m."
+      }
+    ],
+    "socialLinks": [
+      {
+        "icon": "🌐",
+        "name": "Website",
+        "url": "#"
+      },
+      {
+        "icon": "💼",
+        "name": "LinkedIn",
+        "url": "#"
+      },
+      {
+        "icon": "📸",
+        "name": "Instagram",
+        "url": "#"
+      },
+      {
+        "icon": "💻",
+        "name": "GitHub",
+        "url": "https://github.com/flowqueue"
+      }
+    ]
+  },
+  "problem": {
+    "label": "Problem",
+    "title": "Physical queues still affect citizen service",
+    "description": "Many public institutions still manage service processes manually, causing long waiting times, disorganized counters and limited information for citizens.",
+    "items": [
+      {
+        "icon": "⏳",
+        "title": "Uncertain waiting",
+        "description": "Citizens do not know how long they must wait or when they should approach the branch."
+      },
+      {
+        "icon": "📋",
+        "title": "Manual management",
+        "description": "Administrative staff often control turns manually, increasing mistakes, delays and operational disorder."
+      },
+      {
+        "icon": "📊",
+        "title": "Lack of data",
+        "description": "Supervisors do not have clear metrics to identify peak hours or improve resource distribution."
+      }
+    ]
+  },
+  "howItWorks": {
+    "label": "How it works",
+    "title": "A simple process for citizens and institutions",
+    "description": "FlowQueue organizes service from the moment a citizen requests a ticket until the institution measures branch performance.",
+    "steps": [
+      {
+        "title": "Search for an institution",
+        "description": "The citizen selects the institution, branch and service they need."
+      },
+      {
+        "title": "Generate a virtual ticket",
+        "description": "They receive a turn code from their phone without having to wait physically from the beginning."
+      },
+      {
+        "title": "Monitor the queue",
+        "description": "They view their position, ticket status and estimated waiting time in real time."
+      },
+      {
+        "title": "Manage service flow",
+        "description": "The operator calls tickets and the supervisor reviews metrics to improve the service flow."
+      }
+    ],
+    "demoLabel": "Institutional demo",
+    "demoTitle": "Test FlowQueue in a pilot branch",
+    "demoDescription": "Request a demo to see how the virtual queue would work in a public institution.",
+    "demoButton": "Request demo"
   }
 }
