@@ -48,43 +48,47 @@
     "nextTicketStatus": "next"
   },
   "functionalities": {
-    "label": "FEATURES",
-    "title": "Everything you need",
-    "description": "One platform for citizens, operators and supervisors.",
+    "label": "Features",
+    "title": "Features designed to reduce queues and organize service",
+    "description": "FlowQueue brings together the core tools citizens, operators and supervisors need to work with clear and updated information.",
+    "highlightTag": "Smart management",
+    "highlightTitle": "Control the queue from ticket request to final report",
+    "highlightDescription": "The platform connects the citizen’s virtual ticket with the operator panel and supervisor metrics, avoiding isolated processes and reducing manual work.",
+    "highlightButton": "Request demo",
     "items": [
       {
         "title": "Virtual ticket",
-        "desc": "Get your number from your phone without going to the branch.",
+        "desc": "Allows citizens to get a ticket from their phone before arriving at the branch.",
         "color": "blue",
         "icon": "ticket"
       },
       {
         "title": "Real-time queue",
-        "desc": "View your position and updated estimated waiting time.",
+        "desc": "Shows the citizen’s position, ticket status and estimated waiting time.",
         "color": "green",
         "icon": "clock"
       },
       {
         "title": "Notifications",
-        "desc": "Alerts when your turn is coming soon. Arrive on time.",
+        "desc": "Sends alerts when the turn is coming soon, helping users arrive at the right moment.",
         "color": "orange",
         "icon": "bell"
       },
       {
-        "title": "Admin dashboard",
-        "desc": "Panel to manage turns and control the live service flow.",
+        "title": "Operator panel",
+        "desc": "Makes it easier to call tickets, mark statuses and prioritize special cases from a simple interface.",
         "color": "blue",
         "icon": "dashboard"
       },
       {
-        "title": "Analytics",
-        "desc": "Reports on attendance and peak hours by branch.",
+        "title": "Branch analytics",
+        "desc": "Allows teams to review waiting times, peak hours and performance by counter or service.",
         "color": "green",
         "icon": "chart"
       },
       {
-        "title": "Multi-branch",
-        "desc": "Manage multiple branches from a single account.",
+        "title": "Multi-branch management",
+        "desc": "Centralizes the administration of multiple branches, services and operators in one platform.",
         "color": "blue",
         "icon": "layers"
       }

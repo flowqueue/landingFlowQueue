@@ -48,43 +48,47 @@
     "nextTicketStatus": "próximo"
   },
   "functionalities": {
-    "label": "FUNCIONALIDADES",
-    "title": "Todo lo que necesitas",
-    "description": "Una sola plataforma para ciudadanos, operadores y supervisores.",
+    "label": "Funcionalidades",
+    "title": "Funciones diseñadas para reducir filas y ordenar la atención",
+    "description": "FlowQueue reúne las herramientas principales para que ciudadanos, operadores y supervisores trabajen con información clara y actualizada.",
+    "highlightTag": "Gestión inteligente",
+    "highlightTitle": "Controla la cola desde el turno hasta el reporte final",
+    "highlightDescription": "La plataforma conecta el ticket virtual del ciudadano con el panel del operador y las métricas del supervisor, evitando procesos aislados y reduciendo el trabajo manual.",
+    "highlightButton": "Solicitar demo",
     "items": [
       {
         "title": "Ticket virtual",
-        "desc": "Obtén tu número desde el celular sin ir a la sede.",
+        "desc": "Permite que el ciudadano obtenga un turno desde su celular antes de llegar a la sede.",
         "color": "blue",
         "icon": "ticket"
       },
       {
         "title": "Cola en tiempo real",
-        "desc": "Visualiza tu posición y tiempo estimado actualizado.",
+        "desc": "Muestra la posición del ciudadano, el estado del turno y el tiempo estimado de espera.",
         "color": "green",
         "icon": "clock"
       },
       {
         "title": "Notificaciones",
-        "desc": "Alertas cuando tu turno esté próximo. Llega a tiempo.",
+        "desc": "Envía alertas cuando el turno está próximo, ayudando al usuario a llegar en el momento adecuado.",
         "color": "orange",
         "icon": "bell"
       },
       {
-        "title": "Dashboard admin",
-        "desc": "Panel para gestionar turnos y controlar el flujo en vivo.",
+        "title": "Panel del operador",
+        "desc": "Facilita llamar turnos, marcar estados y priorizar casos especiales desde una interfaz simple.",
         "color": "blue",
         "icon": "dashboard"
       },
       {
-        "title": "Analítica",
-        "desc": "Reportes de afluencia y horas pico por sede.",
+        "title": "Analítica por sede",
+        "desc": "Permite revisar tiempos de espera, horas pico y rendimiento por ventanilla o servicio.",
         "color": "green",
         "icon": "chart"
       },
       {
-        "title": "Multi-sede",
-        "desc": "Administra varias sedes desde una sola cuenta.",
+        "title": "Gestión multi-sede",
+        "desc": "Centraliza la administración de varias sedes, servicios y operadores desde una sola plataforma.",
         "color": "blue",
         "icon": "layers"
       }

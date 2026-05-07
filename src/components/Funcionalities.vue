@@ -8,205 +8,268 @@ const features = computed(() => tm("functionalities.items"));
 </script>
 
 <template>
-  <section class="section-wrapper" id="funcionalidades">
-    <div class="container">
-
-      <!-- HEADER -->
-      <div class="section-header">
-        <h2>{{ t("functionalities.label") }}</h2>
-        <h1>{{ t("functionalities.title") }}</h1>
+  <section class="features-section" id="funcionalidades">
+    <div class="features-container">
+      <div class="features-header">
+        <p class="section-label">{{ t("functionalities.label") }}</p>
+        <h2>{{ t("functionalities.title") }}</h2>
         <p>{{ t("functionalities.description") }}</p>
       </div>
 
-      <!-- GRID -->
-      <div class="cards-container">
-        <div class="card" v-for="f in features" :key="f.title">
+      <div class="features-layout">
+        <div class="features-highlight">
+          <span class="highlight-tag">{{ t("functionalities.highlightTag") }}</span>
+          <h3>{{ t("functionalities.highlightTitle") }}</h3>
+          <p>{{ t("functionalities.highlightDescription") }}</p>
 
-          <!-- ICON -->
-          <div class="icon-box" :class="f.color">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <a href="#solicitar" class="highlight-button">
+            {{ t("functionalities.highlightButton") }}
+          </a>
+        </div>
 
-              <template v-if="f.icon === 'ticket'">
-                <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    d="M3.375 5.25h17.25v13.5H3.375zM7.5 12h5.25M7.5 15h3"
-                />
-              </template>
+        <div class="features-grid">
+          <article class="feature-card" v-for="feature in features" :key="feature.title">
+            <div class="icon-box" :class="feature.color">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <template v-if="feature.icon === 'ticket'">
+                  <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.7"
+                      d="M3.375 5.25h17.25v13.5H3.375zM7.5 12h5.25M7.5 15h3"
+                  />
+                </template>
 
-              <template v-else-if="f.icon === 'clock'">
-                <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    d="M12 6v6l4 2m6-2a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </template>
+                <template v-else-if="feature.icon === 'clock'">
+                  <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.7"
+                      d="M12 6v6l4 2m6-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </template>
 
-              <template v-else-if="f.icon === 'bell'">
-                <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0018 9.75V9a6 6 0 10-12 0v.75c0 2.086-.672 4.017-1.857 5.522"
-                />
-              </template>
+                <template v-else-if="feature.icon === 'bell'">
+                  <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.7"
+                      d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0018 9.75V9a6 6 0 10-12 0v.75c0 2.086-.672 4.017-1.857 5.522"
+                  />
+                </template>
 
-              <template v-else-if="f.icon === 'dashboard'">
-                <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    d="M3 13h8V3H3v10zm10 8h8v-6h-8v6zm0-8h8V3h-8v10zM3 21h8v-4H3v4z"
-                />
-              </template>
+                <template v-else-if="feature.icon === 'dashboard'">
+                  <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.7"
+                      d="M3 13h8V3H3v10zm10 8h8v-6h-8v6zm0-8h8V3h-8v10zM3 21h8v-4H3v4z"
+                  />
+                </template>
 
-              <template v-else-if="f.icon === 'chart'">
-                <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    d="M3 17l6-6 4 4 8-8"
-                />
-              </template>
+                <template v-else-if="feature.icon === 'chart'">
+                  <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.7"
+                      d="M3 17l6-6 4 4 8-8"
+                  />
+                </template>
 
-              <template v-else-if="f.icon === 'layers'">
-                <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    d="M12 3l9 6-9 6-9-6 9-6zm0 12l9 6-9 6-9-6 9-6z"
-                />
-              </template>
+                <template v-else-if="feature.icon === 'layers'">
+                  <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.7"
+                      d="M12 3l9 6-9 6-9-6 9-6zm0 12l9 6-9 6-9-6 9-6z"
+                  />
+                </template>
+              </svg>
+            </div>
 
-            </svg>
-          </div>
-
-          <!-- TEXT -->
-          <div class="content">
-            <h4>{{ f.title }}</h4>
-            <p>{{ f.desc }}</p>
-          </div>
-
+            <div class="feature-content">
+              <h3>{{ feature.title }}</h3>
+              <p>{{ feature.desc }}</p>
+            </div>
+          </article>
         </div>
       </div>
-
     </div>
   </section>
 </template>
 
 <style scoped>
-/* FULL WIDTH SECTION */
-.section-wrapper {
+.features-section {
   width: 100%;
-  background: #f5f3ef;
-  padding: 80px 20px;
-  box-sizing: border-box;
+  padding: 90px 24px;
+  background: #f7fafc;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
 }
 
-/* CENTERED CONTENT */
-.container {
+.features-container {
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* HEADER */
-.section-header {
-  margin-bottom: 40px;
-  max-width: 600px;
+.features-header {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 50px;
 }
 
-.section-header h2 {
-  font-size: 14px;
-  color: #1f5fa8;
-  letter-spacing: 1px;
+.section-label {
+  margin: 0 0 12px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #1fa178;
+  text-transform: uppercase;
+}
+
+.features-header h2 {
+  margin: 0 0 14px;
+  color: #0c447c;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.15;
+  font-weight: 800;
+}
+
+.features-header p {
   margin: 0;
+  color: #5f6f7c;
+  line-height: 1.8;
+  font-size: 1rem;
 }
 
-.section-header h1 {
-  font-size: 36px;
-  margin: 8px 0;
-  color: #0C447C;
-}
-
-.section-header p {
-  font-size: 16px;
-  color: #6b7280;
-  margin: 0;
-}
-
-/* GRID */
-.cards-container {
+.features-layout {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  grid-template-columns: 0.85fr 1.4fr;
+  gap: 28px;
+  align-items: stretch;
 }
 
-/* CARD */
-.card {
-  background: #fff;
-  border-radius: 16px;
-  border: 1px solid #e5e7eb;
-  padding: 16px;
-  height: 130px;
+.features-highlight {
+  background: linear-gradient(180deg, #0c447c 0%, #08345f 100%);
+  color: white;
+  border-radius: 28px;
+  padding: 34px;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  transition: all 0.2s ease;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
+  justify-content: center;
+  box-shadow: 0 18px 42px rgba(12, 68, 124, 0.18);
 }
 
-.card::before {
+.highlight-tag {
+  display: inline-block;
+  width: fit-content;
+  margin-bottom: 18px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(31, 161, 120, 0.18);
+  color: #7ee7bf;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.features-highlight h3 {
+  margin: 0 0 16px;
+  font-size: clamp(1.65rem, 3vw, 2.35rem);
+  line-height: 1.15;
+}
+
+.features-highlight p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.75;
+}
+
+.highlight-button {
+  margin-top: 28px;
+  display: inline-block;
+  width: fit-content;
+  text-decoration: none;
+  background: #22c55e;
+  color: white;
+  font-weight: 800;
+  padding: 14px 20px;
+  border-radius: 14px;
+  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.highlight-button:hover {
+  background: #16a34a;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(34, 197, 94, 0.22);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.feature-card {
+  background: #ffffff;
+  border: 1px solid #e2ebf2;
+  border-radius: 22px;
+  padding: 24px;
+  display: flex;
+  gap: 16px;
+  min-height: 170px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
       120deg,
       rgba(255, 255, 255, 0) 20%,
-      rgba(31, 95, 168, 0.08) 50%,
+      rgba(31, 161, 120, 0.07) 50%,
       rgba(255, 255, 255, 0) 80%
   );
   transform: translateX(-120%);
-  transition: transform 0.5s ease;
+  transition: transform 0.55s ease;
   pointer-events: none;
 }
 
-.card:hover::before {
+.feature-card:hover::before {
   transform: translateX(120%);
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 24px rgba(12, 68, 124, 0.12);
-  border-color: rgba(31, 95, 168, 0.35);
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 38px rgba(15, 23, 42, 0.11);
+  border-color: rgba(31, 161, 120, 0.45);
 }
 
-/* ICON */
 .icon-box {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
+  width: 54px;
+  height: 54px;
+  min-width: 54px;
+  border-radius: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 10px;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.card:hover .icon-box {
+.feature-card:hover .icon-box {
   transform: scale(1.08);
   box-shadow: 0 8px 16px rgba(12, 68, 124, 0.12);
 }
 
 .icon-box svg {
-  width: 22px;
-  height: 22px;
+  width: 25px;
+  height: 25px;
 }
 
-/* COLORS */
 .icon-box.blue {
   background: #dbeafe;
   color: #1d4ed8;
@@ -222,44 +285,41 @@ const features = computed(() => tm("functionalities.items"));
   color: #d97706;
 }
 
-/* TEXT */
-.content h4 {
-  margin: 0 0 4px;
-  font-size: 15px;
-  color: #0C447C;
-  transition: color 0.25s ease;
+.feature-content h3 {
+  margin: 0 0 8px;
+  color: #0c447c;
+  font-size: 1.08rem;
+  font-weight: 800;
 }
 
-.content p {
+.feature-content p {
   margin: 0;
-  font-size: 13px;
-  color: #6b7280;
+  color: #5f6f7c;
+  line-height: 1.65;
+  font-size: 0.94rem;
 }
 
-.card:hover .content h4 {
-  color: #1f5fa8;
-}
-
-/* TABLET */
 @media (max-width: 1024px) {
-  .cards-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* MOBILE */
-@media (max-width: 640px) {
-  .cards-container {
+  .features-layout {
     grid-template-columns: 1fr;
   }
 
-  .section-header h1 {
-    font-size: 28px;
+  .features-highlight {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .features-section {
+    padding: 70px 18px;
   }
 
-  .card {
-    height: auto;
-    min-height: 130px;
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-card {
+    flex-direction: column;
   }
 }
 </style>
