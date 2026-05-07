@@ -29,8 +29,7 @@ function changeLanguage(lang) {
         <li><a href="#home" @click="isOpen = false">{{ t("navbar.home") }}</a></li>
         <li><a href="#como-funciona" @click="isOpen = false">{{ t("navbar.howItWorks") }}</a></li>
         <li><a href="#funcionalidades" @click="isOpen = false">{{ t("navbar.features") }}</a></li>
-        <li><a href="#planes" @click="isOpen = false">{{ t("navbar.pricing") }}</a></li>
-        <li><a href="#sobre-nosotros" @click="isOpen = false">{{ t("navbar.aboutUs") }}</a></li>
+        <li><a href="#planes" @click="isOpen = false">{{ t("navbar.pricing") }}</a></li>        <li><a href="#sobre-nosotros" @click="isOpen = false">{{ t("navbar.aboutUs") }}</a></li>
         <li><a href="#contacto" @click="isOpen = false">{{ t("navbar.contact") }}</a></li>
 
         <li class="mobile-demo-item">

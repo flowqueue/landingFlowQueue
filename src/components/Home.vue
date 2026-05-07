@@ -8,7 +8,7 @@ const stats = computed(() => tm("home.stats"));
 </script>
 
 <template>
-  <section class="home-section">
+  <section class="home-section" id="home">
     <div class="descripcion-lugar">
       {{ t("home.location") }}
     </div>
@@ -112,10 +112,11 @@ const stats = computed(() => tm("home.stats"));
 }
 
 .descripcion-p {
-  color: rgba(255, 255, 255, 0.733);
+  color: rgba(255, 255, 255, 0.78);
   margin: 0;
-  font-size: 1rem;
-  max-width: 600px;
+  font-size: 1.05rem;
+  max-width: 700px;
+  line-height: 1.7;
 }
 
 .segunda-linea {
@@ -123,8 +124,10 @@ const stats = computed(() => tm("home.stats"));
 }
 
 .descripcion {
-  font-size: 2.5rem;
+  font-size: clamp(2.4rem, 6vw, 4.8rem);
   color: white;
+  line-height: 1.05;
+  margin: 0;
 }
 
 .descripcion-lugar {
@@ -136,12 +139,13 @@ const stats = computed(() => tm("home.stats"));
 
 .home-section {
   font-family: 'Inter', sans-serif;
-  background-color: #0C447C;
+  background: linear-gradient(180deg, #0C447C 0%, #08345f 100%);
+  min-height: calc(100vh - 72px);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 4rem 2rem;
+  padding: 6rem 2rem 5rem;
   text-align: center;
   gap: 1rem;
 }
