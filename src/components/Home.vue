@@ -140,12 +140,12 @@ const stats = computed(() => tm("home.stats"));
 .home-section {
   font-family: 'Inter', sans-serif;
   background: linear-gradient(180deg, #0C447C 0%, #08345f 100%);
-  min-height: calc(100vh - 72px);
+  min-height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 6rem 2rem 5rem;
+  padding: 5rem 2rem 7rem;
   text-align: center;
   gap: 1rem;
 }
