@@ -163,15 +163,122 @@
       }
     ]
   },
+  "useCases": {
+    "label": "Casos de uso",
+    "title": "Aplicable a instituciones con alta demanda de atención",
+    "description": "FlowQueue puede adaptarse a distintos escenarios donde las filas físicas afectan la experiencia del ciudadano y la eficiencia del personal.",
+    "items": [
+      {
+        "icon": "🪪",
+        "title": "RENIEC",
+        "description": "Gestión de turnos para trámites de DNI, consultas y orientación ciudadana."
+      },
+      {
+        "icon": "🏥",
+        "title": "EsSalud",
+        "description": "Organización de colas para citas, orientación, consultas y servicios de atención al paciente."
+      },
+      {
+        "icon": "🏦",
+        "title": "Banco de la Nación",
+        "description": "Control del flujo de atención para pagos, operaciones y trámites en ventanilla."
+      },
+      {
+        "icon": "🏛️",
+        "title": "Municipalidades",
+        "description": "Atención ordenada para licencias, solicitudes, pagos y trámites administrativos."
+      }
+    ]
+  },
+  "pricing": {
+    "label": "Plans",
+    "title": "Choose the right plan for your institution",
+    "description": "FlowQueue adapts to small branches, high-demand institutions and organizations that need advanced virtual queue management.",
+    "featured": "Recommended",
+    "plans": [
+      {
+        "id": 1,
+        "name": "Basic",
+        "description": "For small branches that need to organize service and reduce disorder in physical queues.",
+        "price": "S/ 0",
+        "period": "pilot",
+        "featured": false,
+        "features": [
+          "Virtual ticket for citizens",
+          "Real-time queue",
+          "Basic operator panel",
+          "Simple ticket history",
+          "Initial implementation support"
+        ],
+        "button": "Start pilot"
+      },
+      {
+        "id": 2,
+        "name": "Institutional",
+        "description": "For public entities with higher citizen flow and branch-level service control needs.",
+        "price": "Demo",
+        "period": "institutional",
+        "featured": true,
+        "features": [
+          "Everything in Basic",
+          "Multi-branch management",
+          "Supervisor dashboard",
+          "Waiting time reports",
+          "Citizen notifications",
+          "Metrics by counter and schedule"
+        ],
+        "button": "Request demo"
+      },
+      {
+        "id": 3,
+        "name": "Enterprise",
+        "description": "For institutions that require integrations, advanced analytics and personalized support.",
+        "price": "Custom",
+        "period": "per branch",
+        "featured": false,
+        "features": [
+          "Everything in Institutional",
+          "Internal system integrations",
+          "Custom roles",
+          "Advanced analytics",
+          "Priority support",
+          "Configuration based on internal processes"
+        ],
+        "button": "Contact team"
+      }
+    ],
+    "note": "Prices are referential for the validation stage. FlowQueue can adapt to the real needs of each public institution or pilot branch."
+  },
   "access": {
-    "brand": "Flow Queue",
-    "title": "Ready to eliminate queues in your institution?",
-    "subtitle": "Request early access and join the pilot program in Lima.",
+    "label": "Early access",
+    "brand": "FlowQueue",
+    "title": "Ready to modernize service in your institution?",
+    "subtitle": "Request a demo and discover how FlowQueue can reduce queues, organize tickets and provide useful metrics for better decisions.",
+    "formTitle": "Request an institutional demo",
+    "formDescription": "Leave your email and our team will contact you to schedule a presentation of the citizen, operator and supervisor flow.",
     "emailPlaceholder": "Your institutional email",
-    "submit": "Request access",
+    "submit": "Request demo",
     "loading": "Sending...",
     "meta": "No commitment · Response within 24 hours · Support included",
-    "consoleMessage": "Email sent:"
+    "consoleMessage": "Email sent:",
+    "benefits": [
+      {
+        "icon": "⚡",
+        "text": "Initial implementation for a pilot branch"
+      },
+      {
+        "icon": "📊",
+        "text": "Metrics to evaluate waiting times"
+      },
+      {
+        "icon": "👥",
+        "text": "Flow adapted for citizens, operators and supervisors"
+      },
+      {
+        "icon": "🔒",
+        "text": "Process designed for public institutions"
+      }
+    ]
   },
   "team": {
     "label": "About us",
@@ -412,64 +519,5 @@
     "demoTitle": "Test FlowQueue in a pilot branch",
     "demoDescription": "Request a demo to see how the virtual queue would work in a public institution.",
     "demoButton": "Request demo"
-  },
-  "pricing": {
-    "label": "Plans",
-    "title": "Choose the right plan for your institution",
-    "description": "FlowQueue adapts to small branches, high-demand institutions and organizations that need advanced virtual queue management.",
-    "featured": "Recommended",
-    "plans": [
-      {
-        "id": 1,
-        "name": "Basic",
-        "description": "For small branches that need to organize service and reduce disorder in physical queues.",
-        "price": "S/ 0",
-        "period": "pilot",
-        "featured": false,
-        "features": [
-          "Virtual ticket for citizens",
-          "Real-time queue",
-          "Basic operator panel",
-          "Simple ticket history",
-          "Initial implementation support"
-        ],
-        "button": "Start pilot"
-      },
-      {
-        "id": 2,
-        "name": "Institutional",
-        "description": "For public entities with higher citizen flow and branch-level service control needs.",
-        "price": "Demo",
-        "period": "institutional",
-        "featured": true,
-        "features": [
-          "Everything in Basic",
-          "Multi-branch management",
-          "Supervisor dashboard",
-          "Waiting time reports",
-          "Citizen notifications",
-          "Metrics by counter and schedule"
-        ],
-        "button": "Request demo"
-      },
-      {
-        "id": 3,
-        "name": "Enterprise",
-        "description": "For institutions that require integrations, advanced analytics and personalized support.",
-        "price": "Custom",
-        "period": "per branch",
-        "featured": false,
-        "features": [
-          "Everything in Institutional",
-          "Internal system integrations",
-          "Custom roles",
-          "Advanced analytics",
-          "Priority support",
-          "Configuration based on internal processes"
-        ],
-        "button": "Contact team"
-      }
-    ],
-    "note": "Prices are referential for the validation stage. FlowQueue can adapt to the real needs of each public institution or pilot branch."
   }
 }

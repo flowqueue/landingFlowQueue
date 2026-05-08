@@ -1,18 +1,19 @@
 <script setup>
-import { ref } from "vue";
+import { computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
 
 const email = ref("");
 const loading = ref(false);
 
-const { t } = useI18n();
+const { t, tm } = useI18n();
+
+const benefits = computed(() => tm("access.benefits"));
 
 const submit = () => {
   if (!email.value) return;
 
   loading.value = true;
 
-  // simular request
   setTimeout(() => {
     console.log(t("access.consoleMessage"), email.value);
     loading.value = false;
@@ -23,113 +24,192 @@ const submit = () => {
 
 <template>
   <section class="cta-section" id="solicitar">
-    <div class="container">
-      <!-- BRAND -->
-      <div class="brand">
-        {{ t("access.brand") }}
+    <div class="cta-container">
+      <div class="cta-content">
+        <p class="section-label">{{ t("access.label") }}</p>
+
+        <h2>{{ t("access.title") }}</h2>
+
+        <p class="subtitle">
+          {{ t("access.subtitle") }}
+        </p>
+
+        <div class="benefits-grid">
+          <div v-for="(benefit, index) in benefits" :key="index" class="benefit-item">
+            <span>{{ benefit.icon }}</span>
+            <p>{{ benefit.text }}</p>
+          </div>
+        </div>
       </div>
 
-      <!-- TITLE -->
-      <h1>{{ t("access.title") }}</h1>
+      <div class="cta-card">
+        <div class="card-header">
+          <span class="card-brand">{{ t("access.brand") }}</span>
+          <h3>{{ t("access.formTitle") }}</h3>
+          <p>{{ t("access.formDescription") }}</p>
+        </div>
 
-      <!-- SUBTITLE -->
-      <p class="subtitle">
-        {{ t("access.subtitle") }}
-      </p>
+        <div class="form">
+          <input
+              v-model="email"
+              type="email"
+              :placeholder="t('access.emailPlaceholder')"
+          />
 
-      <!-- FORM -->
-      <div class="form">
-        <input
-            v-model="email"
-            type="email"
-            :placeholder="t('access.emailPlaceholder')"
-        />
+          <button @click="submit" :disabled="loading">
+            {{ loading ? t("access.loading") : t("access.submit") }}
+          </button>
+        </div>
 
-        <button @click="submit" :disabled="loading">
-          {{ loading ? t("access.loading") : t("access.submit") }}
-        </button>
+        <p class="meta">
+          {{ t("access.meta") }}
+        </p>
       </div>
-
-      <!-- FOOTER TEXT -->
-      <p class="meta">
-        {{ t("access.meta") }}
-      </p>
     </div>
   </section>
 </template>
 
 <style scoped>
-/* FULL WIDTH */
 .cta-section {
   width: 100%;
-  background: #2c9c74;
-  padding: 80px 20px;
+  padding: 90px 24px;
+  background: linear-gradient(135deg, #1fa178 0%, #0c447c 100%);
   color: white;
-  text-align: center;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
 }
 
-/* CENTER */
-.container {
-  max-width: 900px;
+.cta-container {
+  max-width: 1180px;
   margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 34px;
+  align-items: center;
 }
 
-/* BRAND */
-.brand {
-  margin-bottom: 20px;
-  font-size: 18px;
-  opacity: 0.9;
+.section-label {
+  margin: 0 0 14px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #dcfff2;
+  text-transform: uppercase;
 }
 
-.highlight {
-  border: 1px solid #60a5fa;
-  padding: 2px 6px;
-  border-radius: 4px;
+.cta-content h2 {
+  margin: 0 0 18px;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.12;
+  font-weight: 900;
+  letter-spacing: -0.03em;
 }
 
-/* TITLE */
-h1 {
-  font-size: 36px;
-  margin: 0 0 10px;
-}
-
-/* SUBTITLE */
 .subtitle {
-  font-size: 16px;
-  opacity: 0.85;
-  margin-bottom: 30px;
+  margin: 0;
+  max-width: 650px;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.86);
 }
 
-/* FORM */
+.benefits-grid {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.11);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 14px;
+  border-radius: 16px;
+}
+
+.benefit-item span {
+  font-size: 1.2rem;
+}
+
+.benefit-item p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.cta-card {
+  background: rgba(255, 255, 255, 0.96);
+  color: #0f172a;
+  border-radius: 26px;
+  padding: 30px;
+  box-shadow: 0 22px 46px rgba(0, 0, 0, 0.18);
+}
+
+.card-brand {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: #1fa178;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.card-header h3 {
+  margin: 0 0 10px;
+  color: #0c447c;
+  font-size: 1.45rem;
+}
+
+.card-header p {
+  margin: 0 0 22px;
+  color: #5f6f7c;
+  line-height: 1.6;
+  font-size: 0.96rem;
+}
+
 .form {
   display: flex;
-  gap: 16px;
-  justify-content: center;
-  margin-bottom: 20px;
+  flex-direction: column;
+  gap: 14px;
 }
 
 .form input {
   width: 100%;
-  max-width: 400px;
-  padding: 14px 16px;
-  border-radius: 12px;
-  border: none;
-  font-size: 14px;
-}
-
-.form button {
-  padding: 14px 24px;
-  border-radius: 12px;
-  border: none;
-  background: #1d4ed8;
-  color: white;
-  font-size: 14px;
-  cursor: pointer;
+  padding: 15px 16px;
+  border-radius: 14px;
+  border: 1px solid #d9e3ea;
+  font-size: 0.95rem;
+  background: #f8fbfd;
+  outline: none;
   transition: all 0.2s ease;
 }
 
+.form input:focus {
+  border-color: #1fa178;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(31, 161, 120, 0.12);
+}
+
+.form button {
+  padding: 15px 22px;
+  border-radius: 14px;
+  border: none;
+  background: #0c447c;
+  color: white;
+  font-size: 0.96rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
 .form button:hover {
-  background: #1e40af;
+  background: #08345f;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(12, 68, 124, 0.22);
 }
 
 .form button:disabled {
@@ -137,24 +217,30 @@ h1 {
   opacity: 0.75;
 }
 
-/* META */
 .meta {
-  font-size: 13px;
-  opacity: 0.8;
+  margin: 18px 0 0;
+  color: #667784;
+  font-size: 0.88rem;
+  line-height: 1.6;
 }
 
-/* RESPONSIVE */
+@media (max-width: 900px) {
+  .cta-container {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 640px) {
-  .form {
-    flex-direction: column;
+  .cta-section {
+    padding: 70px 18px;
   }
 
-  h1 {
-    font-size: 28px;
+  .benefits-grid {
+    grid-template-columns: 1fr;
   }
 
-  .form button {
-    width: 100%;
+  .cta-card {
+    padding: 24px;
   }
 }
 </style>

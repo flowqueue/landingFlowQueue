@@ -3,6 +3,7 @@
     "home": "Inicio",
     "features": "Funciones",
     "howItWorks": "Cómo funciona",
+    "useCases": "Casos de uso",
     "pricing": "Planes",
     "aboutUs": "Sobre nosotros",
     "requestDemo": "Solicitar demo",
@@ -163,15 +164,122 @@
       }
     ]
   },
+  "useCases": {
+    "label": "Casos de uso",
+    "title": "Aplicable a instituciones con alta demanda de atención",
+    "description": "FlowQueue puede adaptarse a distintos escenarios donde las filas físicas afectan la experiencia del ciudadano y la eficiencia del personal.",
+    "items": [
+      {
+        "icon": "🪪",
+        "title": "RENIEC",
+        "description": "Gestión de turnos para trámites de DNI, consultas y orientación ciudadana."
+      },
+      {
+        "icon": "🏥",
+        "title": "EsSalud",
+        "description": "Organización de colas para citas, orientación, consultas y servicios de atención al paciente."
+      },
+      {
+        "icon": "🏦",
+        "title": "Banco de la Nación",
+        "description": "Control del flujo de atención para pagos, operaciones y trámites en ventanilla."
+      },
+      {
+        "icon": "🏛️",
+        "title": "Municipalidades",
+        "description": "Atención ordenada para licencias, solicitudes, pagos y trámites administrativos."
+      }
+    ]
+  },
+  "pricing": {
+    "label": "Planes",
+    "title": "Elige el plan ideal para tu institución",
+    "description": "FlowQueue se adapta a sedes pequeñas, instituciones con alta demanda y organizaciones que necesitan una gestión avanzada de colas virtuales.",
+    "featured": "Recomendado",
+    "plans": [
+      {
+        "id": 1,
+        "name": "Básico",
+        "description": "Para sedes pequeñas que necesitan ordenar la atención y reducir el desorden en filas físicas.",
+        "price": "S/ 0",
+        "period": "piloto",
+        "featured": false,
+        "features": [
+          "Ticket virtual para ciudadanos",
+          "Cola en tiempo real",
+          "Panel básico para operador",
+          "Historial simple de turnos",
+          "Soporte inicial para implementación"
+        ],
+        "button": "Empezar piloto"
+      },
+      {
+        "id": 2,
+        "name": "Institucional",
+        "description": "Para entidades públicas con mayor flujo de ciudadanos y necesidad de control por sede.",
+        "price": "Demo",
+        "period": "institucional",
+        "featured": true,
+        "features": [
+          "Todo lo del plan Básico",
+          "Gestión multi-sede",
+          "Dashboard para supervisores",
+          "Reportes de tiempos de espera",
+          "Notificaciones al ciudadano",
+          "Métricas por ventanilla y horario"
+        ],
+        "button": "Solicitar demo"
+      },
+      {
+        "id": 3,
+        "name": "Enterprise",
+        "description": "Para instituciones que requieren integraciones, analítica avanzada y soporte personalizado.",
+        "price": "A medida",
+        "period": "según sede",
+        "featured": false,
+        "features": [
+          "Todo lo del plan Institucional",
+          "Integraciones con sistemas internos",
+          "Roles personalizados",
+          "Analítica avanzada",
+          "Soporte prioritario",
+          "Configuración según procesos internos"
+        ],
+        "button": "Contactar equipo"
+      }
+    ],
+    "note": "Los precios son referenciales para la etapa de validación. FlowQueue puede adaptarse a las necesidades reales de cada institución pública o sede piloto."
+  },
   "access": {
-    "brand": "Flow Queue",
-    "title": "¿Listo para eliminar las filas en tu institución?",
-    "subtitle": "Solicita acceso anticipado y sé parte del piloto en Lima.",
+    "label": "Acceso anticipado",
+    "brand": "FlowQueue",
+    "title": "¿Listo para modernizar la atención en tu institución?",
+    "subtitle": "Solicita una demo y descubre cómo FlowQueue puede reducir filas, ordenar turnos y entregar métricas útiles para tomar mejores decisiones.",
+    "formTitle": "Solicita una demo institucional",
+    "formDescription": "Déjanos tu correo y nuestro equipo te contactará para coordinar una presentación del flujo ciudadano, operador y supervisor.",
     "emailPlaceholder": "Tu correo institucional",
-    "submit": "Solicitar acceso",
+    "submit": "Solicitar demo",
     "loading": "Enviando...",
     "meta": "Sin compromiso · Respuesta en 24 horas · Soporte incluido",
-    "consoleMessage": "Email enviado:"
+    "consoleMessage": "Email enviado:",
+    "benefits": [
+      {
+        "icon": "⚡",
+        "text": "Implementación inicial para una sede piloto"
+      },
+      {
+        "icon": "📊",
+        "text": "Métricas para evaluar tiempos de espera"
+      },
+      {
+        "icon": "👥",
+        "text": "Flujo adaptado para ciudadano, operador y supervisor"
+      },
+      {
+        "icon": "🔒",
+        "text": "Proceso pensado para instituciones públicas"
+      }
+    ]
   },
   "team": {
     "label": "Sobre nosotros",
@@ -413,64 +521,5 @@
     "demoTitle": "Prueba FlowQueue en una sede piloto",
     "demoDescription": "Solicita una demostración para visualizar cómo funcionaría la cola virtual en una institución pública.",
     "demoButton": "Solicitar demo"
-  },
-  "pricing": {
-    "label": "Planes",
-    "title": "Elige el plan ideal para tu institución",
-    "description": "FlowQueue se adapta a sedes pequeñas, instituciones con alta demanda y organizaciones que necesitan una gestión avanzada de colas virtuales.",
-    "featured": "Recomendado",
-    "plans": [
-      {
-        "id": 1,
-        "name": "Básico",
-        "description": "Para sedes pequeñas que necesitan ordenar la atención y reducir el desorden en filas físicas.",
-        "price": "S/ 0",
-        "period": "piloto",
-        "featured": false,
-        "features": [
-          "Ticket virtual para ciudadanos",
-          "Cola en tiempo real",
-          "Panel básico para operador",
-          "Historial simple de turnos",
-          "Soporte inicial para implementación"
-        ],
-        "button": "Empezar piloto"
-      },
-      {
-        "id": 2,
-        "name": "Institucional",
-        "description": "Para entidades públicas con mayor flujo de ciudadanos y necesidad de control por sede.",
-        "price": "Demo",
-        "period": "institucional",
-        "featured": true,
-        "features": [
-          "Todo lo del plan Básico",
-          "Gestión multi-sede",
-          "Dashboard para supervisores",
-          "Reportes de tiempos de espera",
-          "Notificaciones al ciudadano",
-          "Métricas por ventanilla y horario"
-        ],
-        "button": "Solicitar demo"
-      },
-      {
-        "id": 3,
-        "name": "Enterprise",
-        "description": "Para instituciones que requieren integraciones, analítica avanzada y soporte personalizado.",
-        "price": "A medida",
-        "period": "según sede",
-        "featured": false,
-        "features": [
-          "Todo lo del plan Institucional",
-          "Integraciones con sistemas internos",
-          "Roles personalizados",
-          "Analítica avanzada",
-          "Soporte prioritario",
-          "Configuración según procesos internos"
-        ],
-        "button": "Contactar equipo"
-      }
-    ],
-    "note": "Los precios son referenciales para la etapa de validación. FlowQueue puede adaptarse a las necesidades reales de cada institución pública o sede piloto."
   }
 }

@@ -26,11 +26,45 @@ function changeLanguage(lang) {
       </button>
 
       <ul :class="{ open: isOpen }" class="nav-links">
-        <li><a href="#home" @click="isOpen = false">{{ t("navbar.home") }}</a></li>
-        <li><a href="#como-funciona" @click="isOpen = false">{{ t("navbar.howItWorks") }}</a></li>
-        <li><a href="#funcionalidades" @click="isOpen = false">{{ t("navbar.features") }}</a></li>
-        <li><a href="#planes" @click="isOpen = false">{{ t("navbar.pricing") }}</a></li>        <li><a href="#sobre-nosotros" @click="isOpen = false">{{ t("navbar.aboutUs") }}</a></li>
-        <li><a href="#contacto" @click="isOpen = false">{{ t("navbar.contact") }}</a></li>
+        <li>
+          <a href="#home" @click="isOpen = false">{{ t("navbar.home") }}</a>
+        </li>
+
+        <li>
+          <a href="#como-funciona" @click="isOpen = false">
+            {{ t("navbar.howItWorks") }}
+          </a>
+        </li>
+
+        <li>
+          <a href="#funcionalidades" @click="isOpen = false">
+            {{ t("navbar.features") }}
+          </a>
+        </li>
+
+        <li>
+          <a href="#casos-uso" @click="isOpen = false">
+            {{ t("navbar.useCases") }}
+          </a>
+        </li>
+
+        <li>
+          <a href="#planes" @click="isOpen = false">
+            {{ t("navbar.pricing") }}
+          </a>
+        </li>
+
+        <li>
+          <a href="#sobre-nosotros" @click="isOpen = false">
+            {{ t("navbar.aboutUs") }}
+          </a>
+        </li>
+
+        <li>
+          <a href="#contacto" @click="isOpen = false">
+            {{ t("navbar.contact") }}
+          </a>
+        </li>
 
         <li class="mobile-demo-item">
           <a href="#solicitar" class="solicitar-btn-mobile" @click="isOpen = false">
@@ -44,6 +78,7 @@ function changeLanguage(lang) {
           <button @click="changeLanguage('es')" :class="{ active: locale === 'es' }">
             ES
           </button>
+
           <button @click="changeLanguage('en')" :class="{ active: locale === 'en' }">
             EN
           </button>
@@ -81,7 +116,6 @@ function changeLanguage(lang) {
   gap: 1.4rem;
 }
 
-/* Brand */
 .brand-group {
   display: flex;
   align-items: center;
@@ -110,11 +144,10 @@ function changeLanguage(lang) {
   color: #22c55e;
 }
 
-/* Nav links */
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 2.2rem;
+  gap: 1.45rem;
   list-style: none;
   margin: 0 auto;
   padding: 0;
@@ -123,7 +156,7 @@ function changeLanguage(lang) {
 .nav-links li a {
   color: #cbd7e6;
   text-decoration: none;
-  font-size: 0.88rem;
+  font-size: 0.84rem;
   font-weight: 600;
   transition: color 0.2s ease;
   white-space: nowrap;
@@ -140,7 +173,6 @@ function changeLanguage(lang) {
   flex-shrink: 0;
 }
 
-/* Language switcher */
 .language-switcher {
   display: flex;
   align-items: center;
@@ -166,7 +198,6 @@ function changeLanguage(lang) {
   color: #ffffff;
 }
 
-/* Botón solicitar */
 .solicitar-btn,
 .solicitar-btn-mobile {
   background-color: #22c55e;
@@ -186,7 +217,6 @@ function changeLanguage(lang) {
   transform: translateY(-2px);
 }
 
-/* Toggle hamburguesa */
 .toggle {
   display: none;
   flex-direction: column;
@@ -221,21 +251,22 @@ function changeLanguage(lang) {
   display: none;
 }
 
-@media (max-width: 1180px) {
+@media (max-width: 1220px) {
   .nav-links {
-    gap: 1.35rem;
+    gap: 1rem;
   }
 
   .nav-links li a {
-    font-size: 0.82rem;
+    font-size: 0.78rem;
   }
 
   .solicitar-btn {
     padding: 0.55rem 0.85rem;
+    font-size: 0.8rem;
   }
 }
 
-@media (max-width: 980px) {
+@media (max-width: 1050px) {
   .navbar {
     padding: 0 1.2rem;
   }

@@ -7,7 +7,9 @@ import Funcionalities from "@/components/Funcionalities.vue";
 import PricingSection from "@/components/PricingSection.vue";
 import MetricsSection from "@/components/MetricsSection.vue";
 import ProfilesSection from "@/components/ProfilesSection.vue";
+import Statics from "@/components/Statistics.vue";
 import Access from "@/components/Access.vue";
+import UseCases from "@/components/UseCases.vue";
 import TeamSection from "@/components/TeamSection.vue";
 import Contact from "@/components/Contact.vue";
 import Footer from "@/components/Footer.vue";
@@ -16,18 +18,19 @@ import Footer from "@/components/Footer.vue";
 <template>
   <Navbar />
   <Home />
+  <Statics />
   <ProblemSection />
   <HowItWorks />
   <Funcionalities />
   <ProfilesSection />
   <MetricsSection />
+  <UseCases />
   <PricingSection />
   <Access />
   <TeamSection />
   <Contact />
   <Footer />
 </template>
-
 <style>
 * {
   margin: 0;

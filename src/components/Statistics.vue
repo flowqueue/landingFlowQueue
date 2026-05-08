@@ -14,7 +14,7 @@ const stats = {
 </script>
 
 <template>
-  <div class="mockup-wrapper" id="sedes">
+  <div class="mockup-wrapper" id="demo">
     <div class="hero-mockup">
       <div class="hm-bar">
         <span class="hm-bar-brand">
