@@ -76,11 +76,13 @@ function changeLanguage(lang) {
       <div class="right-actions">
         <div class="language-switcher">
           <button @click="changeLanguage('es')" :class="{ active: locale === 'es' }">
-            🇪🇸 ES
+            <span class="flag flag-es"></span>
+            ES
           </button>
 
           <button @click="changeLanguage('en')" :class="{ active: locale === 'en' }">
-            🇺🇸 EN
+            <span class="flag flag-us"></span>
+            EN
           </button>
         </div>
 
@@ -116,6 +118,7 @@ function changeLanguage(lang) {
   gap: 1.4rem;
 }
 
+/* Brand */
 .brand-group {
   display: flex;
   align-items: center;
@@ -144,6 +147,7 @@ function changeLanguage(lang) {
   color: #22c55e;
 }
 
+/* Nav links */
 .nav-links {
   display: flex;
   align-items: center;
@@ -166,6 +170,7 @@ function changeLanguage(lang) {
   color: #ffffff;
 }
 
+/* Right actions */
 .right-actions {
   display: flex;
   align-items: center;
@@ -173,6 +178,7 @@ function changeLanguage(lang) {
   flex-shrink: 0;
 }
 
+/* Language switcher */
 .language-switcher {
   display: flex;
   align-items: center;
@@ -191,7 +197,7 @@ function changeLanguage(lang) {
   transition: 0.2s ease;
   display: flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.35rem;
 }
 
 .language-switcher button:hover,
@@ -201,6 +207,63 @@ function changeLanguage(lang) {
   color: #ffffff;
 }
 
+/* CSS flags */
+.flag {
+  width: 18px;
+  height: 12px;
+  display: inline-block;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.25);
+  flex-shrink: 0;
+}
+
+/* Spain flag */
+.flag-es {
+  background: linear-gradient(
+      to bottom,
+      #aa151b 0%,
+      #aa151b 25%,
+      #f1bf00 25%,
+      #f1bf00 75%,
+      #aa151b 75%,
+      #aa151b 100%
+  );
+}
+
+/* United States flag */
+.flag-us {
+  background:
+      linear-gradient(
+          to bottom,
+          #b22234 0 7.69%,
+          #ffffff 7.69% 15.38%,
+          #b22234 15.38% 23.07%,
+          #ffffff 23.07% 30.76%,
+          #b22234 30.76% 38.45%,
+          #ffffff 38.45% 46.14%,
+          #b22234 46.14% 53.83%,
+          #ffffff 53.83% 61.52%,
+          #b22234 61.52% 69.21%,
+          #ffffff 69.21% 76.9%,
+          #b22234 76.9% 84.59%,
+          #ffffff 84.59% 92.28%,
+          #b22234 92.28% 100%
+      );
+  position: relative;
+}
+
+.flag-us::before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 7px;
+  background: #3c3b6e;
+  top: 0;
+  left: 0;
+}
+
+/* Demo button */
 .solicitar-btn,
 .solicitar-btn-mobile {
   background-color: #22c55e;
@@ -220,6 +283,7 @@ function changeLanguage(lang) {
   transform: translateY(-2px);
 }
 
+/* Toggle hamburguesa */
 .toggle {
   display: none;
   flex-direction: column;
@@ -254,6 +318,7 @@ function changeLanguage(lang) {
   display: none;
 }
 
+/* Medium screens */
 @media (max-width: 1220px) {
   .nav-links {
     gap: 1rem;
@@ -267,8 +332,19 @@ function changeLanguage(lang) {
     padding: 0.55rem 0.85rem;
     font-size: 0.8rem;
   }
+
+  .language-switcher button {
+    padding: 0.34rem 0.5rem;
+    font-size: 0.72rem;
+  }
+
+  .flag {
+    width: 16px;
+    height: 11px;
+  }
 }
 
+/* Mobile menu */
 @media (max-width: 1050px) {
   .navbar {
     padding: 0 1.2rem;
@@ -315,6 +391,7 @@ function changeLanguage(lang) {
   }
 }
 
+/* Small phones */
 @media (max-width: 480px) {
   .navbar {
     height: 66px;
@@ -335,8 +412,14 @@ function changeLanguage(lang) {
   }
 
   .language-switcher button {
-    padding: 0.28rem 0.42rem;
+    padding: 0.3rem 0.42rem;
     font-size: 0.68rem;
+    gap: 0.25rem;
+  }
+
+  .flag {
+    width: 15px;
+    height: 10px;
   }
 }
 </style>
