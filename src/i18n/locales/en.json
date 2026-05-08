@@ -359,7 +359,7 @@
     "companyTitle": "Company",
     "legalTitle": "Legal",
     "contactTitle": "Contact",
-    "email": "contacto@flowqueue.pe",
+    "email": "contacto{'@'}flowqueue.pe",
     "phone": "+51 987 654 321",
     "location": "Lima, Peru",
     "rights": "All rights reserved.",
@@ -436,7 +436,7 @@
       {
         "icon": "✉️",
         "label": "Email",
-        "value": "contacto@flowqueue.pe"
+        "value": "contacto{'@'}flowqueue.pe"
       },
       {
         "icon": "📍",
