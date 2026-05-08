@@ -24,6 +24,7 @@ import Footer from "@/components/Footer.vue";
   <Funcionalities />
   <ProfilesSection />
   <MetricsSection />
+
   <UseCases />
   <PricingSection />
   <Access />
