@@ -76,11 +76,11 @@ function changeLanguage(lang) {
       <div class="right-actions">
         <div class="language-switcher">
           <button @click="changeLanguage('es')" :class="{ active: locale === 'es' }">
-            ES
+            🇪🇸 ES
           </button>
 
           <button @click="changeLanguage('en')" :class="{ active: locale === 'en' }">
-            EN
+            🇺🇸 EN
           </button>
         </div>
 
@@ -183,12 +183,15 @@ function changeLanguage(lang) {
   border: 1px solid rgba(255, 255, 255, 0.35);
   background: transparent;
   color: #d5dfed;
-  padding: 0.35rem 0.55rem;
+  padding: 0.38rem 0.65rem;
   border-radius: 8px;
-  font-size: 0.75rem;
+  font-size: 0.78rem;
   font-weight: 800;
   cursor: pointer;
   transition: 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
 }
 
 .language-switcher button:hover,
