@@ -128,8 +128,8 @@ function changeLanguage(lang) {
 }
 
 .logo {
-  width: 48px;
-  height: 48px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   object-fit: cover;
   background: white;
