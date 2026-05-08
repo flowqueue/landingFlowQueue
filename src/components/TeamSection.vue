@@ -5,7 +5,7 @@ import { useI18n } from "vue-i18n";
 import carlosPhoto from "@/assets/carlosfoto.jpg";
 import franciscoPhoto from "@/assets/franciscofoto.jpg";
 import danielPhoto from "@/assets/danielfoto.jpg";
-import alexPhoto from "@/assets/alexfoto.jpg";
+import alexPhoto from "@/assets/alexfoto.png";
 import luisPhoto from "@/assets/luisfoto.jpg";
 
 const { t, tm } = useI18n();
