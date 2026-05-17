@@ -86,7 +86,7 @@ function changeLanguage(lang) {
           </button>
         </div>
 
-        <a href="#solicitar" class="solicitar-btn">
+        <a href="https://flowqueue.vercel.app/" class="solicitar-btn">
           {{ t("navbar.requestDemo") }}
         </a>
       </div>
