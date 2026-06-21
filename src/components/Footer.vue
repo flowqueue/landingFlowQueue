@@ -1,89 +1,43 @@
 <script setup>
-import { computed } from "vue";
 import { useI18n } from "vue-i18n";
-
-const currentYear = new Date().getFullYear();
-const { t, tm } = useI18n();
-
-const productLinks = computed(() => tm("footer.productLinks"));
-const companyLinks = computed(() => tm("footer.companyLinks"));
-const legalLinks = computed(() => tm("footer.legalLinks"));
+import { FLOWQUEUE_APP_URL } from "@/config/links";
+const { t, locale } = useI18n();
+const year = new Date().getFullYear();
 </script>
 
 <template>
   <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-main">
-        <div class="footer-brand-block">
-          <a href="#home" class="footer-brand">
-            Flow<span>Queue</span>
-          </a>
-
-          <p class="footer-description">
-            {{ t("footer.description") }}
-          </p>
-
-          <div class="footer-socials">
-            <a href="https://github.com/flowqueue" target="_blank" rel="noopener">
-              GitHub
-            </a>
-            <a href="#" target="_blank" rel="noopener">
-              LinkedIn
-            </a>
-            <a href="#" target="_blank" rel="noopener">
-              Instagram
-            </a>
-          </div>
+    <div class="section-shell">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#home">Flow<span>Queue</span></a>
+          <p>{{ t("footer.description") }}</p>
         </div>
-
-        <div class="footer-column">
-          <h3>{{ t("footer.productTitle") }}</h3>
-          <a
-              v-for="(link, index) in productLinks"
-              :key="index"
-              :href="link.href"
+        <nav :aria-label="locale === 'es' ? 'Enlaces del pie' : 'Footer links'">
+          <a href="#producto">{{ t("navbar.features") }}</a
+          ><a href="#como-funciona">{{ t("navbar.howItWorks") }}</a
+          ><a href="#casos-uso">{{ t("navbar.useCases") }}</a
+          ><a
+            :href="FLOWQUEUE_APP_URL"
+            target="_blank"
+            rel="noopener noreferrer"
+            >{{ t("navbar.requestDemo") }}</a
           >
-            {{ link.label }}
-          </a>
-        </div>
-
-        <div class="footer-column">
-          <h3>{{ t("footer.companyTitle") }}</h3>
-          <a
-              v-for="(link, index) in companyLinks"
-              :key="index"
-              :href="link.href"
-          >
-            {{ link.label }}
-          </a>
-        </div>
-
-        <div class="footer-column">
-          <h3>{{ t("footer.legalTitle") }}</h3>
-          <a
-              v-for="(link, index) in legalLinks"
-              :key="index"
-              :href="link.href"
-          >
-            {{ link.label }}
-          </a>
-        </div>
-
-        <div class="footer-column contact-column">
-          <h3>{{ t("footer.contactTitle") }}</h3>
-          <p>{{ t("footer.email") }}</p>
-          <p>{{ t("footer.phone") }}</p>
-          <p>{{ t("footer.location") }}</p>
+        </nav>
+        <div class="footer-contact">
+          <span>{{ t("footer.contactTitle") }}</span
+          ><a href="mailto:contacto@flowqueue.pe">contacto@flowqueue.pe</a>
+          <p>Lima, Perú</p>
         </div>
       </div>
-
       <div class="footer-bottom">
+        <p>© {{ year }} FlowQueue. {{ t("footer.rights") }}</p>
         <p>
-          © {{ currentYear }} <strong>FlowQueue</strong>. {{ t("footer.rights") }}
-        </p>
-
-        <p class="footer-note">
-          {{ t("footer.note") }}
+          {{
+            locale === "es"
+              ? "Proyecto académico · Propuesta piloto"
+              : "Academic project · Pilot proposal"
+          }}
         </p>
       </div>
     </div>
@@ -92,154 +46,92 @@ const legalLinks = computed(() => tm("footer.legalLinks"));
 
 <style scoped>
 .footer {
-  background: #042c53;
-  padding: 4rem 1.5rem 2rem;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.footer-main {
-  display: grid;
-  grid-template-columns: 1.5fr repeat(4, 1fr);
-  gap: 34px;
-  align-items: start;
-}
-
-.footer-brand {
-  display: inline-block;
-  color: #ffffff;
-  font-size: 1.35rem;
-  font-weight: 900;
-  letter-spacing: -0.03em;
-  text-decoration: none;
-  margin-bottom: 14px;
-}
-
-.footer-brand span {
-  color: #22c55e;
-}
-
-.footer-description {
-  max-width: 340px;
-  margin: 0 0 18px;
-  color: #b8cce0;
-  line-height: 1.7;
-  font-size: 0.94rem;
-}
-
-.footer-socials {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.footer-socials a {
-  color: #dcecff;
-  text-decoration: none;
-  background: rgba(255, 255, 255, 0.08);
-  padding: 8px 12px;
-  border-radius: 999px;
-  font-size: 0.82rem;
-  font-weight: 700;
-  transition: all 0.2s ease;
-}
-
-.footer-socials a:hover {
-  background: #22c55e;
+  padding: 70px 24px 26px;
+  background: var(--navy-deep);
   color: white;
-  transform: translateY(-2px);
 }
-
-.footer-column {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 0.8fr;
+  gap: 70px;
+  padding-bottom: 50px;
 }
-
-.footer-column h3 {
-  margin: 0 0 8px;
-  color: #ffffff;
-  font-size: 0.95rem;
-  font-weight: 800;
-}
-
-.footer-column a,
-.footer-column p {
-  margin: 0;
-  color: #9fc2e4;
+.footer-brand > a {
+  font-family: "Manrope";
+  font-size: 1.4rem;
+  font-weight: 900;
   text-decoration: none;
+}
+.footer-brand > a span {
+  color: var(--signal);
+}
+.footer-brand p {
+  max-width: 430px;
+  margin: 16px 0 0;
+  color: #9eb7c7;
+  line-height: 1.65;
+}
+.footer nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-content: start;
+  gap: 14px;
+}
+.footer nav a {
+  color: #c4d5df;
   font-size: 0.9rem;
-  line-height: 1.5;
-  transition: color 0.2s ease, transform 0.2s ease;
+  font-weight: 700;
+  text-decoration: none;
 }
-
-.footer-column a:hover {
-  color: #ffffff;
-  transform: translateX(3px);
+.footer nav a:hover,
+.footer-contact a:hover {
+  color: var(--signal);
 }
-
-.contact-column p {
-  color: #b8cce0;
+.footer-contact span {
+  display: block;
+  margin-bottom: 15px;
+  color: #7191a5;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
-
+.footer-contact a {
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+}
+.footer-contact p {
+  margin: 8px 0 0;
+  color: #9eb7c7;
+}
 .footer-bottom {
-  margin-top: 38px;
-  padding-top: 22px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   justify-content: space-between;
-  gap: 20px;
-  color: #cbd5e1;
-  font-size: 0.85rem;
+  gap: 25px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: #7896a8;
+  font-size: 0.78rem;
 }
-
 .footer-bottom p {
   margin: 0;
 }
-
-.footer-bottom strong {
-  color: #ffffff;
-}
-
-.footer-note {
-  color: #8fb0ce;
-  text-align: right;
-}
-
-@media (max-width: 1024px) {
-  .footer-main {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .footer-brand-block {
-    grid-column: 1 / 3;
-  }
-}
-
-@media (max-width: 640px) {
-  .footer {
-    padding: 3.5rem 1.2rem 2rem;
-  }
-
-  .footer-main {
+@media (max-width: 800px) {
+  .footer-top {
     grid-template-columns: 1fr;
+    gap: 35px;
   }
-
-  .footer-brand-block {
-    grid-column: auto;
-  }
-
   .footer-bottom {
     flex-direction: column;
   }
-
-  .footer-note {
-    text-align: left;
+}
+@media (max-width: 560px) {
+  .footer {
+    padding: 55px 16px 24px;
+  }
+  .footer nav {
+    grid-template-columns: 1fr;
   }
 }
 </style>

@@ -1,137 +1,124 @@
 <script setup>
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
-
-const { t, tm } = useI18n();
-
+const { t, tm, locale } = useI18n();
 const useCases = computed(() => tm("useCases.items"));
+const glyphs = ["ID", "✚", "S/", "⌂"];
 </script>
 
 <template>
-  <section class="use-cases-section" id="casos-uso">
-    <div class="use-cases-container">
-      <div class="use-cases-header">
-        <p class="section-label">{{ t("useCases.label") }}</p>
-        <h2>{{ t("useCases.title") }}</h2>
-        <p>{{ t("useCases.description") }}</p>
+  <section class="cases" id="casos-uso">
+    <div class="section-shell">
+      <div class="cases-intro" data-reveal>
+        <span class="section-kicker">{{ t("useCases.label") }}</span>
+        <h2 class="section-heading">{{ t("useCases.title") }}</h2>
+        <p class="section-copy">{{ t("useCases.description") }}</p>
       </div>
-
-      <div class="use-cases-grid">
+      <div class="cases-list">
         <article
-            v-for="item in useCases"
-            :key="item.title"
-            class="use-case-card"
+          v-for="(item, index) in useCases"
+          :key="item.title"
+          data-reveal="left"
+          :style="{ '--reveal-delay': `${index * 90}ms` }"
         >
-          <div class="use-case-icon">{{ item.icon }}</div>
-          <h3>{{ item.title }}</h3>
-          <p>{{ item.description }}</p>
+          <span class="case-glyph" aria-hidden="true">{{ glyphs[index] }}</span>
+          <div>
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.description }}</p>
+          </div>
+          <span class="case-arrow" aria-hidden="true">↗</span>
         </article>
       </div>
+      <p class="disclaimer">
+        {{
+          locale === "es"
+            ? "Escenarios de aplicación referenciales. No implican una relación comercial con las instituciones mencionadas."
+            : "Illustrative application scenarios. They do not imply a commercial relationship with the institutions mentioned."
+        }}
+      </p>
     </div>
   </section>
 </template>
 
 <style scoped>
-.use-cases-section {
-  width: 100%;
-  padding: 90px 24px;
-  background: #ffffff;
-  font-family: 'Inter', Arial, Helvetica, sans-serif;
+.cases {
+  padding: 120px 24px;
+  background: white;
 }
-
-.use-cases-container {
-  max-width: 1200px;
-  margin: 0 auto;
+.cases-intro {
+  max-width: 790px;
+  margin-bottom: 48px;
 }
-
-.use-cases-header {
-  text-align: center;
-  max-width: 760px;
-  margin: 0 auto 46px;
+.cases-list {
+  border-top: 1px solid var(--line);
 }
-
-.section-label {
-  margin: 0 0 12px;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  color: #1fa178;
-  text-transform: uppercase;
-}
-
-.use-cases-header h2 {
-  margin: 0 0 14px;
-  color: #0c447c;
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.15;
-  font-weight: 800;
-}
-
-.use-cases-header p {
-  margin: 0;
-  color: #5f6f7c;
-  line-height: 1.8;
-}
-
-.use-cases-grid {
+.cases-list article {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 22px;
+  grid-template-columns: 70px 1fr 42px;
+  align-items: center;
+  gap: 26px;
+  padding: 25px 4px;
+  border-bottom: 1px solid var(--line);
+  transition:
+    padding 0.25s ease,
+    background 0.25s ease;
 }
-
-.use-case-card {
-  background: #f8fbfd;
-  border: 1px solid #e2ebf2;
-  border-radius: 24px;
-  padding: 28px 22px;
-  min-height: 260px;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+.cases-list article:hover {
+  padding-inline: 18px;
+  background: var(--paper);
 }
-
-.use-case-card:hover {
-  transform: translateY(-7px);
-  border-color: #1fa178;
-  box-shadow: 0 18px 38px rgba(15, 23, 42, 0.1);
-}
-
-.use-case-icon {
+.case-glyph {
   width: 56px;
   height: 56px;
-  border-radius: 18px;
-  background: #e2f7ef;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 26px;
-  margin-bottom: 20px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  background: var(--sky);
+  color: var(--navy);
+  font-family: "Manrope";
+  font-weight: 900;
 }
-
-.use-case-card h3 {
-  margin: 0 0 12px;
-  color: #0c447c;
-  font-size: 1.15rem;
+.cases-list h3 {
+  margin: 0 0 5px;
+  font-size: 1.25rem;
 }
-
-.use-case-card p {
+.cases-list p {
   margin: 0;
-  color: #5f6f7c;
-  line-height: 1.7;
-  font-size: 0.95rem;
+  color: var(--ink-soft);
+  line-height: 1.55;
 }
-
-@media (max-width: 1024px) {
-  .use-cases-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.case-arrow {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
 }
-
-@media (max-width: 640px) {
-  .use-cases-section {
-    padding: 70px 18px;
+.disclaimer {
+  max-width: 760px;
+  margin: 22px 0 0;
+  color: #788b97;
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+@media (max-width: 650px) {
+  .cases {
+    padding: 75px 16px;
   }
-
-  .use-cases-grid {
-    grid-template-columns: 1fr;
+  .cases-list article {
+    grid-template-columns: 48px 1fr;
+    gap: 15px;
+  }
+  .case-glyph {
+    width: 46px;
+    height: 46px;
+  }
+  .case-arrow {
+    display: none;
+  }
+  .cases-list p {
+    font-size: 0.9rem;
   }
 }
 </style>

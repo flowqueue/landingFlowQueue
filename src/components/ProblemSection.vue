@@ -1,40 +1,102 @@
 <script setup>
-import { computed } from "vue";
+import { computed, onBeforeUnmount, onMounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
-
-const { t, tm } = useI18n();
-
+const { t, tm, locale } = useI18n();
 const problems = computed(() => tm("problem.items"));
+const sectionRef = ref(null);
+const displayValues = ref(["0%", "0%", "24/7"]);
+let counterObserver;
+let counterFrame;
+const outcomes = computed(() =>
+  locale.value === "es"
+    ? [
+        { value: displayValues.value[0], label: "objetivo de menor espera" },
+        { value: displayValues.value[1], label: "turnos remotos proyectados" },
+        { value: displayValues.value[2], label: "visibilidad de la cola" },
+      ]
+    : [
+        { value: displayValues.value[0], label: "shorter-wait target" },
+        { value: displayValues.value[1], label: "projected remote tickets" },
+        { value: displayValues.value[2], label: "queue visibility" },
+      ],
+);
+
+function animateCounters() {
+  if (document.documentElement.dataset.motion === "reduced") {
+    displayValues.value = ["30%", "70%", "24/7"];
+    return;
+  }
+
+  const startedAt = performance.now();
+  const duration = 1300;
+  const tick = (now) => {
+    const progress = Math.min(1, (now - startedAt) / duration);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    displayValues.value = [
+      `${Math.round(30 * eased)}%`,
+      `${Math.round(70 * eased)}%`,
+      progress > 0.75 ? "24/7" : "···",
+    ];
+    if (progress < 1) counterFrame = requestAnimationFrame(tick);
+  };
+  counterFrame = requestAnimationFrame(tick);
+}
+
+onMounted(() => {
+  counterObserver = new IntersectionObserver(
+    ([entry]) => {
+      if (!entry.isIntersecting) return;
+      animateCounters();
+      counterObserver.disconnect();
+    },
+    { threshold: 0.35 },
+  );
+  counterObserver.observe(sectionRef.value);
+});
+
+onBeforeUnmount(() => {
+  counterObserver?.disconnect();
+  cancelAnimationFrame(counterFrame);
+});
 </script>
 
 <template>
-  <section class="problem-section" id="problema">
-    <div class="problem-container">
-      <div class="problem-content">
-        <p class="section-label">{{ t("problem.label") }}</p>
-
-        <h2>
-          {{ t("problem.title") }}
-        </h2>
-
-        <p class="problem-description">
-          {{ t("problem.description") }}
+  <section ref="sectionRef" class="problem" id="problema">
+    <div class="section-shell problem-layout">
+      <div class="problem-intro" data-reveal="left">
+        <span class="section-kicker">{{ t("problem.label") }}</span>
+        <h2 class="section-heading">{{ t("problem.title") }}</h2>
+        <p class="section-copy">{{ t("problem.description") }}</p>
+        <div class="outcomes" aria-label="Objetivos del piloto">
+          <div v-for="outcome in outcomes" :key="outcome.label">
+            <strong>{{ outcome.value }}</strong
+            ><span>{{ outcome.label }}</span>
+          </div>
+        </div>
+        <p class="data-note">
+          *
+          {{
+            locale === "es"
+              ? "Objetivos para validar en una implementación piloto."
+              : "Targets to validate during a pilot implementation."
+          }}
         </p>
       </div>
 
-      <div class="problem-grid">
+      <div class="problem-stack">
         <article
-            v-for="(item, index) in problems"
-            :key="index"
-            class="problem-card"
+          v-for="(item, index) in problems"
+          :key="item.title"
+          class="problem-row"
+          data-reveal="right"
+          :style="{ '--reveal-delay': `${index * 110}ms` }"
         >
-          <div class="problem-icon">
-            {{ item.icon }}
+          <span class="row-number">0{{ index + 1 }}</span>
+          <div>
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.description }}</p>
           </div>
-
-          <h3>{{ item.title }}</h3>
-
-          <p>{{ item.description }}</p>
+          <span class="row-arrow" aria-hidden="true">↘</span>
         </article>
       </div>
     </div>
@@ -42,104 +104,119 @@ const problems = computed(() => tm("problem.items"));
 </template>
 
 <style scoped>
-.problem-section {
-  width: 100%;
-  padding: 90px 24px;
-  background: #f7fafc;
-  font-family: 'Inter', Arial, Helvetica, sans-serif;
+.problem {
+  padding: 120px 24px;
+  background: var(--paper);
 }
-
-.problem-container {
-  max-width: 1200px;
-  margin: 0 auto;
+.problem-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 90px;
+  align-items: start;
 }
-
-.problem-content {
-  text-align: center;
-  max-width: 780px;
-  margin: 0 auto 48px;
+.problem-intro {
+  position: sticky;
+  top: 115px;
 }
-
-.section-label {
-  margin: 0 0 12px;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  color: #1fa178;
-  text-transform: uppercase;
-}
-
-.problem-content h2 {
-  margin: 0 0 18px;
-  font-size: clamp(2rem, 4vw, 3rem);
-  color: #0c447c;
-  line-height: 1.15;
-}
-
-.problem-description {
-  margin: 0;
-  font-size: 1rem;
-  line-height: 1.8;
-  color: #566573;
-}
-
-.problem-grid {
+.outcomes {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
+  gap: 10px;
+  margin-top: 38px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
 }
-
-.problem-card {
-  background: #ffffff;
-  border-radius: 22px;
-  padding: 30px 26px;
-  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
-  border: 1px solid #e7eef4;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+.outcomes strong,
+.outcomes span {
+  display: block;
 }
-
-.problem-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 42px rgba(15, 23, 42, 0.13);
+.outcomes strong {
+  font-family: "Manrope";
+  font-size: 1.7rem;
+  color: var(--navy);
 }
-
-.problem-icon {
-  width: 58px;
-  height: 58px;
-  border-radius: 18px;
-  background: #e2f7ef;
-  color: #1fa178;
+.outcomes span {
+  margin-top: 5px;
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+.data-note {
+  margin-top: 18px;
+  color: #71818c;
+  font-size: 0.76rem;
+}
+.problem-stack {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 26px;
-  margin-bottom: 20px;
+  flex-direction: column;
 }
-
-.problem-card h3 {
-  margin: 0 0 12px;
-  color: #0c447c;
-  font-size: 1.25rem;
+.problem-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 45px 1fr 32px;
+  gap: 16px;
+  padding: 28px 0;
+  border-top: 1px solid var(--line);
 }
-
-.problem-card p {
+.problem-row:last-child {
+  border-bottom: 1px solid var(--line);
+}
+.row-number {
+  color: var(--signal-dark);
+  font-family: "Manrope";
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+.problem-row h3 {
+  margin: 0 0 8px;
+  font-size: 1.35rem;
+}
+.problem-row p {
   margin: 0;
-  color: #5f6f7c;
-  line-height: 1.7;
-  font-size: 0.96rem;
+  color: var(--ink-soft);
+  line-height: 1.65;
 }
-
+.row-arrow {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--sky);
+  color: var(--signal-dark);
+}
 @media (max-width: 900px) {
-  .problem-grid {
+  .problem {
+    padding: 90px 20px;
+  }
+  .problem-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .problem-intro {
+    position: static;
+  }
+}
+@media (max-width: 540px) {
+  .problem {
+    padding: 75px 16px;
+  }
+  .outcomes {
     grid-template-columns: 1fr;
   }
-
-  .problem-card {
-    text-align: center;
+  .outcomes div {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    align-items: center;
   }
-
-  .problem-icon {
-    margin: 0 auto 20px;
+  .outcomes span {
+    margin: 0;
+  }
+  .problem-row {
+    grid-template-columns: 32px 1fr;
+  }
+  .row-arrow {
+    display: none;
   }
 }
 </style>

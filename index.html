@@ -1,14 +1,43 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
+  <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#052f50" />
+    <meta
+      name="description"
+      content="FlowQueue digitaliza la gestión de turnos para reducir filas, informar al ciudadano y medir la atención en instituciones públicas."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_PE" />
+    <meta
+      property="og:title"
+      content="FlowQueue | Menos filas, mejor atención"
+    />
+    <meta
+      property="og:description"
+      content="Turnos virtuales, colas en tiempo real y métricas para modernizar la atención ciudadana."
+    />
+    <meta property="og:image" content="/src/assets/logo.png" />
     <link rel="icon" type="image/png" href="/src/assets/logo.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FlowQueue</title>
-</head>
-
-<body>
-<div id="app"></div>
-<script type="module" src="./src/main.js"></script>
-</body>
+    <link rel="apple-touch-icon" href="/src/assets/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <title>FlowQueue | Menos filas, mejor atención</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "FlowQueue",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "Plataforma web de gestión de colas virtuales para instituciones públicas."
+      }
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
 </html>

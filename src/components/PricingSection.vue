@@ -1,6 +1,7 @@
 <script setup>
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
+import { FLOWQUEUE_APP_URL } from "@/config/links";
 
 const { t, tm } = useI18n();
 
@@ -18,10 +19,10 @@ const plans = computed(() => tm("pricing.plans"));
 
       <div class="plans-grid">
         <article
-            v-for="plan in plans"
-            :key="plan.id"
-            class="plan-card"
-            :class="{ featured: plan.featured }"
+          v-for="plan in plans"
+          :key="plan.id"
+          class="plan-card"
+          :class="{ featured: plan.featured }"
         >
           <div v-if="plan.featured" class="featured-badge">
             {{ t("pricing.featured") }}
@@ -44,7 +45,12 @@ const plans = computed(() => tm("pricing.plans"));
             </li>
           </ul>
 
-          <a href="#solicitar" class="plan-button">
+          <a
+            :href="FLOWQUEUE_APP_URL"
+            class="plan-button"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {{ plan.button }}
           </a>
         </article>
@@ -62,7 +68,7 @@ const plans = computed(() => tm("pricing.plans"));
   width: 100%;
   padding: 90px 24px;
   background: #f7fafc;
-  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
 }
 
 .pricing-container {
@@ -114,7 +120,10 @@ const plans = computed(() => tm("pricing.plans"));
   display: flex;
   flex-direction: column;
   min-height: 560px;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
 
 .plan-card:hover {

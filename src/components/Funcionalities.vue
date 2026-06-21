@@ -1,6 +1,7 @@
 <script setup>
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
+import { FLOWQUEUE_APP_URL } from "@/config/links";
 
 const { t, tm } = useI18n();
 
@@ -18,70 +19,81 @@ const features = computed(() => tm("functionalities.items"));
 
       <div class="features-layout">
         <div class="features-highlight">
-          <span class="highlight-tag">{{ t("functionalities.highlightTag") }}</span>
+          <span class="highlight-tag">{{
+            t("functionalities.highlightTag")
+          }}</span>
           <h3>{{ t("functionalities.highlightTitle") }}</h3>
           <p>{{ t("functionalities.highlightDescription") }}</p>
 
-          <a href="#solicitar" class="highlight-button">
+          <a
+            :href="FLOWQUEUE_APP_URL"
+            class="highlight-button"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {{ t("functionalities.highlightButton") }}
           </a>
         </div>
 
         <div class="features-grid">
-          <article class="feature-card" v-for="feature in features" :key="feature.title">
+          <article
+            class="feature-card"
+            v-for="feature in features"
+            :key="feature.title"
+          >
             <div class="icon-box" :class="feature.color">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
                 <template v-if="feature.icon === 'ticket'">
                   <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1.7"
-                      d="M3.375 5.25h17.25v13.5H3.375zM7.5 12h5.25M7.5 15h3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.7"
+                    d="M3.375 5.25h17.25v13.5H3.375zM7.5 12h5.25M7.5 15h3"
                   />
                 </template>
 
                 <template v-else-if="feature.icon === 'clock'">
                   <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1.7"
-                      d="M12 6v6l4 2m6-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.7"
+                    d="M12 6v6l4 2m6-2a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </template>
 
                 <template v-else-if="feature.icon === 'bell'">
                   <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1.7"
-                      d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0018 9.75V9a6 6 0 10-12 0v.75c0 2.086-.672 4.017-1.857 5.522"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.7"
+                    d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0018 9.75V9a6 6 0 10-12 0v.75c0 2.086-.672 4.017-1.857 5.522"
                   />
                 </template>
 
                 <template v-else-if="feature.icon === 'dashboard'">
                   <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1.7"
-                      d="M3 13h8V3H3v10zm10 8h8v-6h-8v6zm0-8h8V3h-8v10zM3 21h8v-4H3v4z"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.7"
+                    d="M3 13h8V3H3v10zm10 8h8v-6h-8v6zm0-8h8V3h-8v10zM3 21h8v-4H3v4z"
                   />
                 </template>
 
                 <template v-else-if="feature.icon === 'chart'">
                   <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1.7"
-                      d="M3 17l6-6 4 4 8-8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.7"
+                    d="M3 17l6-6 4 4 8-8"
                   />
                 </template>
 
                 <template v-else-if="feature.icon === 'layers'">
                   <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="1.7"
-                      d="M12 3l9 6-9 6-9-6 9-6zm0 12l9 6-9 6-9-6 9-6z"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.7"
+                    d="M12 3l9 6-9 6-9-6 9-6zm0 12l9 6-9 6-9-6 9-6z"
                   />
                 </template>
               </svg>
@@ -103,7 +115,7 @@ const features = computed(() => tm("functionalities.items"));
   width: 100%;
   padding: 90px 24px;
   background: #f7fafc;
-  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
 }
 
 .features-container {
@@ -196,7 +208,10 @@ const features = computed(() => tm("functionalities.items"));
   font-weight: 800;
   padding: 14px 20px;
   border-radius: 14px;
-  transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .highlight-button:hover {
@@ -219,7 +234,10 @@ const features = computed(() => tm("functionalities.items"));
   display: flex;
   gap: 16px;
   min-height: 170px;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
   position: relative;
   overflow: hidden;
 }
@@ -229,10 +247,10 @@ const features = computed(() => tm("functionalities.items"));
   position: absolute;
   inset: 0;
   background: linear-gradient(
-      120deg,
-      rgba(255, 255, 255, 0) 20%,
-      rgba(31, 161, 120, 0.07) 50%,
-      rgba(255, 255, 255, 0) 80%
+    120deg,
+    rgba(255, 255, 255, 0) 20%,
+    rgba(31, 161, 120, 0.07) 50%,
+    rgba(255, 255, 255, 0) 80%
   );
   transform: translateX(-120%);
   transition: transform 0.55s ease;
@@ -257,7 +275,9 @@ const features = computed(() => tm("functionalities.items"));
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .feature-card:hover .icon-box {

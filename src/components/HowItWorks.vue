@@ -1,220 +1,262 @@
 <script setup>
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
-
-const { t, tm } = useI18n();
-
+import { FLOWQUEUE_APP_URL } from "@/config/links";
+const { t, tm, locale } = useI18n();
 const steps = computed(() => tm("howItWorks.steps"));
+const icons = ["⌕", "◇", "◎", "↗"];
 </script>
 
 <template>
-  <section class="how-section" id="como-funciona">
-    <div class="how-container">
-      <div class="how-header">
-        <p class="section-label">{{ t("howItWorks.label") }}</p>
-
-        <h2>{{ t("howItWorks.title") }}</h2>
-
-        <p>
-          {{ t("howItWorks.description") }}
-        </p>
+  <section class="how" id="como-funciona">
+    <div class="section-shell">
+      <div class="how-header" data-reveal>
+        <div>
+          <span class="section-kicker">{{ t("howItWorks.label") }}</span>
+          <h2 class="section-heading">{{ t("howItWorks.title") }}</h2>
+        </div>
+        <p class="section-copy">{{ t("howItWorks.description") }}</p>
       </div>
-
-      <div class="steps-grid">
-        <article
-            v-for="(step, index) in steps"
-            :key="index"
-            class="step-card"
+      <ol class="timeline">
+        <li
+          v-for="(step, index) in steps"
+          :key="step.title"
+          data-reveal
+          :style="{ '--reveal-delay': `${index * 100}ms` }"
         >
-          <div class="step-number">
-            {{ index + 1 }}
-          </div>
-
-          <div class="step-content">
-            <h3>{{ step.title }}</h3>
-            <p>{{ step.description }}</p>
-          </div>
-        </article>
-      </div>
-
-      <div class="demo-box">
-        <div class="demo-info">
+          <span class="step-icon" aria-hidden="true">{{ icons[index] }}</span>
+          <span class="step-index">0{{ index + 1 }}</span>
+          <h3>{{ step.title }}</h3>
+          <p>{{ step.description }}</p>
+        </li>
+      </ol>
+      <div class="pilot-banner" data-reveal="scale">
+        <div>
           <span>{{ t("howItWorks.demoLabel") }}</span>
           <h3>{{ t("howItWorks.demoTitle") }}</h3>
           <p>{{ t("howItWorks.demoDescription") }}</p>
         </div>
-
-        <a href="#solicitar" class="demo-button">
-          {{ t("howItWorks.demoButton") }}
-        </a>
+        <a
+          class="button-primary"
+          data-magnetic
+          :href="FLOWQUEUE_APP_URL"
+          target="_blank"
+          rel="noopener noreferrer"
+          >{{ t("howItWorks.demoButton") }} <span aria-hidden="true">↗</span></a
+        >
       </div>
     </div>
   </section>
 </template>
 
 <style scoped>
-.how-section {
-  width: 100%;
-  padding: 90px 24px;
-  background: #ffffff;
-  font-family: 'Inter', Arial, Helvetica, sans-serif;
+.how {
+  padding: 120px 24px;
+  background: white;
 }
-
-.how-container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
 .how-header {
-  text-align: center;
-  max-width: 760px;
-  margin: 0 auto 54px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 50px;
+  align-items: end;
+  margin-bottom: 60px;
 }
-
-.section-label {
-  margin: 0 0 12px;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  color: #1fa178;
-  text-transform: uppercase;
+.how-header .section-heading {
+  margin-bottom: 0;
 }
-
-.how-header h2 {
-  margin: 0 0 16px;
-  color: #0c447c;
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.15;
-}
-
-.how-header p {
-  margin: 0;
-  color: #5f6f7c;
-  line-height: 1.8;
-}
-
-.steps-grid {
+.timeline {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 22px;
-}
-
-.step-card {
-  position: relative;
-  background: #f8fbfd;
-  border: 1px solid #e3edf3;
-  border-radius: 22px;
-  padding: 28px 22px;
-  min-height: 250px;
-  overflow: hidden;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-}
-
-.step-card:hover {
-  transform: translateY(-6px);
-  background: #ffffff;
-  box-shadow: 0 18px 38px rgba(15, 23, 42, 0.12);
-}
-
-.step-number {
-  width: 48px;
-  height: 48px;
-  border-radius: 16px;
-  background: #0c447c;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 800;
-  margin-bottom: 22px;
-}
-
-.step-content h3 {
-  margin: 0 0 12px;
-  color: #0c447c;
-  font-size: 1.15rem;
-}
-
-.step-content p {
   margin: 0;
-  color: #5f6f7c;
-  line-height: 1.7;
-  font-size: 0.95rem;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
 }
-
-.demo-box {
-  margin-top: 36px;
-  padding: 28px;
-  border-radius: 24px;
-  background: linear-gradient(135deg, #0c447c, #1fa178);
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 22px;
-  box-shadow: 0 18px 42px rgba(12, 68, 124, 0.18);
+.timeline::after {
+  content: "";
+  position: absolute;
+  z-index: 4;
+  top: -4px;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--signal);
+  box-shadow:
+    0 0 0 5px rgba(57, 217, 138, 0.14),
+    0 0 18px rgba(57, 217, 138, 0.7);
+  animation: timeline-flow 5s ease-in-out infinite;
 }
-
-.demo-info span {
-  display: inline-block;
-  margin-bottom: 8px;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #dcfff2;
+.timeline li {
+  position: relative;
+  min-height: 290px;
+  padding: 34px 24px 30px;
+  border-right: 1px solid var(--line);
 }
-
-.demo-info h3 {
-  margin: 0 0 8px;
+.timeline li:first-child {
+  border-left: 1px solid var(--line);
+}
+.timeline li::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--paper);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.3s ease;
+}
+.timeline li:hover::before {
+  transform: scaleY(1);
+}
+.timeline li > * {
+  position: relative;
+}
+.step-icon {
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 38px;
+  border-radius: 50%;
+  background: var(--sky);
+  color: var(--signal-dark);
   font-size: 1.4rem;
 }
-
-.demo-info p {
-  margin: 0;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.88);
-}
-
-.demo-button {
-  white-space: nowrap;
-  text-decoration: none;
-  background: white;
-  color: #0c447c;
+.step-index {
+  position: absolute;
+  top: 35px;
+  right: 22px;
+  color: #9bacb7;
+  font-family: "Manrope";
+  font-size: 0.75rem;
   font-weight: 800;
-  padding: 14px 22px;
-  border-radius: 14px;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-
-.demo-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+.timeline h3 {
+  margin-bottom: 12px;
+  font-size: 1.18rem;
 }
-
-@media (max-width: 1024px) {
-  .steps-grid {
-    grid-template-columns: repeat(2, 1fr);
+.timeline p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+.pilot-banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  margin-top: 40px;
+  padding: 32px 36px;
+  border-radius: var(--radius-md);
+  background: var(--navy);
+  color: white;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+.pilot-banner::after {
+  content: "";
+  position: absolute;
+  inset: -120% -25%;
+  background: linear-gradient(
+    110deg,
+    transparent 43%,
+    rgba(255, 255, 255, 0.14) 50%,
+    transparent 57%
+  );
+  transform: translateX(-45%);
+  animation: banner-light 6s ease-in-out infinite;
+  pointer-events: none;
+}
+.pilot-banner > * {
+  position: relative;
+  z-index: 1;
+}
+.pilot-banner > div > span {
+  color: var(--signal);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.pilot-banner h3 {
+  margin: 6px 0;
+  font-size: 1.45rem;
+}
+.pilot-banner p {
+  margin: 0;
+  color: #bdd1dd;
+}
+.pilot-banner .button-primary {
+  flex-shrink: 0;
+}
+@keyframes timeline-flow {
+  0%,
+  100% {
+    left: 0;
+    opacity: 0;
+  }
+  10%,
+  90% {
+    opacity: 1;
+  }
+  50% {
+    left: calc(100% - 8px);
   }
 }
-
-@media (max-width: 700px) {
-  .how-section {
-    padding: 70px 18px;
+@keyframes banner-light {
+  0%,
+  55% {
+    transform: translateX(-55%);
   }
-
-  .steps-grid {
+  80%,
+  100% {
+    transform: translateX(55%);
+  }
+}
+@media (max-width: 900px) {
+  .how {
+    padding: 90px 20px;
+  }
+  .how-header {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  .timeline {
+    grid-template-columns: 1fr 1fr;
+  }
+  .timeline::after {
+    display: none;
+  }
+  .timeline li:nth-child(3) {
+    border-left: 1px solid var(--line);
+  }
+}
+@media (max-width: 600px) {
+  .how {
+    padding: 75px 16px;
+  }
+  .timeline {
     grid-template-columns: 1fr;
   }
-
-  .demo-box {
-    flex-direction: column;
-    align-items: flex-start;
+  .timeline li,
+  .timeline li:nth-child(3) {
+    min-height: auto;
+    border-left: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
   }
-
-  .demo-button {
+  .step-icon {
+    margin-bottom: 24px;
+  }
+  .pilot-banner {
+    align-items: stretch;
+    flex-direction: column;
+    padding: 26px 22px;
+  }
+  .pilot-banner .button-primary {
     width: 100%;
-    text-align: center;
   }
 }
 </style>

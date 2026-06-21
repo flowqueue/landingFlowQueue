@@ -1,339 +1,652 @@
 <script setup>
 import { computed } from "vue";
 import { useI18n } from "vue-i18n";
+import carlos from "@/assets/carlosfoto.jpg";
+import francisco from "@/assets/franciscofoto.jpg";
+import daniel from "@/assets/danielfoto.jpg";
+import alex from "@/assets/alexfoto.png";
+import luis from "@/assets/luisfoto.jpg";
 
-import carlosPhoto from "@/assets/carlosfoto.jpg";
-import franciscoPhoto from "@/assets/franciscofoto.jpg";
-import danielPhoto from "@/assets/danielfoto.jpg";
-import alexPhoto from "@/assets/alexfoto.png";
-import luisPhoto from "@/assets/luisfoto.jpg";
+const { t, tm, locale } = useI18n();
+const photos = { carlos, francisco, daniel, alex, luis };
 
-const { t, tm } = useI18n();
-
-const photos = {
-  carlos: carlosPhoto,
-  francisco: franciscoPhoto,
-  daniel: danielPhoto,
-  alex: alexPhoto,
-  luis: luisPhoto,
-};
-
-const team = computed(() => {
-  return tm("team.members").map((member) => ({
+const team = computed(() =>
+  tm("team.members").map((member) => ({
     ...member,
     photo: photos[member.photoKey],
-  }));
-});
+  })),
+);
 
-const values = computed(() => tm("team.values"));
-
-const getRole = (role) => {
-  return t(`team.roles.${role}`);
-};
+const leader = computed(() =>
+  team.value.find((member) => member.role === "leader"),
+);
+const members = computed(() =>
+  team.value.filter((member) => member.role !== "leader"),
+);
 </script>
 
 <template>
-  <section class="team-section" id="sobre-nosotros">
-    <div class="team-container">
-      <div class="team-header">
-        <p class="section-label">{{ t("team.label") }}</p>
-        <h2>{{ t("team.title") }}</h2>
-        <p>{{ t("team.description") }}</p>
-      </div>
+  <section class="team" id="sobre-nosotros">
+    <div class="team-light light-one" aria-hidden="true"></div>
+    <div class="team-light light-two" aria-hidden="true"></div>
+    <div class="team-rings" aria-hidden="true"><i></i><i></i><i></i></div>
 
-      <div class="about-grid">
-        <article class="about-card main-card">
-          <span class="card-tag">{{ t("team.storyLabel") }}</span>
-          <h3>{{ t("team.storyTitle") }}</h3>
+    <div class="section-shell">
+      <header class="team-header" data-reveal>
+        <div>
+          <span class="section-kicker">{{ t("team.label") }}</span>
+          <h2>{{ t("team.title") }}</h2>
+        </div>
+        <div class="team-intro">
           <p>{{ t("team.storyDescription") }}</p>
-        </article>
-
-        <article class="about-card">
-          <span class="card-tag">{{ t("team.missionLabel") }}</span>
-          <h3>{{ t("team.missionTitle") }}</h3>
-          <p>{{ t("team.missionDescription") }}</p>
-        </article>
-
-        <article class="about-card">
-          <span class="card-tag">{{ t("team.visionLabel") }}</span>
-          <h3>{{ t("team.visionTitle") }}</h3>
-          <p>{{ t("team.visionDescription") }}</p>
-        </article>
-      </div>
-
-      <div class="values-section">
-        <h3>{{ t("team.valuesTitle") }}</h3>
-
-        <div class="values-grid">
-          <div v-for="(value, index) in values" :key="index" class="value-pill">
-            <span>{{ value.icon }}</span>
-            {{ value.text }}
+          <div class="team-facts">
+            <span
+              ><strong>05</strong
+              >{{ locale === "es" ? "integrantes" : "members" }}</span
+            >
+            <span
+              ><strong>01</strong
+              >{{ locale === "es" ? "misión" : "mission" }}</span
+            >
+            <span
+              ><strong>∞</strong>{{ locale === "es" ? "ideas" : "ideas" }}</span
+            >
           </div>
+        </div>
+      </header>
+
+      <div class="team-showcase">
+        <article class="leader-card" data-reveal="left" data-tilt>
+          <div class="leader-photo">
+            <img
+              :src="leader.photo"
+              :alt="leader.name"
+              width="680"
+              height="760"
+              loading="lazy"
+              decoding="async"
+            />
+            <span class="photo-noise" aria-hidden="true"></span>
+            <div class="leader-index" aria-hidden="true">05 / 05</div>
+            <div class="leader-status">
+              <i></i
+              >{{
+                locale === "es" ? "Liderando el equipo" : "Leading the team"
+              }}
+            </div>
+          </div>
+          <div class="leader-info">
+            <div>
+              <span>{{ t(`team.roles.${leader.role}`) }}</span>
+              <h3>{{ leader.name }}</h3>
+            </div>
+            <p>
+              {{
+                locale === "es"
+                  ? "Dirección del producto y coordinación"
+                  : "Product direction and coordination"
+              }}
+            </p>
+          </div>
+        </article>
+
+        <div class="members-grid">
+          <article
+            v-for="(member, index) in members"
+            :key="member.id"
+            class="member-card"
+            data-reveal="right"
+            data-tilt
+            :style="{ '--reveal-delay': `${index * 110}ms` }"
+          >
+            <img
+              :src="member.photo"
+              :alt="member.name"
+              width="420"
+              height="360"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="member-shade"></div>
+            <span class="member-number">0{{ index + 1 }}</span>
+            <div class="member-info">
+              <span>{{ t(`team.roles.${member.role}`) }}</span>
+              <h3>{{ member.name }}</h3>
+            </div>
+            <span class="member-arrow" aria-hidden="true">↗</span>
+          </article>
         </div>
       </div>
 
-      <div class="members-header">
-        <h3>{{ t("team.membersTitle") }}</h3>
-        <p>{{ t("team.membersDescription") }}</p>
+      <div class="mission-strip" data-reveal="scale">
+        <span class="mission-label">{{ t("team.missionLabel") }}</span>
+        <p>{{ t("team.missionDescription") }}</p>
+        <div class="mission-mark" aria-hidden="true"><i></i><i></i><i></i></div>
       </div>
 
-      <div class="team-grid">
-        <article v-for="member in team" :key="member.id" class="team-card">
-          <img :src="member.photo" :alt="member.name" class="team-photo" />
-
-          <div class="member-info">
-            <h3>{{ member.name }}</h3>
-            <p class="team-role">{{ getRole(member.role) }}</p>
-          </div>
-        </article>
+      <div class="team-marquee" aria-hidden="true">
+        <div>
+          <span>Diseño</span><i></i><span>Tecnología</span><i></i
+          ><span>Impacto ciudadano</span><i></i><span>Datos</span><i></i
+          ><span>Colaboración</span><i></i> <span>Diseño</span><i></i
+          ><span>Tecnología</span><i></i><span>Impacto ciudadano</span><i></i
+          ><span>Datos</span><i></i><span>Colaboración</span><i></i>
+        </div>
       </div>
-
-      <p class="team-footer">{{ t("team.footer") }}</p>
     </div>
   </section>
 </template>
 
 <style scoped>
-.team-section {
-  width: 100%;
-  padding: 90px 24px;
-  background: linear-gradient(180deg, #0c447c 0%, #08345f 100%);
-  color: #ffffff;
-  font-family: 'Inter', Arial, Helvetica, sans-serif;
+.team {
+  position: relative;
+  padding: 130px 24px 90px;
+  overflow: hidden;
+  color: white;
+  background: var(--navy-deep);
 }
-
-.team-container {
-  max-width: 1200px;
-  margin: 0 auto;
+.team::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.16;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 16%,
+    black 82%,
+    transparent
+  );
 }
-
+.team-light {
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  filter: blur(110px);
+  opacity: 0.16;
+  pointer-events: none;
+  animation: team-light 9s ease-in-out infinite;
+}
+.light-one {
+  top: -260px;
+  left: -180px;
+  background: var(--signal);
+}
+.light-two {
+  right: -200px;
+  bottom: -260px;
+  background: var(--blue);
+  animation-delay: -4s;
+}
+.team-rings {
+  position: absolute;
+  right: -150px;
+  top: 80px;
+  width: 470px;
+  height: 470px;
+  animation: rings-spin 28s linear infinite;
+}
+.team-rings i {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(57, 217, 138, 0.12);
+  border-radius: 50%;
+}
+.team-rings i:nth-child(2) {
+  inset: 70px;
+}
+.team-rings i:nth-child(3) {
+  inset: 140px;
+}
 .team-header {
-  text-align: center;
-  max-width: 790px;
-  margin: 0 auto 46px;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: end;
+  gap: 70px;
+  margin-bottom: 58px;
 }
-
-.section-label {
-  margin: 0 0 12px;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #7ee7bf;
+.team .section-kicker {
+  color: var(--signal);
 }
-
 .team-header h2 {
-  margin: 0 0 16px;
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.15;
-}
-
-.team-header p {
+  max-width: 720px;
   margin: 0;
-  color: rgba(255, 255, 255, 0.82);
-  line-height: 1.8;
+  font-size: clamp(2.8rem, 5.6vw, 5.6rem);
+  line-height: 0.94;
 }
-
-.about-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr;
-  gap: 22px;
-  margin-bottom: 34px;
+.team-intro > p {
+  margin: 0 0 28px;
+  color: #b7ccd8;
+  font-size: 1.04rem;
+  line-height: 1.72;
 }
-
-.about-card {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.13);
-  border-radius: 24px;
-  padding: 28px;
-  backdrop-filter: blur(10px);
-  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+.team-facts {
+  display: flex;
+  gap: 28px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.13);
 }
-
-.about-card:hover {
-  transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(126, 231, 191, 0.45);
-}
-
-.main-card {
-  background: rgba(31, 161, 120, 0.18);
-}
-
-.card-tag {
-  display: inline-block;
-  margin-bottom: 14px;
-  color: #7ee7bf;
-  font-size: 12px;
+.team-facts span {
+  color: #8faabb;
+  font-size: 0.7rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
-
-.about-card h3 {
-  margin: 0 0 12px;
-  font-size: 1.25rem;
-}
-
-.about-card p {
-  margin: 0;
-  color: rgba(255, 255, 255, 0.82);
-  line-height: 1.7;
-  font-size: 0.96rem;
-}
-
-.values-section {
-  margin: 34px 0 48px;
-  text-align: center;
-}
-
-.values-section h3 {
-  margin: 0 0 20px;
+.team-facts strong {
+  display: block;
+  margin-bottom: 3px;
+  color: white;
+  font-family: "Manrope";
   font-size: 1.45rem;
+  letter-spacing: -0.04em;
 }
-
-.values-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-}
-
-.value-pill {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.13);
-  color: rgba(255, 255, 255, 0.9);
-  border-radius: 999px;
-  padding: 12px 16px;
-  font-size: 0.92rem;
-  font-weight: 700;
-}
-
-.members-header {
-  text-align: center;
-  max-width: 680px;
-  margin: 0 auto 30px;
-}
-
-.members-header h3 {
-  margin: 0 0 10px;
-  font-size: 1.55rem;
-}
-
-.members-header p {
-  margin: 0;
-  color: rgba(255, 255, 255, 0.76);
-  line-height: 1.7;
-}
-
-.team-grid {
+.team-showcase {
+  position: relative;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: 0.9fr 1.1fr;
   gap: 18px;
 }
-
-.team-card {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.13);
-  border-radius: 22px;
-  padding: 24px 16px;
-  text-align: center;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-  overflow: hidden;
+.leader-card,
+.member-card {
   position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 28px 70px rgba(0, 10, 20, 0.28);
 }
-
-.team-card::before {
+.leader-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 680px;
+  border-radius: 30px;
+}
+.leader-photo {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 555px;
+  overflow: hidden;
+}
+.leader-photo::after {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
-      120deg,
-      rgba(255, 255, 255, 0) 20%,
-      rgba(255, 255, 255, 0.08) 50%,
-      rgba(255, 255, 255, 0) 80%
+    to bottom,
+    transparent 45%,
+    rgba(4, 31, 53, 0.92)
   );
-  transform: translateX(-120%);
-  transition: transform 0.55s ease;
+  pointer-events: none;
 }
-
-.team-card:hover::before {
-  transform: translateX(120%);
-}
-
-.team-card:hover {
-  transform: translateY(-6px);
-  background: rgba(255, 255, 255, 0.13);
-  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.2);
-}
-
-.team-photo {
-  width: 106px;
-  height: 106px;
+.leader-photo img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  border-radius: 50%;
-  margin: 0 auto 16px;
-  border: 3px solid #1fa178;
-  transition: transform 0.25s ease, border-color 0.25s ease;
-  position: relative;
+  object-position: center 25%;
+  filter: saturate(0.78) contrast(1.04);
+  transition:
+    transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1),
+    filter 0.6s ease;
+}
+.photo-noise {
+  position: absolute;
   z-index: 1;
+  inset: 0;
+  opacity: 0.13;
+  pointer-events: none;
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    white 1px,
+    transparent 0
+  );
+  background-size: 7px 7px;
+  mix-blend-mode: overlay;
 }
-
-.team-card:hover .team-photo {
-  transform: scale(1.06);
-  border-color: #7ee7bf;
+.leader-index {
+  position: absolute;
+  z-index: 2;
+  top: 22px;
+  left: 22px;
+  padding: 8px 11px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 10px;
+  background: rgba(4, 31, 53, 0.55);
+  color: #c9d9e3;
+  font-size: 0.66rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  backdrop-filter: blur(10px);
 }
-
-.member-info {
-  position: relative;
-  z-index: 1;
-}
-
-.team-card h3 {
-  margin: 0 0 8px;
-  font-size: 1rem;
+.leader-status {
+  position: absolute;
+  z-index: 2;
+  right: 22px;
+  bottom: 22px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  border-radius: 999px;
+  background: rgba(4, 31, 53, 0.72);
+  color: white;
+  font-size: 0.7rem;
   font-weight: 800;
+  backdrop-filter: blur(12px);
 }
-
-.team-role {
-  margin: 0;
-  font-size: 0.86rem;
-  color: #b9d7ef;
+.leader-status i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--signal);
+  animation: leader-pulse 1.9s ease-out infinite;
 }
-
-.team-footer {
-  text-align: center;
-  margin-top: 28px;
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  color: #9fc2e4;
+.leader-info {
+  flex: 0 0 125px;
+  min-height: 125px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  padding: 24px 28px;
+}
+.leader-info span,
+.member-info span {
+  color: var(--signal);
+  font-size: 0.67rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
-
-@media (max-width: 1080px) {
-  .about-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .team-grid {
-    grid-template-columns: repeat(2, 1fr);
+.leader-info h3 {
+  margin: 4px 0 0;
+  font-size: 1.8rem;
+}
+.leader-info p {
+  max-width: 190px;
+  margin: 0;
+  color: #9db5c4;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  text-align: right;
+}
+.leader-card:hover .leader-photo img {
+  transform: scale(1.06);
+  filter: saturate(1) contrast(1.04);
+}
+.members-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+.member-card {
+  min-height: 331px;
+  border-radius: 24px;
+  transition:
+    transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+.member-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+  filter: grayscale(0.25) saturate(0.8);
+  transition:
+    transform 0.65s cubic-bezier(0.2, 0.8, 0.2, 1),
+    filter 0.45s ease;
+}
+.member-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(4, 31, 53, 0.04) 25%,
+    rgba(4, 31, 53, 0.92) 100%
+  );
+}
+.member-number {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  color: rgba(255, 255, 255, 0.72);
+  font-family: "Manrope";
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+.member-info {
+  position: absolute;
+  z-index: 2;
+  left: 20px;
+  right: 55px;
+  bottom: 20px;
+  transition: transform 0.35s ease;
+}
+.member-info h3 {
+  margin: 5px 0 0;
+  font-size: 1.18rem;
+}
+.member-arrow {
+  position: absolute;
+  z-index: 2;
+  right: 18px;
+  bottom: 18px;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 50%;
+  color: var(--signal);
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease;
+}
+.member-card:hover {
+  z-index: 2;
+  transform: translateY(-8px) rotate(-0.6deg);
+  border-color: rgba(57, 217, 138, 0.55);
+  box-shadow: 0 38px 80px rgba(0, 10, 20, 0.4);
+}
+.member-card:hover img {
+  transform: scale(1.09);
+  filter: grayscale(0) saturate(1);
+}
+.member-card:hover .member-info {
+  transform: translateY(-5px);
+}
+.member-card:hover .member-arrow {
+  transform: rotate(45deg);
+  background: var(--signal);
+  color: var(--ink);
+  border-color: var(--signal);
+}
+.mission-strip {
+  position: relative;
+  display: grid;
+  grid-template-columns: 140px 1fr 90px;
+  align-items: center;
+  gap: 30px;
+  margin-top: 22px;
+  padding: 28px 32px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+}
+.mission-strip::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 35%,
+    rgba(57, 217, 138, 0.1),
+    transparent 65%
+  );
+  transform: translateX(-100%);
+  animation: mission-scan 5.5s ease-in-out infinite;
+}
+.mission-strip > * {
+  position: relative;
+  z-index: 1;
+}
+.mission-label {
+  color: var(--signal);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+.mission-strip p {
+  margin: 0;
+  color: #bfd1dc;
+  line-height: 1.6;
+}
+.mission-mark {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 7px;
+}
+.mission-mark i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--signal);
+  animation: mark-wave 1.5s ease-in-out infinite;
+}
+.mission-mark i:nth-child(2) {
+  animation-delay: 0.15s;
+  opacity: 0.65;
+}
+.mission-mark i:nth-child(3) {
+  animation-delay: 0.3s;
+  opacity: 0.35;
+}
+.team-marquee {
+  margin-top: 48px;
+  overflow: hidden;
+  border-block: 1px solid rgba(255, 255, 255, 0.1);
+}
+.team-marquee > div {
+  width: max-content;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 16px 0;
+  animation: team-marquee 24s linear infinite;
+}
+.team-marquee span {
+  color: #8ea9b9;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.team-marquee i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--signal);
+}
+@keyframes leader-pulse {
+  70% {
+    box-shadow: 0 0 0 10px rgba(57, 217, 138, 0);
   }
 }
-
-@media (max-width: 640px) {
-  .team-section {
-    padding: 70px 18px;
+@keyframes team-light {
+  50% {
+    transform: translate(40px, 28px) scale(1.12);
+    opacity: 0.23;
   }
-
-  .about-card {
+}
+@keyframes rings-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes mission-scan {
+  55%,
+  100% {
+    transform: translateX(100%);
+  }
+}
+@keyframes mark-wave {
+  50% {
+    transform: translateY(-6px);
+  }
+}
+@keyframes team-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (max-width: 1050px) {
+  .team-header {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .team-showcase {
+    grid-template-columns: 1fr;
+  }
+  .leader-card {
+    min-height: auto;
+  }
+  .leader-photo {
+    flex: 0 0 580px;
+    min-height: 580px;
+  }
+  .member-card {
+    min-height: 390px;
+  }
+}
+@media (max-width: 680px) {
+  .team {
+    padding: 90px 16px 70px;
+  }
+  .team-header h2 {
+    font-size: clamp(2.7rem, 13vw, 4.4rem);
+  }
+  .team-facts {
+    gap: 18px;
+  }
+  .leader-photo {
+    flex-basis: 470px;
+    min-height: 470px;
+  }
+  .leader-info {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .leader-info p {
+    max-width: none;
+    text-align: left;
+  }
+  .members-grid {
+    grid-template-columns: 1fr;
+  }
+  .member-card {
+    min-height: 430px;
+  }
+  .mission-strip {
+    grid-template-columns: 1fr;
+    gap: 15px;
     padding: 24px;
   }
-
-  .team-grid {
-    grid-template-columns: 1fr;
+  .mission-mark {
+    justify-content: flex-start;
+  }
+  .team-rings {
+    opacity: 0.55;
   }
 }
 </style>

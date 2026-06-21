@@ -3,15 +3,16 @@ import es from "./locales/es.json";
 import en from "./locales/en.json";
 
 const savedLanguage = localStorage.getItem("flowqueue_lang") || "es";
+document.documentElement.lang = savedLanguage;
 
 const i18n = createI18n({
-    legacy: false,
-    locale: savedLanguage,
-    fallbackLocale: "es",
-    messages: {
-        es,
-        en,
-    },
+  legacy: false,
+  locale: savedLanguage,
+  fallbackLocale: "es",
+  messages: {
+    es,
+    en,
+  },
 });
 
 export default i18n;
