@@ -9,6 +9,7 @@ import ProfilesSection from "@/components/ProfilesSection.vue";
 import UseCases from "@/components/UseCases.vue";
 import Access from "@/components/Access.vue";
 import TeamSection from "@/components/TeamSection.vue";
+import ProcessSection from "@/components/ProcessSection.vue";
 import Contact from "@/components/Contact.vue";
 import Footer from "@/components/Footer.vue";
 import PageIntro from "@/components/PageIntro.vue";
@@ -157,6 +158,7 @@ onBeforeUnmount(() => {
     <AboutTheProduct/>
     <Access />
     <TeamSection />
+    <ProcessSection />
     <Contact />
   </main>
   <Footer />

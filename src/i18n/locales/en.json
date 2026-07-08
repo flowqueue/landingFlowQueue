@@ -355,6 +355,18 @@
     ],
     "footer": "FlowQueue team"
   },
+  "process": {
+    "label": "The process",
+    "title": "The process behind FlowQueue",
+    "description": "Beyond the product, FlowQueue started as a team idea: understanding why queues are still a problem and building, step by step, a more organized way to serve people. Here we share how we thought it through, how we built it, and what we learned along the way.",
+    "videoLabel": "Team presentation · Our process",
+    "videoCaption": "The challenge we set out to solve, how we approached it, and what building FlowQueue taught us.",
+    "demoLabel": "Product demo",
+    "demoCaption": "A short walkthrough of the platform: virtual ticket, live queue and operator panel.",
+    "chipProcess": "Process",
+    "chipDemo": "Demo",
+    "comingSoon": "Video coming soon"
+  },
   "footer": {
     "description": "FlowQueue is a web platform for managing virtual queues, improving citizen service and supporting public institutions with real-time metrics.",
     "productTitle": "Product",

@@ -355,6 +355,18 @@
     ],
     "footer": "Equipo de FlowQueue"
   },
+  "process": {
+    "label": "El proceso",
+    "title": "El proceso detrás de FlowQueue",
+    "description": "Más allá del producto, FlowQueue nació de una idea de equipo: entender por qué las filas siguen siendo un problema y construir, paso a paso, una forma más ordenada de atender. Aquí te contamos cómo lo pensamos, cómo lo desarrollamos y qué aprendimos en el camino.",
+    "videoLabel": "Presentación del equipo · Nuestro proceso",
+    "videoCaption": "El reto que quisimos resolver, cómo lo abordamos y qué nos enseñó construir FlowQueue.",
+    "demoLabel": "Demo del producto",
+    "demoCaption": "Un recorrido corto por la plataforma: ticket virtual, cola en vivo y panel del operador.",
+    "chipProcess": "Proceso",
+    "chipDemo": "Demo",
+    "comingSoon": "Video en camino"
+  },
   "footer": {
     "description": "FlowQueue es una plataforma web para gestionar colas virtuales, mejorar la atención ciudadana y apoyar a instituciones públicas con métricas en tiempo real.",
     "productTitle": "Producto",
