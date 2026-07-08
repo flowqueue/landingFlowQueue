@@ -31,16 +31,7 @@ const { t } = useI18n();
           />
         </div>
 
-        <div class="video-side" data-reveal="right">
-          <FramedVideo
-            :src="FLOWQUEUE_DEMO_VIDEO_URL"
-            :label="t('process.demoLabel')"
-            :caption="t('process.demoCaption')"
-            :chip="t('process.chipDemo')"
-            :coming-soon="t('process.comingSoon')"
-            :title="t('process.demoLabel')"
-          />
-        </div>
+
       </div>
     </div>
   </section>
