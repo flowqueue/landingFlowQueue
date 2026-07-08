@@ -12,6 +12,7 @@ import TeamSection from "@/components/TeamSection.vue";
 import Contact from "@/components/Contact.vue";
 import Footer from "@/components/Footer.vue";
 import PageIntro from "@/components/PageIntro.vue";
+import AboutTheProduct from "@/components/AboutTheProduct.vue";
 
 const { locale } = useI18n();
 const showBackToTop = ref(false);
@@ -153,6 +154,7 @@ onBeforeUnmount(() => {
     <HowItWorks />
     <ProfilesSection />
     <UseCases />
+    <AboutTheProduct/>
     <Access />
     <TeamSection />
     <Contact />

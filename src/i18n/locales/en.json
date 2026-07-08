@@ -282,8 +282,10 @@
     ]
   },
   "team": {
+    "label2": "About the product",
     "label": "About us",
     "title": "We build a more organized way to serve citizens",
+    "title2": "Building tools that quicken and simplify day to day tasks",
     "description": "FlowQueue was created as an academic and technological proposal to reduce disorder in physical queues at public institutions, improving citizen experience and administrative staff management.",
     "storyLabel": "Our story",
     "storyTitle": "A solution based on an everyday problem",

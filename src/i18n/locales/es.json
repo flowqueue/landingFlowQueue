@@ -282,8 +282,10 @@
     ]
   },
   "team": {
+    "label2": "Sobre el producto",
     "label": "Sobre nosotros",
     "title": "Construimos una forma más ordenada de atender al ciudadano",
+    "title2": "Construyendo herramientas  que agilizan y simplifican tareas cotidianas",
     "description": "FlowQueue nace como una propuesta académica y tecnológica para reducir el desorden de las filas físicas en instituciones públicas, mejorando la experiencia del ciudadano y la gestión del personal administrativo.",
     "storyLabel": "Nuestra historia",
     "storyTitle": "Una solución pensada desde un problema cotidiano",
